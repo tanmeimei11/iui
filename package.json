@@ -1,0 +1,19 @@
+{
+  "name": "iui",
+  "version": "0.0.1",
+  "description": "the common ui components of vue",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@githost.in66.cc:maifei/iui.git"
+  },
+  "keywords": [
+    "ui",
+    "components"
+  ],
+  "author": "in",
+  "license": "MIT"
+}
