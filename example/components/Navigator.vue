@@ -31,9 +31,9 @@ export default {
       activeClass: 'active',
       components: [
         {
-          name: 'alert',
+          name: 'iAudio',
           icon: 'add_alert',
-          txt: '警告框 Alert'
+          txt: '音乐自动播放'
         }      
       ]
     }

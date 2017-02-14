@@ -1,10 +1,10 @@
-import Button from './Button'
+import iAudio from './iAudio'
 
 function init (...components) {
   const com = {}
   components.forEach(c => {
     Object.keys(c).forEach(key => {
-      com[`R${key}`] = c[key]
+      com[`${key}`] = c[key]
     })
   })
 
@@ -12,5 +12,5 @@ function init (...components) {
 }
 
 export default init(
-  Button
+  iAudio
 )

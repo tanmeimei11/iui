@@ -5,8 +5,7 @@ import Load from './util/load'
 import Toast from './util/toast'
 import Components from './components'
 import Directives from './directives'
-
-let iui = function (Vue) {
+let iUi = function (Vue) {
   Object.keys(Directives).forEach(key => {
     Vue.directive(key, Directives[key])
   })
@@ -15,7 +14,7 @@ let iui = function (Vue) {
     Vue.component(key, Components[key])
   })
 
-  Vue.prototype.$iui = {
+  Vue.prototype.$iUi = {
     bridge: Bridge,
 
     load: Load,
@@ -27,8 +26,8 @@ let iui = function (Vue) {
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(iui);
+  window.Vue.use(iUi);
 }
 
-export default iui
+export default iUi
 

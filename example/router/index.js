@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import About from '../views/About.vue'
-import Alert from '../views/Alert.vue'
+import iAudio from '../views/iAudio.vue'
 Vue.use(Router)
 
 const router = new Router({
   routes:[
     { name: 'home', path: '/', component: About},
     { name: 'about', path: '/about', component: About},
-    { name: 'alert', path: '/alert', component: Alert}
+    { name: 'iAudio', path: '/iAudio', component: iAudio}
   ]
 })
 
