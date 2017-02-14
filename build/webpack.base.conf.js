@@ -1,34 +1,36 @@
 var path = require('path')
 var utils = require('./utils')
-var config = require('../config')
+var config = require('./config')
 var vueLoaderConfig = require('./vue-loader.conf')
 
+var env = process.env.NODE_ENV
+var projectRoot = path.resolve(__dirname, '../')
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
 module.exports = {
   entry: {
-    app: './src/main.js'
+    app: './example/main.js'
   },
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'production'
-      ? config.build.assetsPublicPath
-      : config.dev.assetsPublicPath
+    publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
+    // fallback: [path.join(__dirname, '../node_modules')],
     modules: [
       resolve('src'),
       resolve('node_modules')
     ],
     alias: {
       'vue$': 'vue/dist/vue.common.js',
-      'src': resolve('src'),
-      'assets': resolve('src/assets'),
-      'components': resolve('src/components')
+      'src': path.resolve(__dirname, '../src'),
+      'example': path.resolve(__dirname, '../example'),
+      'assets': path.resolve(__dirname, '../example/assets'),
+      'components': path.resolve(__dirname, '../example/components')
     }
   },
   module: {
