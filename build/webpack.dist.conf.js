@@ -25,7 +25,6 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
-    // fallback: [path.join(__dirname, '../node_modules')],
     modules: [
       resolve('src'),
       resolve('node_modules')
@@ -53,7 +52,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract({ fallback: 'style-loader', loader: 'css-loader!stylus-loader'  })
+        loader: ExtractTextPlugin.extract({ fallback: 'style-loader', loader: 'css-loader!sass-loader'  })
       },
       {
         test: /\.styl$/,
@@ -75,6 +74,6 @@ module.exports = {
         warnings: false
       }
     }),
-    new ExtractTextPlugin('iui.min.css')
+    new ExtractTextPlugin('iUi.min.css')
   ]
 }

@@ -8,7 +8,7 @@ const builds = {
   //   libraryTarget: 'umd',
   // },
   'prod' : {
-    filename: 'iui.min.js',
+    filename: 'iUi.min.js',
     libraryTarget: 'umd',
     env: 'production'
   }
