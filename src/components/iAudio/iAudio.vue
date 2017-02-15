@@ -61,11 +61,8 @@
 
 <style lang="stylus">
   .i-audio {
-    z-index: 2;
 	width: 40px;
 	height: 40px;
-	top: 0px;
-	left: 0px;
 	background: url(./assets/music.png) no-repeat;
 	background-size: contain;
     &.on{
@@ -74,6 +71,7 @@
     }
 
   }
+
   @-webkit-keyframes musicAnimation {
     0% { -webkit-transform: rotate(0); }
     100% { -webkit-transform: rotate(360deg); }

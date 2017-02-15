@@ -20,13 +20,12 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
-    // fallback: [path.join(__dirname, '../node_modules')],
     modules: [
       resolve('src'),
       resolve('node_modules')
     ],
     alias: {
-      'vue$': 'vue/dist/vue.common.js',
+      'vue$': 'vue/dist/vue.runtime.common.js',
       'src': path.resolve(__dirname, '../src'),
       'example': path.resolve(__dirname, '../example'),
       'assets': path.resolve(__dirname, '../example/assets'),
