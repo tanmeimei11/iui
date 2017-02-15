@@ -1,7 +1,7 @@
 <template>
   <article>
     <div class="iAudio-container">
-        <iAudio autoplay loop src="//h5.in66.com/inpromo/2017/pr-beingmate/img/music.d4ffe2f.mp3"></iAudio>
+        <iAudio loop src="//h5.in66.com/inpromo/2017/pr-beingmate/img/music.d4ffe2f.mp3"></iAudio>
     </div>
     <code>
       &lt;iAudio autoplay loop src="//h5.in66.com/inpromo/2017/pr-beingmate/img/music.d4ffe2f.mp3"&gt;&lt;/iAudio&gt;
