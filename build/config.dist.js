@@ -3,10 +3,10 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')
 
 const builds = {
-  'dev' : {
-    filename: 'iui.js',
-    libraryTarget: 'umd',
-  },
+  // 'dev' : {
+  //   filename: 'iui.js',
+  //   libraryTarget: 'umd',
+  // },
   'prod' : {
     filename: 'iui.min.js',
     libraryTarget: 'umd',

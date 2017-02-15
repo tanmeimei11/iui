@@ -1,4 +1,4 @@
-var utils = require('./utils')
+let utils = require('./utils')
 const webpack = require('webpack')
 const nib = require('nib')
 const path = require('path')
@@ -43,7 +43,7 @@ module.exports = {
       },
       {
         test: /\.vue$/,
-        loader: 'vue-loader'
+        loader: 'vue-loader',
       },
       {
         test: /\.js$/,
@@ -52,16 +52,15 @@ module.exports = {
         exclude: /node_modules/
       },
       {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract({ fallback: 'style-loader', loader: 'css-loader!stylus-loader'  })
+      },
+      {
         test: /\.styl$/,
         loader: ExtractTextPlugin.extract({ fallback: 'style-loader', loader: 'css-loader!stylus-loader'  })
       }
     ]
   },
-  // stylus: {
-  //   use: [nib()],
-  //   import: ['~nib/lib/nib/index.styl'],
-  //   "include css": true
-  // },
   plugins: [
     new webpack.LoaderOptionsPlugin({
       test: /\.styl$/,

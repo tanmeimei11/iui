@@ -59,7 +59,7 @@
   }
 </script>
 
-<style lang="stylus">
+<style lang="sass">
   .i-audio {
 	width: 40px;
 	height: 40px;
@@ -69,9 +69,7 @@
         -webkit-animation: musicAnimation 2s infinite linear;
         animation: musicAnimation 2s infinite linear; 
     }
-
   }
-
   @-webkit-keyframes musicAnimation {
     0% { -webkit-transform: rotate(0); }
     100% { -webkit-transform: rotate(360deg); }

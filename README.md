@@ -1,27 +1,14 @@
 # iui
+/* styles */
+require("!!vue-loader/node_modules/vue-style-loader!css-loader?minimize!./../../../node_modules/.10.3.0@vue-loader/lib/style-rewriter?id=data-v-1d09bd01!sass-loader!./../../../node_modules/.10.3.0@vue-loader/lib/selector?type=styles&index=0!./iAudio.vue")
 
-> A Vue.js project
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run all tests
-npm test
-```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+var Component = require("!./../../../node_modules/.10.3.0@vue-loader/lib/component-normalizer")(
+  /* script */
+    require("!!babel-loader!./../../../node_modules/.10.3.0@vue-loader/lib/selector?type=script&index=0!./iAudio.vue"),
+  /* template */
+    require("!!./../../../node_modules/.10.3.0@vue-loader/lib/template-compiler?id=data-v-1d09bd01!./../../../node_modules/.10.3.0@vue-loader/lib/selector?type=template&index=0!./iAudio.vue"),
+  /* scopeId */
+    null,
+  /* cssModules */
+    null
+)
