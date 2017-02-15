@@ -88,5 +88,4 @@ if (config.build.productionGzip) {
     })
   )
 }
-console.log(webpackConfig.module.rules)
 module.exports = webpackConfig
