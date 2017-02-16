@@ -38,7 +38,7 @@
       5. wait merging 
 
       push to npm:
-      6. increat npm version 
+      6. increate npm version 
       7. git tag -a version -m "Taggin version"
       8. git push --tags
       9. npm publish   
