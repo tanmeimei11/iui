@@ -8,6 +8,12 @@
         </router-link>
       </li>
       <li>
+        <router-link :class="active == 'changeLog' && activeClass" :to="{path: '/changeLog'}">
+          <r-icon>face</r-icon>
+          <span>更新日志</span>
+        </router-link>
+      </li>
+      <li>
         <div>组件</div>
         <ul>
           <li v-for="item in components">

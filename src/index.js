@@ -1,11 +1,10 @@
-require('./style/main.styl')
 import Bridge from './util/bridge'
 import Init from './util/init'
 import Load from './util/load'
 import Toast from './util/toast'
 import Components from './components'
 import Directives from './directives'
-let iUi = function (Vue) {
+let iui = function (Vue) {
   Object.keys(Directives).forEach(key => {
     Vue.directive(key, Directives[key])
   })
@@ -14,7 +13,7 @@ let iUi = function (Vue) {
     Vue.component(key, Components[key])
   })
 
-  Vue.prototype.$iUi = {
+  Vue.prototype.$iui = {
     bridge: Bridge,
 
     load: Load,
@@ -25,9 +24,5 @@ let iUi = function (Vue) {
   }
 }
 
-if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(iUi);
-}
-
-export default iUi
+export default iui
 

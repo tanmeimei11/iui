@@ -1,6 +1,57 @@
 <template>
   <article>
-    <h1>关于 iUi</h1>
+    <h1><a href="https://www.npmjs.com/package/in-ui" target="_blank"> <img src="https://img.shields.io/npm/v/in-ui.svg" alt="npm"> </a></h1>
+    <h6> npm 安装 </h6>
+    <code>
+      $ npm install in-ui@version --save
+    </code>
+    <h6> 全局使用 </h6>
+    <code>
+      import Vue from 'vue'
+      import iui from 'in-ui'
+      Vue.use(iui)
+
+      export default {
+        name: 'app',
+        mounted(){
+          this.$iui.init()
+        }
+      }
+    </code>
+    <h6> 单组件使用 </h6>
+    <code>
+       import { iAudio } from 'in-ui/src/components/iAudio'
+       components: {
+         iAudio,
+         swiper,
+         swiperSlide
+       }
+    </code>
+
+    <h6> 如何更新组件库 </h6>
+
+    <code>
+      1. git clone git@githost.in66.cc:maifei/iui.git
+      2. Create your feature branch (git checkout -b my-new-feature)
+      3. Commit your changes (git commit -am 'Added some feature')
+      4. Push to the branch (git push origin my-new-feature)
+      5. wait merging 
+
+      push to npm:
+      6. increat npm version 
+      7. git tag -a version -m "Taggin version"
+      8. git push --tags
+      9. npm publish   
+    </code>
+
+    <h6> 运行组件库, 打包npm包 </h6>
+      <code>
+        运行开发组件库: npm run dev
+        打包npm: npm run build 
+        打包线上demo: npm run build:demo   
+      </code>
+    </code>
+      
   </article>
 </template>
 

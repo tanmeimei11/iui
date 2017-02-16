@@ -183,28 +183,28 @@ nav a {
     font-size: 12px;
 }
 }
-.demo[data-v-2f194197] {
+.demo[data-v-6a43a577] {
   font-size: 1.2rem;
 }
-.github a[data-v-2f194197] {
+.github a[data-v-6a43a577] {
   display: inline-block;
   height: 25px;
   line-height: 25px;
   vertical-align: middle;
   font-size: 1.2rem;
 }
-.github a[data-v-2f194197]:hover {
+.github a[data-v-6a43a577]:hover {
   text-decoration: underline;
 }
-.github img[data-v-2f194197] {
+.github img[data-v-6a43a577] {
   width: 60px;
 }
-a[data-v-2f194197] {
+a[data-v-6a43a577] {
   font-size: 1.15rem;
 }
 code {
   margin-top: 20px;
-}/*# sourceMappingURL=src/style/main.css.map */
+}
 .i-audio {
   width: 40px;
   height: 40px;
@@ -223,4 +223,4 @@ code {
 }
 }
 
-/*# sourceMappingURL=app.ebfda.css.map*/
+/*# sourceMappingURL=app.52671.css.map*/

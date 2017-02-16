@@ -74,6 +74,6 @@ module.exports = {
         warnings: false
       }
     }),
-    new ExtractTextPlugin('iUi.min.css')
+    new ExtractTextPlugin('iui.min.css')
   ]
 }

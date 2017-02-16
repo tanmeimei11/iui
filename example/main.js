@@ -5,8 +5,8 @@ import router from './router/index'
 import Rubik from 'i-rubik'
 Vue.use(Rubik)
 
-import iUi from '../src/index.js'
-Vue.use(iUi)
+// import iui from '../src/index.js'
+// Vue.use(iui)
 new Vue({
   el: '#app',
   router,

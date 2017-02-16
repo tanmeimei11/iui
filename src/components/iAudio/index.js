@@ -1,5 +1,4 @@
 import iAudio from './iAudio.vue'
 
-export default {
-  iAudio
-}
+export { iAudio }
+export default { iAudio }
