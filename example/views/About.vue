@@ -39,7 +39,7 @@
 
       push to npm:
       6. increate npm version 
-      7. git tag -a version -m "Taggin version"
+      7. git tag -a version -m "Tagging version"
       8. git push --tags
       9. npm publish   
     </code>

@@ -59,24 +59,4 @@
   }
 </script>
 
-<style lang="sass">
-  .i-audio {
-	width: 40px;
-	height: 40px;
-	background: url(./assets/music.png) no-repeat;
-	background-size: contain;
-    &.on{
-        -webkit-animation: musicAnimation 2s infinite linear;
-        animation: musicAnimation 2s infinite linear; 
-    }
-  }
-  @-webkit-keyframes musicAnimation {
-    0% { -webkit-transform: rotate(0); }
-    100% { -webkit-transform: rotate(360deg); }
-  }
-
-  @keyframes musicAnimation {
-    0% { transform: rotate(0); } 
-    100% { transform: rotate(360deg); }
-  }
-</style>
+<style src="./iAudio.scss" lang="sass"></style>

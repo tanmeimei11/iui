@@ -1,4 +1,5 @@
 let utils = require('./utils')
+let vueLoaderConfig = require('./vue-loader.conf')
 const webpack = require('webpack')
 const nib = require('nib')
 const path = require('path')
@@ -43,16 +44,13 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
+        options: vueLoaderConfig
       },
       {
         test: /\.js$/,
         loader: 'babel-loader',
         include: projectRoot,
         exclude: /node_modules/
-      },
-      {
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract({ fallback: 'style-loader', loader: 'css-loader!sass-loader'  })
       },
       {
         test: /\.styl$/,

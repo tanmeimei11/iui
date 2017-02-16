@@ -6,7 +6,6 @@
     </code>
   </article>
 </template>
-
 <script>
 import { iAudio } from '../../src/components/iAudio'
 export default {
