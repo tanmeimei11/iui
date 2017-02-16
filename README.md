@@ -1,2 +1,2 @@
 # iui
-see: http://h5.in66.com/inpromo/2017/iUi/demo/index.html#/iAudio
+see: http://h5.in66.com/inpromo/2017/in-ui/demo/index.html#/iAudio
