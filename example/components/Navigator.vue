@@ -32,7 +32,7 @@
 <script>
 export default {
   name: 'navigator',
-  data() {
+  data () {
     return {
       activeClass: 'active',
       components: [
@@ -45,7 +45,7 @@ export default {
     }
   },
   computed: {
-    active() {
+    active () {
       return this.$route.name
     }
   }

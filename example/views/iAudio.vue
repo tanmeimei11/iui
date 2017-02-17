@@ -11,7 +11,7 @@ import { iAudio } from '../../src/components/iAudio'
 export default {
   name: 'i-audio',
   components: { iAudio },
-  data(){
+  data () {
     return {}
   }
 }

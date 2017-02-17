@@ -7,7 +7,7 @@ Vue.use(Rubik)
 
 // import iui from '../src/index.js'
 // Vue.use(iui)
-new Vue({
+new Vue({ // eslint-disable-line
   el: '#app',
   router,
   render: h => h(App)

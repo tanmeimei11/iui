@@ -7,7 +7,7 @@
 <script>
   export default {
     name: 'iAudio',
-    data() {
+    data () {
       return {
         isOn: false
       } 
@@ -18,31 +18,31 @@
       autoplay: Boolean,
       src: {type: String, required: true}
     },
-    mounted() { 
+    mounted () { 
       let audio = this.$refs.audio
       if (audio.autoplay) {
         this.audioAutoPlay()  
       }
     },
     methods: {
-      play() {
+      play () {
         this.isOn = true 
         this.$refs.audio.play()  
         document.removeEventListener('touchstart', this.play, false)  
         // console.log(audio.paused)
       },
-      pause() {
+      pause () {
         this.isOn = false 
         this.$refs.audio.pause()  
       },
-      toggle() {
+      toggle () {
         if (this.isOn) {
           this.pause()
         } else {
           this.play()
         }
       },
-      audioAutoPlay() {  
+      audioAutoPlay () {  
         this.play()  
 
         document.addEventListener('WeixinJSBridgeReady', () => {  

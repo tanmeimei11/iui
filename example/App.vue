@@ -15,10 +15,9 @@
 
 <script>
 import Navigator from './components/Navigator.vue'
-
 export default {
   name: 'app',
-  data() {
+  data () {
     return {
       loaded: false,
       loadClass: 'load'
@@ -27,9 +26,9 @@ export default {
   components: {
     Navigator
   },
-  mounted(){
+  mounted () {
     this.$rubik.init()
-    setTimeout(()=>{
+    setTimeout(() => {
       this.loaded = true
     }, 150)
   }
