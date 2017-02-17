@@ -1,14 +1,14 @@
 <template>
   <article>
-    <h1><a href="https://www.npmjs.com/package/in-ui" target="_blank"> <img src="https://img.shields.io/npm/v/in-ui.svg" alt="npm"> </a></h1>
+    <h1><a href="https://www.npmjs.com/package/i-ui" target="_blank"> <img src="https://img.shields.io/npm/v/i-ui.svg" alt="npm"> </a></h1>
     <h6> npm 安装 </h6>
     <code>
-      $ npm install in-ui@version --save
+      $ npm install i-ui@version --save
     </code>
     <h6> 全局使用 </h6>
     <code>
       import Vue from 'vue'
-      import iui from 'in-ui'
+      import iui from 'i-ui'
       Vue.use(iui)
 
       export default {
@@ -20,7 +20,7 @@
     </code>
     <h6> 单组件使用 </h6>
     <code>
-       import { iAudio } from 'in-ui/src/components/iAudio'
+       import { iAudio } from 'i-ui/src/components/iAudio'
        components: {
          iAudio,
          swiper,
