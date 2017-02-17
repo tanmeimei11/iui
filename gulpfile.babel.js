@@ -28,12 +28,12 @@ gulp.task('git:push:tags', ['git:tag'], (cb) => {
 })
 
 gulp.task('npm:publish', ['git:push:tags'], (cb) => {
-  // run('npm publish', cb) 
+  run('npm publish', cb) 
 })
 
-gulp.task('version:minor', (cb) => { versionType = 'minor' })
-gulp.task('version:major', (cb) => { versionType = 'major' })
-gulp.task('npm:publish:minor', ['version:minor', 'git:push:tags'])
-gulp.task('npm:publish:major', ['version:major', 'git:push:tags'])
+gulp.task('version:minor', () => { versionType = 'minor' })
+gulp.task('version:major', () => { versionType = 'major' })
+gulp.task('npm:publish:minor', ['version:minor', 'npm:publish'])
+gulp.task('npm:publish:major', ['version:major', 'npm:publish'])
 
 // export default build
