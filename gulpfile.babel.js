@@ -3,10 +3,13 @@ import gulp from 'gulp'
 import bump from 'gulp-bump'
 import semver from 'semver'
 import { exec } from 'child_process'
-let newVersion
+
+// === publish the package ===
+// git push origin --delete tag 1.0.1
 // major: 1.0.0
 // minor: 0.1.0
 // patch: 0.0.2
+let newVersion
 let versionType = 'patch' 
 let run = (command, cb) => { exec(command, (err) => { if (err) return cb(err); cb() }) } 
 
@@ -35,5 +38,3 @@ gulp.task('version:minor', () => { versionType = 'minor' })
 gulp.task('version:major', () => { versionType = 'major' })
 gulp.task('npm:publish:minor', ['version:minor', 'npm:publish'])
 gulp.task('npm:publish:major', ['version:major', 'npm:publish'])
-
-// export default build

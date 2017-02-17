@@ -36,12 +36,6 @@
       3. Commit your changes (git commit -am 'Added some feature')
       4. Push to the branch (git push origin my-new-feature)
       5. wait merging 
-
-      push to npm:
-      6. increate npm version 
-      7. git tag -a version -m "Tagging version"
-      8. git push --tags
-      9. npm publish   
     </code>
 
     <h6> 运行组件库, 打包npm包 </h6>
@@ -49,6 +43,7 @@
         运行开发组件库: npm run dev
         打包npm: npm run build 
         打包线上demo: npm run build:demo   
+        发布组件： npm run release
       </code>
     </code>
       
