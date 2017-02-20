@@ -4,6 +4,7 @@
   "description": "vue components",
   "author": "all <all@in66.com>",
   "main": "dist/iui.min.js",
+  "repository": "http://githost.in66.cc/maifei/iui/tree/master",
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.dist.js",
@@ -17,8 +18,7 @@
     "UI Components"
   ],
   "dependencies": {
-    "vue": "^2.1.10",
-    "vue-router": "^2.2.0"
+    "vue": "^2.1.10"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
@@ -79,6 +79,7 @@
     "url-loader": "^0.5.7",
     "vinyl-fs": "^2.4.4",
     "vue-loader": "^10.3.0",
+    "vue-router": "^2.2.1",
     "vue-style-loader": "^2.0.0",
     "vue-template-compiler": "^2.1.10",
     "webpack": "^2.2.1",
