@@ -25,7 +25,7 @@
         </ul>
       </li>
       <li>
-        <div>组件</div>
+        <div>指令</div>
         <ul>
           <li v-for="item in directives">
             <router-link :class="active == item.name && activeClass" :to="{path: '/'+item.name}">
