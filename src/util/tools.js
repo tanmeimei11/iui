@@ -22,7 +22,7 @@ export function directiveConfig (binding, defaults = {}) {
 export function closest (className) {
   let parent = this.$parent
 
-  while(parent) {
+  while (parent) {
     if (!parent.$el) {
       return null
     }
@@ -45,3 +45,4 @@ export function addOnceEventListener (el, event, cb) {
   
   el.addEventListener(event, once, false)
 }
+

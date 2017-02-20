@@ -43,7 +43,7 @@
         运行开发组件库: npm run dev
         打包npm: npm run build 
         打包线上demo: npm run build:demo   
-        发布组件： npm run release
+        发布组件：npm run release
       </code>
     </code>
       

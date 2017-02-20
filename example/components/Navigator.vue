@@ -24,6 +24,18 @@
           </li>
         </ul>
       </li>
+      <li>
+        <div>组件</div>
+        <ul>
+          <li v-for="item in directives">
+            <router-link :class="active == item.name && activeClass" :to="{path: '/'+item.name}">
+              <r-icon>{{item.icon}}</r-icon>
+              <span>{{item.txt}}</span>
+            </router-link>
+          </li>
+        </ul>
+      </li>
+
     </ul>
     
   </nav>
@@ -41,6 +53,13 @@ export default {
           icon: 'add_alert',
           txt: '音乐自动播放'
         }      
+      ],
+      directives: [
+        {
+          name: 'iTrack',
+          icon: 'leak_add',
+          txt: 'iTrack'
+        }
       ]
     }
   },

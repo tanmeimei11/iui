@@ -10,10 +10,7 @@
 import { iAudio } from '../../src/components/iAudio'
 export default {
   name: 'i-audio',
-  components: { iAudio },
-  data () {
-    return {}
-  }
+  components: { iAudio }
 }
 </script>
 <style lang="stylus"> 
