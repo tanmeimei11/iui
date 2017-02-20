@@ -2,13 +2,13 @@
   <nav>
     <ul>
       <li>
-        <router-link :class="active == 'about' || 'home' && activeClass" :to="{path: '/about'}">
+        <router-link :class="(actived == 'about' || actived == 'home') && activeClass" :to="{path: '/about'}">
           <r-icon>face</r-icon>
           <span>关于</span>
         </router-link>
       </li>
       <li>
-        <router-link :class="active == 'changeLog' && activeClass" :to="{path: '/changeLog'}">
+        <router-link :class="actived == 'changeLog' && activeClass" :to="{path: '/changeLog'}">
           <r-icon>face</r-icon>
           <span>更新日志</span>
         </router-link>
@@ -17,7 +17,7 @@
         <div>组件</div>
         <ul>
           <li v-for="item in components">
-            <router-link :class="active == item.name && activeClass" :to="{path: '/'+item.name}">
+            <router-link :class="actived == item.name && activeClass" :to="{path: '/'+item.name}">
               <r-icon>{{item.icon}}</r-icon>
               <span>{{item.txt}}</span>
             </router-link>
@@ -28,7 +28,7 @@
         <div>指令</div>
         <ul>
           <li v-for="item in directives">
-            <router-link :class="active == item.name && activeClass" :to="{path: '/'+item.name}">
+            <router-link :class="actived == item.name && activeClass" :to="{path: '/'+item.name}">
               <r-icon>{{item.icon}}</r-icon>
               <span>{{item.txt}}</span>
             </router-link>
@@ -64,7 +64,8 @@ export default {
     }
   },
   computed: {
-    active () {
+    actived () {
+      console.log(this.$route.name)
       return this.$route.name
     }
   }
