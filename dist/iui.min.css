@@ -16,3 +16,12 @@
     transform: rotate(360deg);
 }
 }
+
+.i-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

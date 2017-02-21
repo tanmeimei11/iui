@@ -13,7 +13,11 @@ let newVersion
 let versionType = 'patch' 
 let run = (command, cb) => { exec(command, (err) => { if (err) return cb(err); cb() }) } 
 
-gulp.task('bump', () => {
+gulp.task('npm:run:build', (cb) => {
+  run('npm run build', cb)   
+})
+
+gulp.task('bump', ['npm:run:build'], () => {
   let packageJson = () => { return JSON.parse( fs.readFileSync('./package.json', 'utf8')) }
   let json = packageJson()    
   newVersion = semver.inc(json.version, versionType)
