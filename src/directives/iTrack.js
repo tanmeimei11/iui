@@ -5,7 +5,7 @@ const directive = (el, binding, v) => {
     let search = binding.value.trim() 
     if (!search.length) return true
     let [seed, query] = search.split('?')
-    if (query.length) { 
+    if (query && query.length) { 
       items = query.split('&')
     }
     track(seed, items)
