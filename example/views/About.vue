@@ -34,7 +34,7 @@
     </code>
     <h6> 单组件使用 </h6>
     <code>
-       import { iAudio } from 'i-ui/src/components/iAudio'
+       import iAudio from 'i-ui/src/components/iAudio'
        components: {
          iAudio,
          swiper,
