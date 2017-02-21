@@ -49,15 +49,15 @@
       2. Create your feature branch (git checkout -b my-new-feature)
       3. Commit your changes (git commit -am 'Added some feature')
       4. Push to the branch (git push origin my-new-feature)
-      5. wait merging
+      5. create a Merge Request
+      6. wait merging
     </code>
 
     <h6> 运行组件库, 打包npm包 </h6>
       <code>
         运行开发组件库: npm run dev
-        打包npm: npm run build
-        打包线上demo: npm run build:demo
-        发布组件：npm run release
+        打包demo: npm run build:demo
+        发布组件：npm run release(包含打包npm run build)
       </code>
     </code>
 

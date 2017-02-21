@@ -18,7 +18,7 @@ gulp.task('npm:run:build', (cb) => {
 })
 
 gulp.task('bump', ['npm:run:build'], () => {
-  let packageJson = () => { return JSON.parse( fs.readFileSync('./package.json', 'utf8')) }
+  let packageJson = () => { return JSON.parse(fs.readFileSync('./package.json', 'utf8')) }
   let json = packageJson()    
   newVersion = semver.inc(json.version, versionType)
   gulp.src('./package.json')
