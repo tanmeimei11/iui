@@ -1,5 +1,14 @@
 <template>
   <article>
+	<section class="card-item default">
+      <r-card class="green accent-3">
+        <r-card-text>
+		  <p> version: 0.0.7 </p>
+		  <p> add component iAvatar</p>
+        </r-card-text>
+      </r-card>
+    </section>
+
    <section class="card-item default">
       <r-card class="green accent-3">
         <r-card-text>
@@ -25,7 +34,7 @@
       <r-card class="green accent-3">
         <r-card-text>
 		  <p> version: 0.0.2</p>
-		  <span> add componet iAudio </span>
+		  <span> add component iAudio </span>
         </r-card-text>
       </r-card>
     </section>
