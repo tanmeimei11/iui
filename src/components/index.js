@@ -1,4 +1,5 @@
 import iAudio from './iAudio'
+import iAvatar from './iAvatar'
 
 function init (...components) {
   const com = {}
@@ -10,6 +11,7 @@ function init (...components) {
 
   return com
 }
-export default init({ 
-  iAudio: iAudio 
+export default init({
+  iAudio,
+  iAvatar
 })
