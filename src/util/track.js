@@ -1,6 +1,6 @@
 import common from './common'
+import { TRACK_URL } from '../config'
 export default function track (seed, query = []) {
-  const TRACK_URL = `//stats1.jiuyan.info/itugo_deleven.html`
   let img = new Image()
   query.push(`action=${seed}`)
   img.src = `${location.protocol}${TRACK_URL}?` + query.concat([

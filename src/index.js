@@ -4,6 +4,7 @@ import Load from './util/load'
 import Toast from './util/toast'
 import Components from './components'
 import Directives from './directives'
+console.log(Components)
 let iui = function (Vue) {
   Object.keys(Directives).forEach(key => {
     Vue.directive(key, Directives[key])

@@ -10,6 +10,6 @@ function init (...components) {
 
   return com
 }
-export default init(
-  iAudio
-)
+export default init({ 
+  iAudio: iAudio 
+})

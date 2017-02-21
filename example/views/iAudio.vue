@@ -7,10 +7,8 @@
   </article>
 </template>
 <script>
-import { iAudio } from '../../src/components/iAudio'
 export default {
-  name: 'i-audio',
-  components: { iAudio }
+  name: 'i-audio'
 }
 </script>
 <style lang="stylus"> 

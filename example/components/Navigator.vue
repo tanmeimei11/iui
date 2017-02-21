@@ -65,7 +65,6 @@ export default {
   },
   computed: {
     actived () {
-      console.log(this.$route.name)
       return this.$route.name
     }
   }

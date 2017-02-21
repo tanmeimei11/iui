@@ -35,4 +35,4 @@ class Toast {
   }
 }
 
-export default new Toast()
+export default new Toast() // eslint-disable-line

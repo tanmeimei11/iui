@@ -7,15 +7,13 @@
   </article>
 </template>
 <script>
-import iTrack from '../../src/directives/iTrack'
 export default {
   name: 'i-audio',
   data () {
     return {
-      trackMessage: 'example*test*track'
+      trackMessage: 'example*test*track?a=b&c=d'
     }
-  },
-  directives: { iTrack }
+  }
 }
 </script>
 <style lang="stylus"> 
