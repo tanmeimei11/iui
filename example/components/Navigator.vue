@@ -37,31 +37,31 @@
       </li>
 
     </ul>
-    
+
   </nav>
 </template>
 
 <script>
+import { routes } from '../config'
+
 export default {
   name: 'navigator',
   data () {
-    return {
+    let _data = {
       activeClass: 'active',
-      components: [
-        {
-          name: 'iAudio',
-          icon: 'add_alert',
-          txt: '音乐自动播放'
-        }      
-      ],
-      directives: [
-        {
-          name: 'iTrack',
-          icon: 'leak_add',
-          txt: 'iTrack'
-        }
-      ]
+      components: [],
+      directives: []
     }
+    routes.forEach(router => {
+      if (router.type) {
+        _data[`${router.type}`].push({
+          name: router.name,
+          icon: router.icon,
+          txt: router.txt
+        })
+      }
+    })
+    return _data
   },
   computed: {
     actived () {

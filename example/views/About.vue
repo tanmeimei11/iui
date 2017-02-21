@@ -1,6 +1,20 @@
 <template>
   <article>
-    <h1><a href="https://www.npmjs.com/package/i-ui" target="_blank"> <img src="https://img.shields.io/npm/v/i-ui.svg" alt="npm"> </a></h1>
+    <h1>
+      <a href="https://www.npmjs.com/package/i-ui" target="_blank">
+        <img src="//img.shields.io/npm/v/i-ui.svg" alt="npm">
+      </a>
+      <a href="LICENSE">
+        <img src="//img.shields.io/badge/license-MIT-brightgreen.svg" alt="Software License" />
+      </a>
+      <a href="http://badge.fury.io/js/i-ui">
+        <img src="//badge.fury.io/js/i-ui.png" alt="Software License" />
+      </a>
+      <br />
+      <a href="http://badge.fury.io/js/i-ui">
+        <img src="//nodei.co/npm-dl/i-ui.png?months=1" alt="NPM Download" />
+      </a>
+    </h1>
     <h6> npm 安装 </h6>
     <code>
       $ npm install i-ui@version --save
@@ -35,18 +49,18 @@
       2. Create your feature branch (git checkout -b my-new-feature)
       3. Commit your changes (git commit -am 'Added some feature')
       4. Push to the branch (git push origin my-new-feature)
-      5. wait merging 
+      5. wait merging
     </code>
 
     <h6> 运行组件库, 打包npm包 </h6>
       <code>
         运行开发组件库: npm run dev
-        打包npm: npm run build 
-        打包线上demo: npm run build:demo   
+        打包npm: npm run build
+        打包线上demo: npm run build:demo
         发布组件：npm run release
       </code>
     </code>
-      
+
   </article>
 </template>
 
