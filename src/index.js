@@ -1,10 +1,9 @@
-import Bridge from './util/bridge'
+import Bus from './util/bus'
 import Init from './util/init'
 import Load from './util/load'
 import Toast from './util/toast'
 import Components from './components'
 import Directives from './directives'
-console.log(Components)
 let iui = function (Vue) {
   Object.keys(Directives).forEach(key => {
     Vue.directive(key, Directives[key])
@@ -15,7 +14,7 @@ let iui = function (Vue) {
   })
 
   Vue.prototype.$iui = {
-    bridge: Bridge,
+    bus: Bus,
 
     load: Load,
 

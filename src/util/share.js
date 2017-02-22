@@ -1,5 +1,5 @@
-import common from './common'
 import track from './track'
+import common from './common'
 import { TRACK_URL, IN_WXSDK } from '../config'
 
 export default {
