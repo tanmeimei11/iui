@@ -1,6 +1,6 @@
 import EventEmitter from 'events'
 
-class Bridge extends EventEmitter {
+class Bus extends EventEmitter {
   constructor () {
     super()
     this.setMaxListeners(500)
@@ -31,4 +31,4 @@ class Bridge extends EventEmitter {
   }
 }
 
-export default new Bridge()
+export default new Bus()
