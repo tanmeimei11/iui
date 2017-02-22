@@ -6,6 +6,7 @@
   "main": "dist/iui.min.js",
   "repository": "http://githost.in66.cc/maifei/iui/tree/master",
   "scripts": {
+    "start": "npm run dev",
     "dev": "node build/dev-server.js",
     "build": "node build/build.dist.js",
     "build:demo": "node build/build.example.js",
