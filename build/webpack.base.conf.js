@@ -28,8 +28,7 @@ module.exports = {
       'vue$': 'vue/dist/vue.runtime.common.js',
       'src': path.resolve(__dirname, '../src'),
       'example': path.resolve(__dirname, '../example'),
-      'assets': path.resolve(__dirname, '../example/assets'),
-      'components': path.resolve(__dirname, '../example/components')
+      'assets': path.resolve(__dirname, '../example/assets')
     }
   },
   module: {

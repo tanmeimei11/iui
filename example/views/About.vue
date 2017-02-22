@@ -1,20 +1,19 @@
 <template>
   <article>
-    <h1>
+      <a href="http://badge.fury.io/js/i-ui">
+        <img src="//nodei.co/npm-dl/i-ui.png?months=1" alt="NPM Download" />
+      </a>
+      <div class="npm-icons">
       <a href="https://www.npmjs.com/package/i-ui" target="_blank">
         <img src="//img.shields.io/npm/v/i-ui.svg" alt="npm">
+      </a>
+      <a href="http://badge.fury.io/js/i-ui">
+        <img src="http://img.shields.io/npm/dm/i-ui.svg?style=flat-square" alt="Software License" />
       </a>
       <a href="LICENSE">
         <img src="//img.shields.io/badge/license-MIT-brightgreen.svg" alt="Software License" />
       </a>
-      <a href="http://badge.fury.io/js/i-ui">
-        <img src="//badge.fury.io/js/i-ui.png" alt="Software License" />
-      </a>
-      <br />
-      <a href="http://badge.fury.io/js/i-ui">
-        <img src="//nodei.co/npm-dl/i-ui.png?months=1" alt="NPM Download" />
-      </a>
-    </h1>
+      </div>
     <h6> npm 安装 </h6>
     <code>
       $ npm install i-ui@version --save
@@ -71,6 +70,11 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+  .npm-icons {
+    display block
+    margin-top 10px
+    margin-bottom 20px
+  }
   .demo {
     font-size 1.2rem
   }
