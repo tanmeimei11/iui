@@ -11,12 +11,7 @@
     "build:demo": "node build/build.example.js",
     "release": "gulp npm:publish"
   },
-  "keywords": [
-    "Vue.js",
-    "iui",
-    "UI",
-    "UI Components"
-  ],
+  "keywords": [ "Vue.js", "iui", "UI", "UI Components" ],
   "dependencies": {
     "vue": "^2.1.10"
   },
