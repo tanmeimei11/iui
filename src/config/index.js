@@ -1,2 +1,8 @@
-export const TRACK_URL = `//stats1.jiuyan.info/onepiece/router.html`
-export const IN_WXSDK = `//www.in66.com/promo/commonapi/getweixinjssdkconfig`
+import * as inConfig from './config.in'
+export default function configMixin (Vue, config = {}) {
+  Vue.mixin({
+    created: function () {
+      this.$config = Object.assign({}, inConfig, config)
+    }
+  })
+}

@@ -1,4 +1,4 @@
-export default {
+export props {
   props: {
     primary: Boolean,
     secondary: Boolean,

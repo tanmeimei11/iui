@@ -15,3 +15,5 @@ export const routes = [{ name: 'home', path: '/', component: About },
     {name: 'iRollBar', path: '/iRollBar', component: iRollBar, type: 'components', icon: 'more_vert', txt: '滚动加载'},
     {name: 'iTrack', path: '/iTrack', component: iTrack, type: 'directives', icon: 'leak_add', txt: '埋点'}
 ]
+
+export const TRACK_URL = `//stats1.jiuyan.info/onepiece/router123.html`

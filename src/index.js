@@ -15,11 +15,8 @@ let iui = function (Vue) {
 
   Vue.prototype.$iui = {
     bus: Bus,
-
     load: Load,
-
     init: Init,
-
     toast: Toast
   }
 }
