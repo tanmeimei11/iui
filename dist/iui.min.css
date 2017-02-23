@@ -25,3 +25,11 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.i-roll-bar {
+  -webkit-overflow-scrolling: touch;
+  overflow: auto;
+}
+.i-roll-bar.hiddenBar::-webkit-scrollbar {
+    display: none;
+}
