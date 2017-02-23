@@ -8,6 +8,9 @@ Vue.use(Rubik)
 import iui from '../src/index.js'
 Vue.use(iui)
 
+import configMixin from '../src/config'
+configMixin(Vue, {IN_WXSDK: '123', OK: 234})
+
 new Vue({ // eslint-disable-line
   el: '#app',
   router,
