@@ -35,7 +35,7 @@
     </table>
     <code>
       &lt;iRollBar class="roll-bar" tag="ul" :rollIng="roll" showBar &gt;
-        &lt;li v-for="item in items"&gt;{{item}}&lt;/li&gt;
+        &lt;li v-for="item in items"&gt;{ {item} }&lt;/li&gt;
       &lt;/iRollBar&gt;
     </code>
     <iRollBar class="roll-bar" tag="ul" :rollIng="roll" showBar >

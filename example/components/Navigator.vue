@@ -3,13 +3,13 @@
     <ul>
       <li>
         <router-link :class="(actived == 'about' || actived == 'home') && activeClass" :to="{path: '/about'}">
-          <r-icon>face</r-icon>
+          <r-icon>visibility</r-icon>
           <span>关于</span>
         </router-link>
       </li>
       <li>
         <router-link :class="actived == 'changeLog' && activeClass" :to="{path: '/changeLog'}">
-          <r-icon>face</r-icon>
+          <r-icon>pets</r-icon>
           <span>更新日志</span>
         </router-link>
       </li>
