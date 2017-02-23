@@ -26,9 +26,6 @@ module.exports = {
     ],
     alias: {
       'vue$': 'vue/dist/vue.runtime.common.js',
-      'src': path.resolve(__dirname, '../src'),
-      'example': path.resolve(__dirname, '../example'),
-      'assets': path.resolve(__dirname, '../example/assets'),
       'iConfig': path.resolve(__dirname, '../example/config.js')
     }
   },

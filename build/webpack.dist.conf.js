@@ -30,6 +30,10 @@ module.exports = {
       resolve('src'),
       resolve('node_modules')
     ],
+    alias: {
+      'vue$': 'vue/dist/vue.runtime.common.js',
+      'iConfig': path.resolve(__dirname, '../example/config.js')
+    }
   },
   module: {
     loaders: [
