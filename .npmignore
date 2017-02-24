@@ -8,3 +8,6 @@ example
 test
 build
 
+# task file
+gulpfile.babel.js
+gulpfile.js
