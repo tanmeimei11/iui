@@ -1,6 +1,7 @@
 import iAudio from './iAudio'
 import iAvatar from './iAvatar'
 import iRollBar from './iRollBar'
+import iBarrage from './iBarrage'
 
 // function init (...components) {
 //   const com = {}
@@ -12,8 +13,9 @@ import iRollBar from './iRollBar'
 
 //   return com
 // }
-export default {
+export {
   iAudio,
   iAvatar,
-  iRollBar
+  iRollBar,
+  iBarrage
 }
