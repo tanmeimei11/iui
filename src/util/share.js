@@ -1,6 +1,6 @@
 import track from './track'
 import common from './common'
-import { TRACK_URL } from '../iConfig'
+import { TRACK_URL } from 'iConfig'
 const IN_WXSDK = '//www.in66.com/promo/commonapi/getweixinjssdkconfig'
 export default {
   initWXEnd: false,
