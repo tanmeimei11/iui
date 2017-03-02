@@ -19,7 +19,11 @@
       },
       direction: {
         type: String,
-        default: 'left'
+        default: 'right'
+      },
+      runing: {
+        type: Boolean,
+        default: true
       }
     },
     mounted () {
@@ -28,12 +32,6 @@
       this.$el.height = rect.height
       this.ctx = this.$el.getContext('2d')
       this.storyBorad()
-    },
-    destroyed () {
-      // this.list.map(item => {
-      //   item.offsetX = undefined
-      //   item.offsetY = undefined
-      // })
     },
     methods: {
       _clearCtx () {
@@ -44,6 +42,22 @@
         this.laneObj.sort(() => Math.random() - 0.5)
         let idx = Math.floor(Math.random() * Math.pow(10, 2)) * (Date.now()) % this.laneObj.length
         return this.laneObj.splice(idx, 1)[0]
+      },
+      // 画字
+      _drawfont (item) {
+        if (item.time <= 0 || item.offsetY === undefined) return
+        this.ctx.save()
+        this.ctx.textBaseline = 'middle'
+        this.ctx.textAlign = this.direction
+        this.ctx.fillStyle = item.color
+        this.ctx.font = `${item.fontSize} ETrump-QiHei55`
+        this.ctx.translate(item.x, 0)
+        this.ctx.fillText(item.txt, 0, item.offsetY)
+        this.ctx.restore()
+      },
+      // 方向
+      __isLeft () {
+        return this.direction === 'left'
       },
       // 初始化
       _init (item) {
@@ -67,21 +81,6 @@
           item.laneIdx = this._random()
           item.offsetY = this.lane[item.laneIdx]
         }
-        if (item.x == null) {
-          item.x = this.$el.width + item.offsetX
-        }
-      },
-      // 画字
-      _drawfont (item) {
-        if (item.time <= 0 || item.offsetY === undefined) return
-        this.ctx.save()
-        this.ctx.textBaseline = 'middle'
-        this.ctx.textAlign = this.direction
-        this.ctx.fillStyle = item.color
-        this.ctx.font = `${item.fontSize} ETrump-QiHei55`
-        this.ctx.translate(item.x, 0)
-        this.ctx.fillText(item.txt, 0, item.offsetY)
-        this.ctx.restore()
       },
       // 改变坐标
       _changePos (item, idx) {
@@ -91,18 +90,32 @@
         this.ctx.font = `${item.fontSize} ETrump-QiHei55`
         var needW = this.ctx.measureText(item.txt).width
         this.ctx.restore()
-        if (item.x < 0 && Math.abs(item.x) >= needW) {
-          // 重新开始
-          item.x = this.$el.width
-          item.time -= 1
+        if (this.__isLeft()) {
+          if (item.x == null) {
+            item.x = this.$el.width + item.offsetX
+          }
+          if (item.x < 0 && Math.abs(item.x) >= needW) {
+            // 重新开始
+            item.x = this.$el.width
+            item.time -= 1
+          }
+          item.x = item.x - item.speed
+        } else {
+          if (item.x == null) {
+            item.x = 0 - item.offsetX
+          }
+          if (item.x > this.$el.width + needW) {
+            // 重新开始
+            item.x = 0
+            item.time -= 1
+          }
+          item.x = item.x + item.speed
         }
         if (item.time === 0) {
           this.laneObj.push(item.laneIdx)
           item.offsetY = undefined
           this.$emit('done', item, idx)
         }
-        // 开始移动
-        item.x = item.x - item.speed
       },
       _requestAnimationFrame (callback) {
         if (this._isDestroyed) return
@@ -120,8 +133,8 @@
         }
       },
       storyBorad () {
-        this._clearCtx()
-        if (this.list.length) {
+        if (this.list.length && this.runing) {
+          this._clearCtx()
           this.list.map(this._init)
           this.list.map(this._changePos)
           this.list.map(this._drawfont)
