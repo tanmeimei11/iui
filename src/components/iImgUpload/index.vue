@@ -18,7 +18,7 @@
             '8950': 'png',
             '4749': 'gif',
             '424d': 'bmp'
-          })[`${buf.getUint16().toString(16)}`] : undefined)
+          })[`${buf.getUint16(0).toString(16)}`] : undefined)
         }
         reader.readAsArrayBuffer(blob)
       },
@@ -32,16 +32,18 @@
         reader.readAsArrayBuffer(file)
       },
       change (event) {
-        let file = event.currentTarget.files[0]
+        let file = event.target.files[0]
         if (file === undefined) return
         this.vaildImgType(file.slice(0, 2), type => {
           if (type === undefined) {
+            event.target.value = ''
             return this.$emit('error', {
               code: 1
             })
           }
           this.getOrientation(file, type, orientation => {
-            console.log(orientation)
+            event.target.value = ''
+            alert(orientation)
           })
         })
       }
