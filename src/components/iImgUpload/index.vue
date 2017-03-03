@@ -27,22 +27,7 @@
         if (type !== 'jpg') return done(1)
         var reader = new FileReader()
         reader.onload = () => {
-          var dataView = new DataView(reader.result)
-          var offset = 2
-          var length = dataView.byteLength
-          var marker
-          var orientation = 1
-          while (offset < length) {
-            if (dataView.getUint8(offset) !== 0xFF) break
-            marker = dataView.getUint8(offset + 1)
-            if (marker === 225) {
-              orientation = readOrientation(dataView, offset + 4)
-              break
-            } else {
-              offset += 2 + dataView.getUint16(offset + 2)
-            }
-          }
-          done(orientation)
+          done(readOrientation(reader.result))
         }
         reader.readAsArrayBuffer(file)
       },
