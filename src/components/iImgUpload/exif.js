@@ -39,7 +39,7 @@ const readTagValue = (dataView, dirStart, littleEndian) => {
  * https://github.com/exif-js/exif-js/blob/master/exif.js#L651
  * @param {*} arrayBuf  reader.readAsArrayBuffer(file)
  */
-const readOrientation = (arrayBuf) => {
+const readExif = (arrayBuf) => {
   var dataView = new DataView(arrayBuf)
   var offset = 2
   var length = dataView.byteLength
@@ -91,10 +91,10 @@ const readOrientation = (arrayBuf) => {
  * @param {String} fileType 文件类型
  * @param {function} done 返回角度
  */
-export const getOrientation = (file, fileType, done) => {
-  if (fileType !== 'jpg') return done(1)
+export const readOrientation = (file, fileType, done) => {
+  // if (fileType !== 'jpg') return done(1)
   var reader = new FileReader()
-  reader.onload = () => done(readOrientation(reader.result))
+  reader.onload = () => done(readExif(reader.result))
   reader.readAsArrayBuffer(file)
 }
 
@@ -115,4 +115,43 @@ export const vaildImgType = (blob, done) => {
     })[`${buf.getUint16(0).toString(16)}`] : undefined)
   }
   reader.readAsArrayBuffer(blob)
+}
+
+/**
+ * 压缩并且摆正图片
+ * @param {Img} img
+ * @param {Int} orientation
+ * @param {Int} maxWidth
+ * @param {function} done
+ */
+export const compressImg = (img, orientation, maxWidth, done) => {
+    // 1:0,3:180,6:90,8:270
+  var canvas = document.createElement('canvas')
+  var ctx = canvas.getContext('2d')
+  var imgRotation = {
+    '1': 0,
+    '3': Math.PI,
+    '6': Math.PI * 0.5,
+    '8': Math.PI * 1.5
+  }[orientation] || 0
+  var dw
+  var dh
+  var ratio = 1
+  if (~[6, 8].indexOf(orientation)) {
+    canvas.width = Math.min(maxWidth, img.naturalHeight)
+    ratio = canvas.width / img.naturalHeight
+    canvas.height = img.naturalWidth * ratio
+    dw = canvas.height
+    dh = canvas.width
+  } else {
+    canvas.width = Math.min(maxWidth, img.naturalWidth)
+    ratio = canvas.width / img.naturalWidth
+    canvas.height = img.naturalHeight * ratio
+    dw = canvas.width
+    dh = canvas.height
+  }
+  ctx.translate(canvas.width / 2, canvas.height / 2)
+  ctx.rotate(imgRotation)
+  ctx.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight, -1 * dw / 2, -1 * dh / 2, dw, dh)
+  done(canvas)
 }
