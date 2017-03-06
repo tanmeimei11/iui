@@ -3,6 +3,7 @@ import iAvatar from './iAvatar'
 import iRollBar from './iRollBar'
 import iBarrage from './iBarrage'
 import iImgUpload from './iImgUpload'
+import iFireWorks from './iFireWorks'
 
 // function init (...components) {
 //   const com = {}
@@ -19,5 +20,6 @@ export {
   iAvatar,
   iRollBar,
   iBarrage,
-  iImgUpload
+  iImgUpload,
+  iFireWorks
 }
