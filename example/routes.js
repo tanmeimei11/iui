@@ -3,10 +3,12 @@ import iAudio from './views/iAudio.vue'
 import iAvatar from './views/iAvatar.vue'
 import iRollBar from './views/iRollBar.vue'
 import iBarrage from './views/iBarrage.vue'
+import iImgUpload from './views/iImgUpload.vue'
 import iTrack from './views/iTrack.vue'
 import changeLog from './views/changeLog.vue'
 
 // https://material.io/icons/
+// https://ccforward.github.io/rubik/#/
 
 export const routes = [{ name: 'home', path: '/', component: About },
     {name: 'about', path: '/about', component: About},
@@ -15,5 +17,6 @@ export const routes = [{ name: 'home', path: '/', component: About },
     {name: 'iAvatar', path: '/iAvatar', component: iAvatar, type: 'components', icon: 'face', txt: '头像'},
     {name: 'iRollBar', path: '/iRollBar', component: iRollBar, type: 'components', icon: 'more_vert', txt: '滚动加载'},
     {name: 'iBarrage', path: '/iBarrage', component: iBarrage, type: 'components', icon: 'subtitles', txt: '弹幕滚动'},
+    {name: 'iImgUpload', path: '/iImgUpload', component: iImgUpload, type: 'components', icon: 'file_upload', txt: '图片选择'},
     {name: 'iTrack', path: '/iTrack', component: iTrack, type: 'directives', icon: 'leak_add', txt: '埋点'}
 ]

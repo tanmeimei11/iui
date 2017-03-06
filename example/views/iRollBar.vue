@@ -29,7 +29,7 @@
           <td>滚动事件</td>
           <td>Function</td>
           <td>第一个参数为回掉参数</td>
-          <td>() => {}</td>
+          <td>(done) => {}</td>
         </tr>
       </tbody>
     </table>
@@ -57,12 +57,12 @@
       }
     },
     methods: {
-      roll (cb) {
+      roll (done) {
         console.log(Date.now())
         for (var idx = 0; idx <= 10; idx++) {
           this.items.push(idx)
         }
-        cb()
+        done()
       }
     }
   }

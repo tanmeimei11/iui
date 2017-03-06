@@ -2,6 +2,7 @@ import iAudio from './iAudio'
 import iAvatar from './iAvatar'
 import iRollBar from './iRollBar'
 import iBarrage from './iBarrage'
+import iImgUpload from './iImgUpload'
 
 // function init (...components) {
 //   const com = {}
@@ -17,5 +18,6 @@ export {
   iAudio,
   iAvatar,
   iRollBar,
-  iBarrage
+  iBarrage,
+  iImgUpload
 }

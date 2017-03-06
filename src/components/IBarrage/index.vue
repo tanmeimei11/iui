@@ -19,7 +19,7 @@
       },
       direction: {
         type: String,
-        default: 'right'
+        default: 'left'
       },
       runing: {
         type: Boolean,

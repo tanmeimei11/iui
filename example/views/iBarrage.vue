@@ -1,8 +1,9 @@
 <template>
   <article>
-    <iBarrage :list="list" :lane="[100,10,250,200,225,150,175]" :runing="runing" @done="doneBarrage"></iBarrage>
+    <iBarrage :list="list" :lane="[100,10,250,200,225,150,175]" :runing="runing" :direction="direction" @done="doneBarrage"></iBarrage>
     <br />
      <r-btn class="blue white-text" large v-wave.light @click.native="toggleRun()">toggle Run</r-btn>
+     <r-btn class="blue white-text" large v-wave.light @click.native="toggleDirection()">toggle Direction</r-btn>
     <h3>props</h3>
     <table class="bordered responsive-table">
       <thead>
@@ -36,11 +37,22 @@
           <td>Boolean</td>
           <td>true</td>
         </tr>
+      </tbody>
+    </table>
+    <h3>Event</h3>
+    <table class="bordered responsive-table">
+      <thead>
+        <th>属性</th>
+        <th>说明</th>
+        <th>类型</th>
+        <th>默认值</th>
+      </thead>
+      <tbody>
         <tr>
           <td>done</td>
           <td>弹幕结束的回掉</td>
           <td>function</td>
-          <td>[]</td>
+          <td>(item, index) => {}</td>
         </tr>
       </tbody>
     </table>
@@ -86,7 +98,7 @@
       </tbody>
     </table>
     <code>
-      &lt;iBarrage :list="[{<br>          txt: '~我卡咔咔',<br>          fontSize: '11px',<br>          color: '#000',<br>          speed: 1,<br>          time: 1<br>        }, {<br>          txt: '你踩踩~',<br>          fontSize: '11px',<br>          color: '#000',<br>          speed: 1,<br>          time: 2<br>        }, {<br>          txt: '我是弹幕~',<br>          fontSize: '11px',<br>          color: '#000',<br>          speed: 2,<br>          time: Infinity<br>        }]" :lane="[100,10,250]" @done="doneBarrage"&gt;&lt;/iBarrage&gt;·
+      &lt;iBarrage :list="[{<br>          txt: '~我卡咔咔',<br>          fontSize: '11px',<br>          color: '#000',<br>          speed: 1,<br>          time: 1<br>        }, {<br>          txt: '你踩踩~',<br>          fontSize: '11px',<br>          color: '#000',<br>          speed: 1,<br>          time: 2<br>        }, {<br>          txt: '我是弹幕~',<br>          fontSize: `${lib.flexible.rem2px(28 / 75)}px`,<br>          color: '#000',<br>          speed: 2,<br>          time: Infinity<br>        }]" :lane="[100,10,250]" :runing="runing" :direction="direction"  @done="doneBarrage"&gt;&lt;/iBarrage&gt;·
     </code>
   </article>
 </template>
@@ -114,12 +126,16 @@
           speed: 2,
           time: Infinity
         }],
-        runing: true
+        runing: true,
+        direction: 'left'
       }
     },
     methods: {
       toggleRun () {
         this.runing = !this.runing
+      },
+      toggleDirection () {
+        this.direction = this.direction === 'left' ? 'right' : 'left'
       },
       randomTxt () {
         return eval(`'\\u${(Math.round(Math.random() * 20901) + 19968).toString(16)}'`)  //eslint-disable-line
