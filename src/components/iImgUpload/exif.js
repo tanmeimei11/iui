@@ -36,10 +36,9 @@ const readTagValue = (dataView, dirStart, littleEndian) => {
 /**
  * https://github.com/exif-js/exif-js/blob/master/exif.js#L394
  * https://github.com/exif-js/exif-js/blob/master/exif.js#L651
- * @param {*} file
- * @param {*} start
+ * @param {*} arrayBuf  reader.readAsArrayBuffer(file)
  */
-export const readOrientation = (arrayBuf) => {
+const readOrientation = (arrayBuf) => {
   var dataView = new DataView(arrayBuf)
   var offset = 2
   var length = dataView.byteLength
@@ -83,4 +82,36 @@ export const readOrientation = (arrayBuf) => {
     }
   }
   return defaultOrientation
+}
+
+/**
+ * 获取角度 (仅存在于jpg)
+ * @param {File} file 文件对象
+ * @param {String} fileType 文件类型
+ * @param {function} done 返回角度
+ */
+export const getOrientation = (file, fileType, done) => {
+  if (fileType !== 'jpg') return done(1)
+  var reader = new FileReader()
+  reader.onload = () => done(readOrientation(reader.result))
+  reader.readAsArrayBuffer(file)
+}
+
+/**
+ * 验证文件类型
+ * @param {File} blob 文件对象
+ * @param {function} done 返回格式
+ */
+export const vaildImgType = (blob, done) => {
+  var reader = new FileReader()
+  reader.onload = () => {
+    var buf = new DataView(reader.result)
+    done(buf.byteLength > 1 ? ({
+      'ffd8': 'jpg',
+      '8950': 'png',
+      '4749': 'gif',
+      '424d': 'bmp'
+    })[`${buf.getUint16(0).toString(16)}`] : undefined)
+  }
+  reader.readAsArrayBuffer(blob)
 }
