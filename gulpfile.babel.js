@@ -2,7 +2,8 @@ import fs from 'fs'
 import gulp from 'gulp'
 import bump from 'gulp-bump'
 import semver from 'semver'
-import { exec } from 'child_process'
+import {rm, cp, exec} from 'shelljs'
+// import { exec } from 'child_process'
 
 // === publish the package ===
 // git push origin --delete tag 1.0.1
@@ -11,7 +12,7 @@ import { exec } from 'child_process'
 // patch: 0.0.2
 let newVersion
 let versionType = 'patch'
-let run = (command, cb) => { exec(command, (err) => { if (err) return cb(err); cb() }) }
+let run = exec
 
 gulp.task('npm:run:build', (cb) => {
   run('npm run build', cb)
@@ -35,7 +36,9 @@ gulp.task('git:push:tags', ['git:tag'], (cb) => {
 })
 
 gulp.task('copy:to:in', ['git:push:tags'], (cb) => {
-  run('rm -rf ../InPromo/2017/in-ui/dist/demo && cp -rf ./dist/demo ../InPromo/2017/in-ui/dist/', cb)
+  rm('-rf', '../InPromo/2017/in-ui/dist/demo')
+  cp('-rf', './dist/demo', '../InPromo/2017/in-ui/dist/')
+  cb()
 })
 
 gulp.task('npm:publish', ['copy:to:in'], (cb) => {

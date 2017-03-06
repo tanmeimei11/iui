@@ -226,6 +226,11 @@ code {
   height: 300px;
 }
 
+canvas.result {
+  width: 300px;
+  height: 300px;
+}
+
 code {
   margin-top: 20px;
 }
@@ -264,4 +269,13 @@ code {
     display: none;
 }
 
-/*# sourceMappingURL=app.71e09.css.map*/
+.i-img-upload.cover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+/*# sourceMappingURL=app.3af4b.css.map*/
