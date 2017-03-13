@@ -1,17 +1,23 @@
 <template>
-<div>
-    <div class="container" id="container">
-      <canvas id="canvas"></canvas>
-    </div>
-</div>
+  <div class="container" id="container">
+  </div>
 </template>
 <script>
 import draw from './draw.js'
 export default {
   name: 'iFireWorks',
+  props: [
+    'imgUrl'
+  ],
+  watch: {
+    imgUrl (val, old) {
+      draw.reDraw(val)
+    }
+  },
+  mounted () {
+    draw.init(this.$el)
+  },
   created () {
-    console.log('111')
-    draw.init()
   }
 }
 </script> 
