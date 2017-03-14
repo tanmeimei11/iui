@@ -6,7 +6,10 @@ npm-debug.log
 # dev folder
 example
 test
-build
+scripts
+
+# online demo folder
+dist
 
 # task file
 gulpfile.babel.js

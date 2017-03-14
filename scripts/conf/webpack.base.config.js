@@ -48,14 +48,16 @@ export default {
       loader: 'url-loader',
       query: {
         limit: 10000,
-        name: 'img/[name].[ext]'
+        name: 'img/[name].[ext]',
+        publicPath: '../'
       }
     },
     {
       test: /\.(eot|woff|ttf|eot)$/,
       loader: 'file-loader',
       query: {
-        name: '[name].[ext]'
+        name: 'font/[name].[ext]',
+        publicPath: '../'
       }
     }
     ].concat(styleLoaders())

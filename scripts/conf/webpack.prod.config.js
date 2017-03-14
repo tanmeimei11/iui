@@ -12,7 +12,8 @@ const cfg = new Config().extend('scripts/conf/webpack.base.config.js').merge({
   entry: directives
 }).merge({
   entry: {
-    index: ['./src/components.js']
+    index: ['./src/components.js'],
+    base: ['./src/scss/base.scss']
   },
   output: {
     libraryTarget: 'commonjs-module'

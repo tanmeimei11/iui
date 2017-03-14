@@ -1,14 +1,28 @@
 import webpack from 'webpack'
 import Config from 'webpack-config'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import { env, assetsPath } from './utils'
-const cfg = new Config().extend('scripts/conf/webpack.dev.config.js').merge({
+const cfg = new Config().extend('scripts/conf/webpack.base.config.js').merge({
+  entry: {
+    index: ['./example/index.js'],
+    vendor: ['vue']
+  },
   output: {
     path: assetsPath('dist'),
-    filename: 'assets/[name].js'
+    filename: 'js/[name].js',
+    publicPath: './'
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      filename: `index.html`,
+      template: `./example/index.html`
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      names: ['vendor'],
+      minChunks: Infinity
+    }),
     new webpack.EnvironmentPlugin({
       NODE_ENV: JSON.stringify('production'),
       DEBUG: false
@@ -18,7 +32,7 @@ const cfg = new Config().extend('scripts/conf/webpack.dev.config.js').merge({
       debug: false
     }),
     new ExtractTextPlugin({
-      filename: 'assets/[name].css'
+      filename: 'css/[name].css'
     })
   ]
 })

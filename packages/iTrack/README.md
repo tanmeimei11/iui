@@ -1,6 +1,7 @@
 <template>
   <article>
     <i-button type="primary" v-iTrack="trackMessage">click me</i-button>
+    <h3>props</h3>
     <table class="bordered responsive-table">
       <thead> <th>属性</th> <th>说明</th> <th>类型</th> <th>example</th> </thead>
       <tbody>

@@ -1,5 +1,5 @@
 import track from 'i-ui/src/utils/track.js'
-
+import './base.scss'
 const clickCallback = function (e) {
   let items = []
   let search = this.value.trim()

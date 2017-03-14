@@ -156,12 +156,6 @@
   }
 
 </script>
-<style>
-  .i-barrage {
-    width: 300px;
-    height: 300px;
-  }
-</style>
 
 ```html
 <iBarrage :list="list" :lane="[100,10,250,200,225,150,175]" :runing="runing" :direction="direction" @done="doneBarrage"></iBarrage>

@@ -43,7 +43,7 @@ var addPacks = (packObj, TPL) => {
     var packName = uppercamelcase(name)
     includeComponentTemplate.push(render(IMPORT_TEMPLATE, {
       name: packName,
-      package: name
+      package: packName
     }))
     installTemplate.push(render(TPL, {
       name: packName,

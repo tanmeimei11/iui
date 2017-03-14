@@ -1,7 +1,7 @@
 {
-  "iAudio": "./packages/iAudio/index.js",
-  "iAvatar": "./packages/iAvatar/index.js",
-  "IBarrage": "./packages/IBarrage/index.js",
-  "iImgUpload": "./packages/iImgUpload/index.js",
-  "iRollBar": "./packages/iRollBar/index.js"
+  "i-audio": "./packages/iAudio/index.js",
+  "i-avatar": "./packages/iAvatar/index.js",
+  "I-barrage": "./packages/IBarrage/index.js",
+  "i-img-upload": "./packages/iImgUpload/index.js",
+  "i-roll-bar": "./packages/iRollBar/index.js"
 }

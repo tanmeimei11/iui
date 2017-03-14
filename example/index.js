@@ -6,10 +6,10 @@ import iView from 'iview'
 import 'iview/dist/styles/iview.css'
 // https://highlightjs.org/  import 'highlight.js/styles/[styleName].css'
 import 'highlight.js/styles/monokai-sublime.css'
-Vue.use(Router)
+import './scss/markdown.scss'
+Vue.use(Router) 
 Vue.use(iView)
 const router = new Router({
-  mode: 'history',
   routes
 })
 

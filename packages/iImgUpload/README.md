@@ -51,8 +51,7 @@
 ```html
 <canvas class="result" ref="result"></canvas>
 <br />
-<i-button type="primary">
-  选择图片
+<i-button type="primary">选择图片
   <iImgUpload @error="error" @progress="progress" @done="showResult" />
 </i-button>
 <br />

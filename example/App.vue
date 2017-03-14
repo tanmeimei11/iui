@@ -3,8 +3,10 @@
     <Row type="flex">
       <i-col :span="4">
         <Menu theme="light" class="wrapper-navigate" :active-name="activeName" width="auto" @on-select="select">
-          <Menu-group title="关于">
+          <Menu-group title="开发指南">
             <Menu-item name="/install">安装</Menu-item>
+            <Menu-item name="/quickstart">快速上手</Menu-item>
+            <Menu-item name="/customPackage">自定义开发</Menu-item>
           </Menu-group>
           <Menu-group title="组件">
             <Menu-item :name="component.path" v-for="(component, idx) in components">
@@ -20,7 +22,7 @@
       </i-col>
       <i-col :span="20">
         <transition name="fade" mode="out-in">
-          <router-view class="wrapper-content"></router-view>
+          <router-view class="wrapper-content markdown-body"></router-view>
         </transition>
       </i-col>
     </Row>
