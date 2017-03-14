@@ -88,7 +88,7 @@ module.exports = function normalizeComponent (
 
 // https://www.iviewui.com/components/icon
 
-var routes = [{ path: '/', redirect: '/install' }, { name: 'install', path: '/install', component: __WEBPACK_IMPORTED_MODULE_0__md_install_md___default.a }, { name: 'customPackage', path: '/customPackage', component: __WEBPACK_IMPORTED_MODULE_2__md_custom_package_md___default.a }, { name: 'quickstart', path: '/quickstart', component: __WEBPACK_IMPORTED_MODULE_1__md_quickstart_md___default.a }, { name: 'iAudio', path: '/iAudio', component: __WEBPACK_IMPORTED_MODULE_3_i_ui_lib_iAudio_README_md___default.a, type: 'components', icon: 'music-note', txt: '音乐播放' }, { name: 'iAvatar', path: '/iAvatar', component: __WEBPACK_IMPORTED_MODULE_4_i_ui_lib_iAvatar_README_md___default.a, type: 'components', icon: 'android-happy', txt: '头像' }, { name: 'IBarrage', path: '/IBarrage', component: __WEBPACK_IMPORTED_MODULE_5_i_ui_lib_IBarrage_README_md___default.a, type: 'components', icon: 'android-happy', txt: '弹幕' }, { name: 'iImgUpload', path: '/iImgUpload', component: __WEBPACK_IMPORTED_MODULE_6_i_ui_lib_iImgUpload_README_md___default.a, type: 'components', icon: 'image', txt: '图片选择' }, { name: 'iRollBar', path: '/iRollBar', component: __WEBPACK_IMPORTED_MODULE_7_i_ui_lib_iRollBar_README_md___default.a, type: 'components', icon: 'image', txt: '滚动加载' }, { name: 'iTrack', path: '/iTrack', component: __WEBPACK_IMPORTED_MODULE_8_i_ui_lib_iTrack_README_md___default.a, type: 'directives', icon: 'image', txt: '埋点' }];
+var routes = [{ path: '/', redirect: '/install' }, { name: 'install', path: '/install', component: __WEBPACK_IMPORTED_MODULE_0__md_install_md___default.a }, { name: 'customPackage', path: '/customPackage', component: __WEBPACK_IMPORTED_MODULE_2__md_custom_package_md___default.a }, { name: 'quickstart', path: '/quickstart', component: __WEBPACK_IMPORTED_MODULE_1__md_quickstart_md___default.a }, { name: 'iAudio', path: '/iAudio', component: __WEBPACK_IMPORTED_MODULE_3_i_ui_lib_iAudio_README_md___default.a, type: 'components', icon: 'music-note', txt: '音乐播放' }, { name: 'iAvatar', path: '/iAvatar', component: __WEBPACK_IMPORTED_MODULE_4_i_ui_lib_iAvatar_README_md___default.a, type: 'components', icon: 'social-reddit', txt: '头像' }, { name: 'IBarrage', path: '/IBarrage', component: __WEBPACK_IMPORTED_MODULE_5_i_ui_lib_IBarrage_README_md___default.a, type: 'components', icon: 'android-textsms', txt: '弹幕' }, { name: 'iImgUpload', path: '/iImgUpload', component: __WEBPACK_IMPORTED_MODULE_6_i_ui_lib_iImgUpload_README_md___default.a, type: 'components', icon: 'image', txt: '图片选择' }, { name: 'iRollBar', path: '/iRollBar', component: __WEBPACK_IMPORTED_MODULE_7_i_ui_lib_iRollBar_README_md___default.a, type: 'components', icon: 'android-more-vertical', txt: '滚动加载' }, { name: 'iTrack', path: '/iTrack', component: __WEBPACK_IMPORTED_MODULE_8_i_ui_lib_iTrack_README_md___default.a, type: 'directives', icon: 'social-rss', txt: '埋点' }];
 /* harmony default export */ __webpack_exports__["a"] = routes;
 
 /***/ }),
@@ -1375,6 +1375,166 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_i_ui_lib_iImgUpload__ = __webpack_require__(23);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = {
+  components: {
+    iImgUpload: __WEBPACK_IMPORTED_MODULE_0_i_ui_lib_iImgUpload__["a" /* default */]
+  },
+  mounted: function mounted() {
+    this.$refs.result.width = this.$refs.result.height = 300;
+    this.ctx = this.$refs.result.getContext('2d');
+  },
+
+  methods: {
+    error: function error() {},
+    progress: function progress() {},
+    showResult: function showResult(img) {
+      var height = 300;
+      var width = 300;
+      var rh = img.naturalHeight || img.height;
+      var rw = img.naturalWidth || img.width;
+      var ratio = 1;
+      this.ctx.fillStyle = '#fff';
+      this.ctx.fillRect(0, 0, height, width);
+      this.ctx.save();
+      if (height == null) {
+        height = width * rh / rw;
+        ratio = width / rw;
+      } else if (width == null) {
+        width = height * rw / rh;
+        ratio = height / rh;
+      } else {
+        ratio = Math.max(height / rh, width / rw);
+      }
+      // 画图片
+      this.ctx.translate(width / 2, height / 2);
+      this.ctx.scale(ratio, ratio);
+      this.ctx.drawImage(img, 0, 0, rw, rh, -rw / 2, -rh / 2, rw, rh);
+      this.ctx.restore();
+    }
+  }
+};
+
+/***/ }),
+/* 10 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_i_ui_lib_iTrack__ = __webpack_require__(25);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = {
+  directives: {
+    iTrack: __WEBPACK_IMPORTED_MODULE_0_i_ui_lib_iTrack__["a" /* default */]
+  },
+  name: 'i-track',
+  data: function data() {
+    return {
+      trackMessage: 'example*test*track?a=b&c=d'
+    };
+  }
+};
+
+/***/ }),
+/* 11 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_i_ui_lib_iRollBar__ = __webpack_require__(24);
 //
 //
@@ -1479,166 +1639,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }
       done();
     }
-  }
-};
-
-/***/ }),
-/* 10 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_i_ui_lib_iImgUpload__ = __webpack_require__(23);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-/* harmony default export */ __webpack_exports__["default"] = {
-  components: {
-    iImgUpload: __WEBPACK_IMPORTED_MODULE_0_i_ui_lib_iImgUpload__["a" /* default */]
-  },
-  mounted: function mounted() {
-    this.$refs.result.width = this.$refs.result.height = 300;
-    this.ctx = this.$refs.result.getContext('2d');
-  },
-
-  methods: {
-    error: function error() {},
-    progress: function progress() {},
-    showResult: function showResult(img) {
-      var height = 300;
-      var width = 300;
-      var rh = img.naturalHeight || img.height;
-      var rw = img.naturalWidth || img.width;
-      var ratio = 1;
-      this.ctx.fillStyle = '#fff';
-      this.ctx.fillRect(0, 0, height, width);
-      this.ctx.save();
-      if (height == null) {
-        height = width * rh / rw;
-        ratio = width / rw;
-      } else if (width == null) {
-        width = height * rw / rh;
-        ratio = height / rh;
-      } else {
-        ratio = Math.max(height / rh, width / rw);
-      }
-      // 画图片
-      this.ctx.translate(width / 2, height / 2);
-      this.ctx.scale(ratio, ratio);
-      this.ctx.drawImage(img, 0, 0, rw, rh, -rw / 2, -rh / 2, rw, rh);
-      this.ctx.restore();
-    }
-  }
-};
-
-/***/ }),
-/* 11 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_i_ui_lib_iTrack__ = __webpack_require__(25);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-/* harmony default export */ __webpack_exports__["default"] = {
-  directives: {
-    iTrack: __WEBPACK_IMPORTED_MODULE_0_i_ui_lib_iTrack__["a" /* default */]
-  },
-  name: 'i-track',
-  data: function data() {
-    return {
-      trackMessage: 'example*test*track?a=b&c=d'
-    };
   }
 };
 
@@ -5440,141 +5440,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('section', [
-    [_c('article', [_c('h3', [_vm._v("props")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('iRollBar', {
-      staticClass: "roll-bar",
-      attrs: {
-        "tag": "ul",
-        "rollIng": _vm.roll,
-        "showBar": ""
-      }
-    }, _vm._l((_vm.items), function(item, idx) {
-      return _c('li', {
-        key: idx
-      }, [_vm._v(_vm._s(item))])
-    }))], 1)], _vm._v(" "), _c('h2', [_vm._v("aaa")]), _vm._v(" "), _c('pre', [_c('code', {
-      staticClass: "hljs language-html"
-    }, [_vm._m(1), _vm._v("\n  "), _vm._m(2), _vm._v(_vm._s(_vm.item)), _vm._m(3), _vm._v("\n"), _vm._m(4), _vm._v("\n"), _vm._m(5), _vm._m(6), _vm._m(7), _vm._v("\n")])])
-  ], 2)
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('table', {
-    staticClass: "bordered responsive-table"
-  }, [_c('thead', [_c('th', [_vm._v("属性")]), _vm._v(" "), _c('th', [_vm._v("说明")]), _vm._v(" "), _c('th', [_vm._v("类型")]), _vm._v(" "), _c('th', [_vm._v("说明")]), _vm._v(" "), _c('th', [_vm._v("默认值")])]), _vm._v(" "), _c('tbody', [_c('tr', [_c('td', [_vm._v("tag")]), _vm._v(" "), _c('td', [_vm._v("转换的标签")]), _vm._v(" "), _c('td', [_vm._v("String")]), _vm._v(" "), _c('td'), _vm._v(" "), _c('td', [_vm._v("div")])]), _vm._v(" "), _c('tr', [_c('td', [_vm._v("showBar")]), _vm._v(" "), _c('td', [_vm._v("显示滚动条")]), _vm._v(" "), _c('td', [_vm._v("String")]), _vm._v(" "), _c('td', [_vm._v("当不写的时候不显示")]), _vm._v(" "), _c('td', [_vm._v("undefind")])]), _vm._v(" "), _c('tr', [_c('td', [_vm._v("rollIng")]), _vm._v(" "), _c('td', [_vm._v("滚动事件")]), _vm._v(" "), _c('td', [_vm._v("Function")]), _vm._v(" "), _c('td', [_vm._v("第一个参数为回掉参数")]), _vm._v(" "), _c('td', [_vm._v("(done) => {}")])])])])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('span', {
-    staticClass: "hljs-tag"
-  }, [_vm._v("<"), _c('span', {
-    staticClass: "hljs-name"
-  }, [_vm._v("iRollBar")]), _vm._v(" "), _c('span', {
-    staticClass: "hljs-attr"
-  }, [_vm._v("class")]), _vm._v("="), _c('span', {
-    staticClass: "hljs-string"
-  }, [_vm._v("\"roll-bar\"")]), _vm._v(" "), _c('span', {
-    staticClass: "hljs-attr"
-  }, [_vm._v("tag")]), _vm._v("="), _c('span', {
-    staticClass: "hljs-string"
-  }, [_vm._v("\"ul\"")]), _vm._v(" "), _c('span', {
-    staticClass: "hljs-attr"
-  }, [_vm._v(":rollIng")]), _vm._v("="), _c('span', {
-    staticClass: "hljs-string"
-  }, [_vm._v("\"roll\"")]), _vm._v(" "), _c('span', {
-    staticClass: "hljs-attr"
-  }, [_vm._v("showBar")]), _vm._v(">")])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('span', {
-    staticClass: "hljs-tag"
-  }, [_vm._v("<"), _c('span', {
-    staticClass: "hljs-name"
-  }, [_vm._v("li")]), _vm._v(" "), _c('span', {
-    staticClass: "hljs-attr"
-  }, [_vm._v("v-for")]), _vm._v("="), _c('span', {
-    staticClass: "hljs-string"
-  }, [_vm._v("\"(item,idx) in items\"")]), _vm._v(" "), _c('span', {
-    staticClass: "hljs-attr"
-  }, [_vm._v(":key")]), _vm._v("="), _c('span', {
-    staticClass: "hljs-string"
-  }, [_vm._v("\"idx\"")]), _vm._v(">")])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('span', {
-    staticClass: "hljs-tag"
-  }, [_vm._v("</"), _c('span', {
-    staticClass: "hljs-name"
-  }, [_vm._v("li")]), _vm._v(">")])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('span', {
-    staticClass: "hljs-tag"
-  }, [_vm._v("</"), _c('span', {
-    staticClass: "hljs-name"
-  }, [_vm._v("iRollBar")]), _vm._v(">")])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('span', {
-    staticClass: "hljs-tag"
-  }, [_vm._v("<"), _c('span', {
-    staticClass: "hljs-name"
-  }, [_vm._v("script")]), _vm._v(">")])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('span', {
-    staticClass: "javascript"
-  }, [_vm._v("\n  "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("import")]), _vm._v(" iRollBar "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("from")]), _vm._v(" "), _c('span', {
-    staticClass: "hljs-string"
-  }, [_vm._v("'i-ui/lib/iRollBar'")]), _vm._v("\n  "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("export")]), _vm._v(" "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("default")]), _vm._v(" {\n    "), _c('span', {
-    staticClass: "hljs-attr"
-  }, [_vm._v("components")]), _vm._v(": {\n      iRollBar\n    },\n    "), _c('span', {
-    staticClass: "hljs-attr"
-  }, [_vm._v("name")]), _vm._v(": "), _c('span', {
-    staticClass: "hljs-string"
-  }, [_vm._v("'i-roll-bar'")]), _vm._v(",\n    data() {\n      "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("return")]), _vm._v(" {\n        "), _c('span', {
-    staticClass: "hljs-attr"
-  }, [_vm._v("items")]), _vm._v(": []\n      }\n    },\n    created() {\n      "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("for")]), _vm._v(" ("), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("var")]), _vm._v(" idx = "), _c('span', {
-    staticClass: "hljs-number"
-  }, [_vm._v("0")]), _vm._v("; idx <= "), _c('span', {
-    staticClass: "hljs-number"
-  }, [_vm._v("35")]), _vm._v("; idx++) {\n        "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("this")]), _vm._v(".items.push(idx)\n      }\n    },\n    "), _c('span', {
-    staticClass: "hljs-attr"
-  }, [_vm._v("methods")]), _vm._v(": {\n      roll(done) {\n        "), _c('span', {
-    staticClass: "hljs-built_in"
-  }, [_vm._v("console")]), _vm._v(".log("), _c('span', {
-    staticClass: "hljs-built_in"
-  }, [_vm._v("Date")]), _vm._v(".now())\n        "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("for")]), _vm._v(" ("), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("var")]), _vm._v(" idx = "), _c('span', {
-    staticClass: "hljs-number"
-  }, [_vm._v("0")]), _vm._v("; idx <= "), _c('span', {
-    staticClass: "hljs-number"
-  }, [_vm._v("10")]), _vm._v("; idx++) {\n          "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("this")]), _vm._v(".items.push(idx)\n        }\n        done()\n      }\n    }\n  }\n\n")])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('span', {
-    staticClass: "hljs-tag"
-  }, [_vm._v("</"), _c('span', {
-    staticClass: "hljs-name"
-  }, [_vm._v("script")]), _vm._v(">")])
-}]}
-
-/***/ }),
-/* 61 */
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('section', [_c('h2', [_vm._v("图片选择")]), _vm._v(" "), _c('p', [_c('canvas', {
     ref: "result",
     staticClass: "result"
@@ -5748,7 +5613,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 }]}
 
 /***/ }),
-/* 62 */
+/* 61 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -5821,6 +5686,141 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v("</"), _c('span', {
     staticClass: "hljs-name"
   }, [_vm._v("script")]), _vm._v(">")]), _vm._v("\n")])])
+}]}
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('section', [
+    [_c('article', [_c('h3', [_vm._v("props")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('iRollBar', {
+      staticClass: "roll-bar",
+      attrs: {
+        "tag": "ul",
+        "rollIng": _vm.roll,
+        "showBar": ""
+      }
+    }, _vm._l((_vm.items), function(item, idx) {
+      return _c('li', {
+        key: idx
+      }, [_vm._v(_vm._s(item))])
+    }))], 1)], _vm._v(" "), _c('h2', [_vm._v("aaa")]), _vm._v(" "), _c('pre', [_c('code', {
+      staticClass: "hljs language-html"
+    }, [_vm._m(1), _vm._v("\n  "), _vm._m(2), _vm._v(_vm._s(_vm.item)), _vm._m(3), _vm._v("\n"), _vm._m(4), _vm._v("\n"), _vm._m(5), _vm._m(6), _vm._m(7), _vm._v("\n")])])
+  ], 2)
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('table', {
+    staticClass: "bordered responsive-table"
+  }, [_c('thead', [_c('th', [_vm._v("属性")]), _vm._v(" "), _c('th', [_vm._v("说明")]), _vm._v(" "), _c('th', [_vm._v("类型")]), _vm._v(" "), _c('th', [_vm._v("说明")]), _vm._v(" "), _c('th', [_vm._v("默认值")])]), _vm._v(" "), _c('tbody', [_c('tr', [_c('td', [_vm._v("tag")]), _vm._v(" "), _c('td', [_vm._v("转换的标签")]), _vm._v(" "), _c('td', [_vm._v("String")]), _vm._v(" "), _c('td'), _vm._v(" "), _c('td', [_vm._v("div")])]), _vm._v(" "), _c('tr', [_c('td', [_vm._v("showBar")]), _vm._v(" "), _c('td', [_vm._v("显示滚动条")]), _vm._v(" "), _c('td', [_vm._v("String")]), _vm._v(" "), _c('td', [_vm._v("当不写的时候不显示")]), _vm._v(" "), _c('td', [_vm._v("undefind")])]), _vm._v(" "), _c('tr', [_c('td', [_vm._v("rollIng")]), _vm._v(" "), _c('td', [_vm._v("滚动事件")]), _vm._v(" "), _c('td', [_vm._v("Function")]), _vm._v(" "), _c('td', [_vm._v("第一个参数为回掉参数")]), _vm._v(" "), _c('td', [_vm._v("(done) => {}")])])])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "hljs-tag"
+  }, [_vm._v("<"), _c('span', {
+    staticClass: "hljs-name"
+  }, [_vm._v("iRollBar")]), _vm._v(" "), _c('span', {
+    staticClass: "hljs-attr"
+  }, [_vm._v("class")]), _vm._v("="), _c('span', {
+    staticClass: "hljs-string"
+  }, [_vm._v("\"roll-bar\"")]), _vm._v(" "), _c('span', {
+    staticClass: "hljs-attr"
+  }, [_vm._v("tag")]), _vm._v("="), _c('span', {
+    staticClass: "hljs-string"
+  }, [_vm._v("\"ul\"")]), _vm._v(" "), _c('span', {
+    staticClass: "hljs-attr"
+  }, [_vm._v(":rollIng")]), _vm._v("="), _c('span', {
+    staticClass: "hljs-string"
+  }, [_vm._v("\"roll\"")]), _vm._v(" "), _c('span', {
+    staticClass: "hljs-attr"
+  }, [_vm._v("showBar")]), _vm._v(">")])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "hljs-tag"
+  }, [_vm._v("<"), _c('span', {
+    staticClass: "hljs-name"
+  }, [_vm._v("li")]), _vm._v(" "), _c('span', {
+    staticClass: "hljs-attr"
+  }, [_vm._v("v-for")]), _vm._v("="), _c('span', {
+    staticClass: "hljs-string"
+  }, [_vm._v("\"(item,idx) in items\"")]), _vm._v(" "), _c('span', {
+    staticClass: "hljs-attr"
+  }, [_vm._v(":key")]), _vm._v("="), _c('span', {
+    staticClass: "hljs-string"
+  }, [_vm._v("\"idx\"")]), _vm._v(">")])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "hljs-tag"
+  }, [_vm._v("</"), _c('span', {
+    staticClass: "hljs-name"
+  }, [_vm._v("li")]), _vm._v(">")])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "hljs-tag"
+  }, [_vm._v("</"), _c('span', {
+    staticClass: "hljs-name"
+  }, [_vm._v("iRollBar")]), _vm._v(">")])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "hljs-tag"
+  }, [_vm._v("<"), _c('span', {
+    staticClass: "hljs-name"
+  }, [_vm._v("script")]), _vm._v(">")])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "javascript"
+  }, [_vm._v("\n  "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("import")]), _vm._v(" iRollBar "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("from")]), _vm._v(" "), _c('span', {
+    staticClass: "hljs-string"
+  }, [_vm._v("'i-ui/lib/iRollBar'")]), _vm._v("\n  "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("export")]), _vm._v(" "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("default")]), _vm._v(" {\n    "), _c('span', {
+    staticClass: "hljs-attr"
+  }, [_vm._v("components")]), _vm._v(": {\n      iRollBar\n    },\n    "), _c('span', {
+    staticClass: "hljs-attr"
+  }, [_vm._v("name")]), _vm._v(": "), _c('span', {
+    staticClass: "hljs-string"
+  }, [_vm._v("'i-roll-bar'")]), _vm._v(",\n    data() {\n      "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("return")]), _vm._v(" {\n        "), _c('span', {
+    staticClass: "hljs-attr"
+  }, [_vm._v("items")]), _vm._v(": []\n      }\n    },\n    created() {\n      "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("for")]), _vm._v(" ("), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("var")]), _vm._v(" idx = "), _c('span', {
+    staticClass: "hljs-number"
+  }, [_vm._v("0")]), _vm._v("; idx <= "), _c('span', {
+    staticClass: "hljs-number"
+  }, [_vm._v("35")]), _vm._v("; idx++) {\n        "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("this")]), _vm._v(".items.push(idx)\n      }\n    },\n    "), _c('span', {
+    staticClass: "hljs-attr"
+  }, [_vm._v("methods")]), _vm._v(": {\n      roll(done) {\n        "), _c('span', {
+    staticClass: "hljs-built_in"
+  }, [_vm._v("console")]), _vm._v(".log("), _c('span', {
+    staticClass: "hljs-built_in"
+  }, [_vm._v("Date")]), _vm._v(".now())\n        "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("for")]), _vm._v(" ("), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("var")]), _vm._v(" idx = "), _c('span', {
+    staticClass: "hljs-number"
+  }, [_vm._v("0")]), _vm._v("; idx <= "), _c('span', {
+    staticClass: "hljs-number"
+  }, [_vm._v("10")]), _vm._v("; idx++) {\n          "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("this")]), _vm._v(".items.push(idx)\n        }\n        done()\n      }\n    }\n  }\n\n")])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "hljs-tag"
+  }, [_vm._v("</"), _c('span', {
+    staticClass: "hljs-name"
+  }, [_vm._v("script")]), _vm._v(">")])
 }]}
 
 /***/ }),
@@ -6190,19 +6190,19 @@ module.exports = __webpack_require__(41);
 /* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(45);
+module.exports = __webpack_require__(44);
 
 /***/ }),
 /* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(44);
+module.exports = __webpack_require__(46);
 
 /***/ }),
 /* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(46);
+module.exports = __webpack_require__(45);
 
 /***/ }),
 /* 79 */
