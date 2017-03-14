@@ -5,7 +5,7 @@ import MarkDownIt from 'markdown-it'
 export const assetsPath = dir => join(__dirname, '../..', dir)
 
 export const aliasObject = Object.assign({}, {
-  // 'vue': 'vue/vue.runtime.common.js',
+  'iConfig': assetsPath('src/iConfig.example.js'),
   'i-ui/src': assetsPath('src'),
   'i-ui/lib': assetsPath('packages')
 })

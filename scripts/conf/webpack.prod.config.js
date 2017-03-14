@@ -4,9 +4,12 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import { env } from './utils'
 import Components from '../../components.json'
+import directives from '../../directives.json'
 
 const cfg = new Config().extend('scripts/conf/webpack.base.config.js').merge({
   entry: Components
+}).merge({
+  entry: directives
 }).merge({
   entry: {
     index: ['./src/components.js']

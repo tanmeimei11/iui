@@ -1,22 +1,19 @@
-import About from './views/About.vue'
-import iAudio from './views/iAudio.vue'
-import iAvatar from './views/iAvatar.vue'
-import iRollBar from './views/iRollBar.vue'
-import iBarrage from './views/iBarrage.vue'
-import iImgUpload from './views/iImgUpload.vue'
-import iTrack from './views/iTrack.vue'
-import changeLog from './views/changeLog.vue'
+import install from './md/install.md'
+import iAudio from 'i-ui/lib/iAudio/README.md'
+import iAvatar from 'i-ui/lib/iAvatar/README.md'
+import IBarrage from 'i-ui/lib/IBarrage/README.md'
+import iImgUpload from 'i-ui/lib/iImgUpload/README.md'
+import iRollBar from 'i-ui/lib/iRollBar/README.md'
 
-// https://material.io/icons/
-// https://ccforward.github.io/rubik/#/
+// https://www.iviewui.com/components/icon
 
-export const routes = [{ name: 'home', path: '/', component: About },
-    {name: 'about', path: '/about', component: About},
-    {name: 'changeLog', path: '/changeLog', component: changeLog},
-    {name: 'iAudio', path: '/iAudio', component: iAudio, type: 'components', icon: 'music_note', txt: '音乐自动播放'},
-    {name: 'iAvatar', path: '/iAvatar', component: iAvatar, type: 'components', icon: 'face', txt: '头像'},
-    {name: 'iRollBar', path: '/iRollBar', component: iRollBar, type: 'components', icon: 'more_vert', txt: '滚动加载'},
-    {name: 'iBarrage', path: '/iBarrage', component: iBarrage, type: 'components', icon: 'subtitles', txt: '弹幕滚动'},
-    {name: 'iImgUpload', path: '/iImgUpload', component: iImgUpload, type: 'components', icon: 'file_upload', txt: '图片选择'},
-    {name: 'iTrack', path: '/iTrack', component: iTrack, type: 'directives', icon: 'leak_add', txt: '埋点'}
+const routes = [
+{path: '/', redirect: '/install'},
+{ name: 'install', path: '/install', component: install },
+{name: 'iAudio', path: '/iAudio', component: iAudio, type: 'components', icon: 'music-note', txt: '音乐播放'},
+{name: 'iAvatar', path: '/iAvatar', component: iAvatar, type: 'components', icon: 'android-happy', txt: '头像'},
+{name: 'IBarrage', path: '/IBarrage', component: IBarrage, type: 'components', icon: 'android-happy', txt: '弹幕'},
+{name: 'iImgUpload', path: '/iImgUpload', component: iImgUpload, type: 'components', icon: 'image', txt: '图片选择'},
+{name: 'iRollBar', path: '/iRollBar', component: iRollBar, type: 'components', icon: 'image', txt: '滚动加载'}
 ]
+export default routes

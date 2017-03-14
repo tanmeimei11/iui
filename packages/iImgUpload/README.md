@@ -6,7 +6,7 @@
 </i-button>
 <br />
 <script>
-  import iImgUpload from 'i-ui/lib/iImgUpload/src/index.vue'
+  import iImgUpload from 'i-ui/lib/iImgUpload'
   export default {
     components: {
       iImgUpload

@@ -3,17 +3,14 @@
   "version": "0.1.3",
   "description": "vue components",
   "author": "all <all@in66.com>",
-  "main": "dist/iui.min.js",
+  "main": "lib/index.js",
   "repository": "http://githost.in66.cc/maifei/iui/tree/master",
   "scripts": {
     "start": "npm run dev",
-    "dev": "node build/dev-server.js",
-    "build": "node build/build.dist.js",
-    "build:demo": "node build/build.example.js",
-    "dev1": "node scripts/dev-server.js",
-    "lib1": "node scripts/build-entry.js && node scripts/build.js",
-    "demo1": "node scripts/build.demo.js",
-    "build1": "npm run demo1 && npm run lib1",
+    "dev": "node scripts/dev-server.js",
+    "lib": "node scripts/build-entry.js && node scripts/build.js",
+    "demo": "node scripts/build.demo.js",
+    "build": "npm run demo && npm run lib",
     "release": "gulp npm:publish"
   },
   "keywords": [

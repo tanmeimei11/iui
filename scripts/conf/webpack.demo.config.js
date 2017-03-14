@@ -2,9 +2,12 @@ import webpack from 'webpack'
 import Config from 'webpack-config'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
-import { env } from './utils'
-
+import { env, assetsPath } from './utils'
 const cfg = new Config().extend('scripts/conf/webpack.dev.config.js').merge({
+  output: {
+    path: assetsPath('dist'),
+    filename: 'assets/[name].js'
+  },
   plugins: [
     new webpack.EnvironmentPlugin({
       NODE_ENV: JSON.stringify('production'),
@@ -14,11 +17,8 @@ const cfg = new Config().extend('scripts/conf/webpack.dev.config.js').merge({
       minimize: false,
       debug: false
     }),
-    // new webpack.optimize.UglifyJsPlugin({
-    //   beautify: true
-    // }),
     new ExtractTextPlugin({
-      filename: 'theme-default/[name].css'
+      filename: 'assets/[name].css'
     })
   ]
 })

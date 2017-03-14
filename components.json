@@ -1,3 +1,7 @@
 {
-  "iImgUpload": "./packages/iImgUpload/index.js"
+  "iAudio": "./packages/iAudio/index.js",
+  "iAvatar": "./packages/iAvatar/index.js",
+  "IBarrage": "./packages/IBarrage/index.js",
+  "iImgUpload": "./packages/iImgUpload/index.js",
+  "iRollBar": "./packages/iRollBar/index.js"
 }

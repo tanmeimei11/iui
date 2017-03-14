@@ -1,167 +1,81 @@
 <template>
-  <div id="app" class="wrapper">
-    <r-row class="wrapper-container">
-      <r-col xs2 class="wrapper-navigate">
-        <Navigator />
-      </r-col>
-      <r-col xs10>
+  <div id="app" class="wrapper-container">
+    <Row type="flex">
+      <i-col :span="4">
+        <Menu theme="light" class="wrapper-navigate" :active-name="activeName" width="auto" @on-select="select">
+          <Menu-group title="关于">
+            <Menu-item name="/install">安装</Menu-item>
+          </Menu-group>
+          <Menu-group title="组件">
+            <Menu-item :name="component.path" v-for="(component, idx) in components">
+              <Icon :type="component.icon"></Icon>{{component.txt}}
+            </Menu-item>
+          </Menu-group>
+          <Menu-group title="指令">
+            <Menu-item :name="directive.path" v-for="(directive, idx) in directives">
+              <Icon :type="directive.icon"></Icon>{{directive.txt}}
+            </Menu-item>
+          </Menu-group>
+        </Menu>
+      </i-col>
+      <i-col :span="20">
         <transition name="fade" mode="out-in">
           <router-view class="wrapper-content"></router-view>
         </transition>
-      </r-col>
-    </r-row>
-  </div>
+      </i-col>
+    </Row>
 </template>
 
 <script>
-import Navigator from './components/Navigator.vue'
-export default {
-  name: 'app',
-  data () {
-    return {
-      loaded: false,
-      loadClass: 'load'
+  import routes from './routes'
+  export default {
+    name: 'app',
+    data () {
+      let _data = {
+        activeName: '/install',
+        components: [],
+        directives: []
+      }
+      routes.forEach(router => {
+        if (router.type) {
+          _data[`${router.type}`].push({
+            path: router.path,
+            icon: router.icon,
+            txt: router.txt
+          })
+        }
+      })
+      return _data
+    },
+    created () {
+      this.activeName = this.$route.path
+    },
+    methods: {
+      select (key) {
+        this.$router.push(key)
+      }
     }
-  },
-  components: {
-    Navigator
-  },
-  mounted () {
-    this.$rubik.init()
-    setTimeout(() => {
-      this.loaded = true
-    }, 150)
   }
-}
+
 </script>
-
-<style lang="stylus">
-  @import './style/common.styl'
-
-  .wrapper {
-    background #eee
-    padding 1px
-    .logo {
-      margin 10px auto
-      height 80px
-      text-align center
-      img {
-        width 80px
-        transition all .7s cubic-bezier(0, 0.51, 0.69, 1.15)
-        transform rotate(0) scale(10)
-        transform-origin center center
-        opacity 0
-        &.load {
-          transform rotate(1080deg) scale(1)
-          opacity 1
-        }
-      }
-    }
-    .ui-name {
-      font-size 2.2rem
-      text-align center
-      i {
-        font-style normal
-        &:nth-child(1){
-          color #f06
-        }
-        &:nth-child(2){
-          color #0089ce
-        }
-        &:nth-child(3){
-          color #f1d800
-        }
-        &:nth-child(4){
-          color #00d39a
-        }
-        &:nth-child(5){
-          color #94e827
-        }
-        
-      }
-    }
-    .wrapper-container {
-      background #fcfcfc
-      width 90%
-      margin 10px auto 20px
-      border-radius 6px
-      box-shadow 0 1px 1px 0 rgba(0,0,0,.1)
-      overflow hidden
-    }
-
-    .wrapper-content {
-      padding 20px
-      
-      // h1 {
-      //   margin-bottom 15px
-      // }
-      // h2 {
-      //   margin 15px 0
-      // }
-      // h3 {
-      //   margin 1rem 0
-      // }
-      .demo-link {
-        font-size 1rem
-        color $txt-green
-        &:hover {
-          text-decoration underline
-        }
-      }
-      table {
-        margin-bottom 30px
-      }
-      code {
-        width 100%
-        margin-bottom 20px
-        background #e1e1e1
-        font-size 1rem
-        transition all .5s ease
-        &:hover {
-          box-shadow 0 6px 10px 0 rgba(0,0,0,0.14), 0 1px 18px 0 rgba(0,0,0,0.12), 0 3px 5px -1px rgba(0,0,0,0.3)
-        }
-      }
-    }
+<style lang="scss">
+  body {
+    background: #eee !important;
+    padding: 1px;
   }
 
-  @media (max-width: 600px) {
-    .wrapper {
-      .logo {
-        margin 10px 0
-        height 40px
-        img {
-          width 40px
-        }
-      }
-      .ui-name {
-        font-size 1.7rem
-      }
-      .wrapper-container {
-        width 98%
-        margin 15px 0 10px
-      }
-      .wrapper-navigate {
-        li {
-          text-align center
-          div {
-            font-size 13.5px
-            text-align left
-          }
-          a {
-            padding-left 5px
-            font-size 12px
-            .icon {
-              margin auto
-              width 20px
-            }
-            span {
-              display none
-            }
-          }
-        }
-      }
-      
-    }
+  .wrapper-container {
+    background: #fff;
+    width: 90%;
+    margin: 30px auto 20px;
+    border-radius: 6px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
   }
-
+  .wrapper-navigate {
+    height: 100%;
+  }
+  .wrapper-content {
+    padding: 20px 25px;
+    position: relative;
+  }
 </style>
