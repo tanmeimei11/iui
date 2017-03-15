@@ -24,13 +24,4 @@ if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue)
 }
 
-module.exports = {
-  version: '0.1.3',
-  install,
-  iAudio,
-  iAvatar,
-  IBarrage,
-  iImgUpload,
-  iRollBar,
-  iTrack
-}
+

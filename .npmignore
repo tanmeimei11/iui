@@ -8,6 +8,9 @@ example
 test
 scripts
 
+components.json
+directives.json
+
 # online demo folder
 dist
 

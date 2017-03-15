@@ -4,6 +4,7 @@ import {
   cyan
 } from 'chalk'
 import cfg from './conf/webpack.prod.config'
+import cfgumd from './conf/webpack.produmd.config'
 
 // console.log(process.env.npm_config_dir)
 
@@ -20,4 +21,17 @@ webpack(cfg, function (err, stats) {
     chunkModules: false
   }) + '\n\n')
   console.log(cyan('  Build complete.\n'))
+
+  webpack(cfgumd, function (err, stats) {
+    if (err) throw err
+    process.stdout.write(stats.toString({
+      colors: true,
+      modules: false,
+      children: false,
+      chunks: false,
+      chunkModules: false
+    }) + '\n\n')
+    console.log(cyan('  Build umd complete.\n'))
+  })
+
 })

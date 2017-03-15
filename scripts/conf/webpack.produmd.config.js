@@ -3,20 +3,13 @@ import Config from 'webpack-config'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import { env } from './utils'
-import Components from '../../components.json'
-import directives from '../../directives.json'
 
 const cfg = new Config().extend('scripts/conf/webpack.base.config.js').merge({
-  entry: Components
-}).merge({
-  entry: directives
-}).merge({
   entry: {
-    'i-ui.common': ['./src/components.js'],
-    base: ['./src/scss/base.scss']
+    'index': ['./src/components.js']
   },
   output: {
-    libraryTarget: 'commonjs-module'
+    libraryTarget: 'umd'
   },
   plugins: [
     new webpack.EnvironmentPlugin({
@@ -27,8 +20,19 @@ const cfg = new Config().extend('scripts/conf/webpack.base.config.js').merge({
       minimize: false,
       debug: false
     }),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   beautify: false,
+    //   mangle: {
+    //     screw_ie8: true,
+    //     keep_fnames: true
+    //   },
+    //   compress: {
+    //     screw_ie8: true
+    //   },
+    //   comments: false
+    // }),
     new ExtractTextPlugin({ 
-      filename:  getPath =>getPath('theme-default/[name].css').replace('i-ui.common', 'index')
+      filename: 'theme-default/index.css'
     })
   ]
 })

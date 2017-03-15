@@ -1149,6 +1149,279 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_i_ui_lib_iImgUpload__ = __webpack_require__(23);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = {
+  components: {
+    iImgUpload: __WEBPACK_IMPORTED_MODULE_0_i_ui_lib_iImgUpload__["a" /* default */]
+  },
+  mounted: function mounted() {
+    this.$refs.result.width = this.$refs.result.height = 300;
+    this.ctx = this.$refs.result.getContext('2d');
+  },
+
+  methods: {
+    error: function error() {},
+    progress: function progress() {},
+    showResult: function showResult(img) {
+      var height = 300;
+      var width = 300;
+      var rh = img.naturalHeight || img.height;
+      var rw = img.naturalWidth || img.width;
+      var ratio = 1;
+      this.ctx.fillStyle = '#fff';
+      this.ctx.fillRect(0, 0, height, width);
+      this.ctx.save();
+      if (height == null) {
+        height = width * rh / rw;
+        ratio = width / rw;
+      } else if (width == null) {
+        width = height * rw / rh;
+        ratio = height / rh;
+      } else {
+        ratio = Math.max(height / rh, width / rw);
+      }
+      // 画图片
+      this.ctx.translate(width / 2, height / 2);
+      this.ctx.scale(ratio, ratio);
+      this.ctx.drawImage(img, 0, 0, rw, rh, -rw / 2, -rh / 2, rw, rh);
+      this.ctx.restore();
+    }
+  }
+};
+
+/***/ }),
+/* 9 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_i_ui_lib_iRollBar__ = __webpack_require__(24);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = {
+  components: {
+    iRollBar: __WEBPACK_IMPORTED_MODULE_0_i_ui_lib_iRollBar__["a" /* default */]
+  },
+  name: 'i-roll-bar',
+  data: function data() {
+    return {
+      items: []
+    };
+  },
+  created: function created() {
+    for (var idx = 0; idx <= 35; idx++) {
+      this.items.push(idx);
+    }
+  },
+
+  methods: {
+    roll: function roll(done) {
+      console.log(Date.now());
+      for (var idx = 0; idx <= 10; idx++) {
+        this.items.push(idx);
+      }
+      done();
+    }
+  }
+};
+
+/***/ }),
+/* 10 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_i_ui_lib_iTrack__ = __webpack_require__(25);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = {
+  directives: {
+    iTrack: __WEBPACK_IMPORTED_MODULE_0_i_ui_lib_iTrack__["a" /* default */]
+  },
+  name: 'i-track',
+  data: function data() {
+    return {
+      trackMessage: 'example*test*track?a=b&c=d'
+    };
+  }
+};
+
+/***/ }),
+/* 11 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_i_ui_lib_iBarrage__ = __webpack_require__(22);
 //
 //
@@ -1365,279 +1638,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         speed: Math.random() + 1,
         time: 1
       });
-    }
-  }
-};
-
-/***/ }),
-/* 9 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_i_ui_lib_iImgUpload__ = __webpack_require__(23);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-/* harmony default export */ __webpack_exports__["default"] = {
-  components: {
-    iImgUpload: __WEBPACK_IMPORTED_MODULE_0_i_ui_lib_iImgUpload__["a" /* default */]
-  },
-  mounted: function mounted() {
-    this.$refs.result.width = this.$refs.result.height = 300;
-    this.ctx = this.$refs.result.getContext('2d');
-  },
-
-  methods: {
-    error: function error() {},
-    progress: function progress() {},
-    showResult: function showResult(img) {
-      var height = 300;
-      var width = 300;
-      var rh = img.naturalHeight || img.height;
-      var rw = img.naturalWidth || img.width;
-      var ratio = 1;
-      this.ctx.fillStyle = '#fff';
-      this.ctx.fillRect(0, 0, height, width);
-      this.ctx.save();
-      if (height == null) {
-        height = width * rh / rw;
-        ratio = width / rw;
-      } else if (width == null) {
-        width = height * rw / rh;
-        ratio = height / rh;
-      } else {
-        ratio = Math.max(height / rh, width / rw);
-      }
-      // 画图片
-      this.ctx.translate(width / 2, height / 2);
-      this.ctx.scale(ratio, ratio);
-      this.ctx.drawImage(img, 0, 0, rw, rh, -rw / 2, -rh / 2, rw, rh);
-      this.ctx.restore();
-    }
-  }
-};
-
-/***/ }),
-/* 10 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_i_ui_lib_iTrack__ = __webpack_require__(25);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-/* harmony default export */ __webpack_exports__["default"] = {
-  directives: {
-    iTrack: __WEBPACK_IMPORTED_MODULE_0_i_ui_lib_iTrack__["a" /* default */]
-  },
-  name: 'i-track',
-  data: function data() {
-    return {
-      trackMessage: 'example*test*track?a=b&c=d'
-    };
-  }
-};
-
-/***/ }),
-/* 11 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_i_ui_lib_iRollBar__ = __webpack_require__(24);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-/* harmony default export */ __webpack_exports__["default"] = {
-  components: {
-    iRollBar: __WEBPACK_IMPORTED_MODULE_0_i_ui_lib_iRollBar__["a" /* default */]
-  },
-  name: 'i-roll-bar',
-  data: function data() {
-    return {
-      items: []
-    };
-  },
-  created: function created() {
-    for (var idx = 0; idx <= 35; idx++) {
-      this.items.push(idx);
-    }
-  },
-
-  methods: {
-    roll: function roll(done) {
-      console.log(Date.now());
-      for (var idx = 0; idx <= 10; idx++) {
-        this.items.push(idx);
-      }
-      done();
     }
   }
 };
@@ -5148,6 +5148,394 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('section', [_c('h2', [_vm._v("图片选择")]), _vm._v(" "), _c('p', [_c('canvas', {
+    ref: "result",
+    staticClass: "result"
+  }), _c('br'), _vm._v(" "), _c('br'), _c('br'), _vm._v(" "), _c('i-button', {
+    attrs: {
+      "type": "primary"
+    }
+  }, [_vm._v("选择图片"), _c('br'), _vm._v(" "), _c('iImgUpload', {
+    on: {
+      "error": _vm.error,
+      "progress": _vm.progress,
+      "done": _vm.showResult
+    }
+  }, [_c('br')])], 1), _c('br'), _vm._v(" "), _c('br')], 1), _vm._v(" "), _c('h2', [_vm._v("代码")]), _vm._v(" "), _vm._m(0)])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('pre', [_c('code', {
+    staticClass: "hljs language-html"
+  }, [_c('span', {
+    staticClass: "hljs-tag"
+  }, [_vm._v("<"), _c('span', {
+    staticClass: "hljs-name"
+  }, [_vm._v("canvas")]), _vm._v(" "), _c('span', {
+    staticClass: "hljs-attr"
+  }, [_vm._v("class")]), _vm._v("="), _c('span', {
+    staticClass: "hljs-string"
+  }, [_vm._v("\"result\"")]), _vm._v(" "), _c('span', {
+    staticClass: "hljs-attr"
+  }, [_vm._v("ref")]), _vm._v("="), _c('span', {
+    staticClass: "hljs-string"
+  }, [_vm._v("\"result\"")]), _vm._v(">")]), _c('span', {
+    staticClass: "hljs-tag"
+  }, [_vm._v("</"), _c('span', {
+    staticClass: "hljs-name"
+  }, [_vm._v("canvas")]), _vm._v(">")]), _vm._v("\n"), _c('span', {
+    staticClass: "hljs-tag"
+  }, [_vm._v("<"), _c('span', {
+    staticClass: "hljs-name"
+  }, [_vm._v("br")]), _vm._v(" />")]), _vm._v("\n"), _c('span', {
+    staticClass: "hljs-tag"
+  }, [_vm._v("<"), _c('span', {
+    staticClass: "hljs-name"
+  }, [_vm._v("i-button")]), _vm._v(" "), _c('span', {
+    staticClass: "hljs-attr"
+  }, [_vm._v("type")]), _vm._v("="), _c('span', {
+    staticClass: "hljs-string"
+  }, [_vm._v("\"primary\"")]), _vm._v(">")]), _vm._v("选择图片\n  "), _c('span', {
+    staticClass: "hljs-tag"
+  }, [_vm._v("<"), _c('span', {
+    staticClass: "hljs-name"
+  }, [_vm._v("iImgUpload")]), _vm._v(" "), _c('span', {
+    staticClass: "hljs-attr"
+  }, [_vm._v("@error")]), _vm._v("="), _c('span', {
+    staticClass: "hljs-string"
+  }, [_vm._v("\"error\"")]), _vm._v(" "), _c('span', {
+    staticClass: "hljs-attr"
+  }, [_vm._v("@progress")]), _vm._v("="), _c('span', {
+    staticClass: "hljs-string"
+  }, [_vm._v("\"progress\"")]), _vm._v(" "), _c('span', {
+    staticClass: "hljs-attr"
+  }, [_vm._v("@done")]), _vm._v("="), _c('span', {
+    staticClass: "hljs-string"
+  }, [_vm._v("\"showResult\"")]), _vm._v(" />")]), _vm._v("\n"), _c('span', {
+    staticClass: "hljs-tag"
+  }, [_vm._v("</"), _c('span', {
+    staticClass: "hljs-name"
+  }, [_vm._v("i-button")]), _vm._v(">")]), _vm._v("\n"), _c('span', {
+    staticClass: "hljs-tag"
+  }, [_vm._v("<"), _c('span', {
+    staticClass: "hljs-name"
+  }, [_vm._v("br")]), _vm._v(" />")]), _vm._v("\n"), _c('span', {
+    staticClass: "hljs-tag"
+  }, [_vm._v("<"), _c('span', {
+    staticClass: "hljs-name"
+  }, [_vm._v("script")]), _vm._v(">")]), _c('span', {
+    staticClass: "javascript"
+  }, [_vm._v("\n  "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("import")]), _vm._v(" iImgUpload "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("from")]), _vm._v(" "), _c('span', {
+    staticClass: "hljs-string"
+  }, [_vm._v("'i-ui/lib/iImgUpload/src/index.vue'")]), _vm._v("\n  "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("export")]), _vm._v(" "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("default")]), _vm._v(" {\n    "), _c('span', {
+    staticClass: "hljs-attr"
+  }, [_vm._v("components")]), _vm._v(": {\n      iImgUpload\n    },\n    mounted () {\n      "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("this")]), _vm._v(".$refs.result.width =\n      "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("this")]), _vm._v(".$refs.result.height = "), _c('span', {
+    staticClass: "hljs-number"
+  }, [_vm._v("300")]), _vm._v("\n      "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("this")]), _vm._v(".ctx = "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("this")]), _vm._v(".$refs.result.getContext("), _c('span', {
+    staticClass: "hljs-string"
+  }, [_vm._v("'2d'")]), _vm._v(")\n    },\n    "), _c('span', {
+    staticClass: "hljs-attr"
+  }, [_vm._v("methods")]), _vm._v(": {\n      error() {},\n      progress() {},\n      showResult(img) {\n        "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("var")]), _vm._v(" height = "), _c('span', {
+    staticClass: "hljs-number"
+  }, [_vm._v("300")]), _vm._v("\n        "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("var")]), _vm._v(" width = "), _c('span', {
+    staticClass: "hljs-number"
+  }, [_vm._v("300")]), _vm._v("\n        "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("var")]), _vm._v(" rh = img.naturalHeight || img.height\n        "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("var")]), _vm._v(" rw = img.naturalWidth || img.width\n        "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("var")]), _vm._v(" ratio = "), _c('span', {
+    staticClass: "hljs-number"
+  }, [_vm._v("1")]), _vm._v("\n        "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("this")]), _vm._v(".ctx.fillStyle = "), _c('span', {
+    staticClass: "hljs-string"
+  }, [_vm._v("'#fff'")]), _vm._v("\n        "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("this")]), _vm._v(".ctx.fillRect("), _c('span', {
+    staticClass: "hljs-number"
+  }, [_vm._v("0")]), _vm._v(", "), _c('span', {
+    staticClass: "hljs-number"
+  }, [_vm._v("0")]), _vm._v(", height, width)\n        "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("this")]), _vm._v(".ctx.save()\n        "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("if")]), _vm._v(" (height == "), _c('span', {
+    staticClass: "hljs-literal"
+  }, [_vm._v("null")]), _vm._v(") {\n          height = width * rh / rw\n          ratio = width / rw\n        } "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("else")]), _vm._v(" "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("if")]), _vm._v(" (width == "), _c('span', {
+    staticClass: "hljs-literal"
+  }, [_vm._v("null")]), _vm._v(") {\n          width = height * rw / rh\n          ratio = height / rh\n        } "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("else")]), _vm._v(" {\n          ratio = "), _c('span', {
+    staticClass: "hljs-built_in"
+  }, [_vm._v("Math")]), _vm._v(".max(height / rh, width / rw)\n        }\n        "), _c('span', {
+    staticClass: "hljs-comment"
+  }, [_vm._v("// 画图片")]), _vm._v("\n        "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("this")]), _vm._v(".ctx.translate(width / "), _c('span', {
+    staticClass: "hljs-number"
+  }, [_vm._v("2")]), _vm._v(", height / "), _c('span', {
+    staticClass: "hljs-number"
+  }, [_vm._v("2")]), _vm._v(")\n        "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("this")]), _vm._v(".ctx.scale(ratio, ratio)\n        "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("this")]), _vm._v(".ctx.drawImage(img, "), _c('span', {
+    staticClass: "hljs-number"
+  }, [_vm._v("0")]), _vm._v(", "), _c('span', {
+    staticClass: "hljs-number"
+  }, [_vm._v("0")]), _vm._v(", rw, rh, -rw / "), _c('span', {
+    staticClass: "hljs-number"
+  }, [_vm._v("2")]), _vm._v(", -rh / "), _c('span', {
+    staticClass: "hljs-number"
+  }, [_vm._v("2")]), _vm._v(", rw, rh)\n        "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("this")]), _vm._v(".ctx.restore()\n      }\n    }\n  }\n")]), _c('span', {
+    staticClass: "hljs-tag"
+  }, [_vm._v("</"), _c('span', {
+    staticClass: "hljs-name"
+  }, [_vm._v("script")]), _vm._v(">")]), _vm._v("\n\n")])])
+}]}
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('section', [
+    [_c('article', [_c('h3', [_vm._v("props")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('iRollBar', {
+      staticClass: "roll-bar",
+      attrs: {
+        "tag": "ul",
+        "rollIng": _vm.roll,
+        "showBar": ""
+      }
+    }, _vm._l((_vm.items), function(item, idx) {
+      return _c('li', {
+        key: idx
+      }, [_vm._v(_vm._s(item))])
+    }))], 1)], _vm._v(" "), _c('h2', [_vm._v("aaa")]), _vm._v(" "), _c('pre', [_c('code', {
+      staticClass: "hljs language-html"
+    }, [_vm._m(1), _vm._v("\n  "), _vm._m(2), _vm._v(_vm._s(_vm.item)), _vm._m(3), _vm._v("\n"), _vm._m(4), _vm._v("\n"), _vm._m(5), _vm._m(6), _vm._m(7), _vm._v("\n")])])
+  ], 2)
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('table', {
+    staticClass: "bordered responsive-table"
+  }, [_c('thead', [_c('th', [_vm._v("属性")]), _vm._v(" "), _c('th', [_vm._v("说明")]), _vm._v(" "), _c('th', [_vm._v("类型")]), _vm._v(" "), _c('th', [_vm._v("说明")]), _vm._v(" "), _c('th', [_vm._v("默认值")])]), _vm._v(" "), _c('tbody', [_c('tr', [_c('td', [_vm._v("tag")]), _vm._v(" "), _c('td', [_vm._v("转换的标签")]), _vm._v(" "), _c('td', [_vm._v("String")]), _vm._v(" "), _c('td'), _vm._v(" "), _c('td', [_vm._v("div")])]), _vm._v(" "), _c('tr', [_c('td', [_vm._v("showBar")]), _vm._v(" "), _c('td', [_vm._v("显示滚动条")]), _vm._v(" "), _c('td', [_vm._v("String")]), _vm._v(" "), _c('td', [_vm._v("当不写的时候不显示")]), _vm._v(" "), _c('td', [_vm._v("undefind")])]), _vm._v(" "), _c('tr', [_c('td', [_vm._v("rollIng")]), _vm._v(" "), _c('td', [_vm._v("滚动事件")]), _vm._v(" "), _c('td', [_vm._v("Function")]), _vm._v(" "), _c('td', [_vm._v("第一个参数为回掉参数")]), _vm._v(" "), _c('td', [_vm._v("(done) => {}")])])])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "hljs-tag"
+  }, [_vm._v("<"), _c('span', {
+    staticClass: "hljs-name"
+  }, [_vm._v("iRollBar")]), _vm._v(" "), _c('span', {
+    staticClass: "hljs-attr"
+  }, [_vm._v("class")]), _vm._v("="), _c('span', {
+    staticClass: "hljs-string"
+  }, [_vm._v("\"roll-bar\"")]), _vm._v(" "), _c('span', {
+    staticClass: "hljs-attr"
+  }, [_vm._v("tag")]), _vm._v("="), _c('span', {
+    staticClass: "hljs-string"
+  }, [_vm._v("\"ul\"")]), _vm._v(" "), _c('span', {
+    staticClass: "hljs-attr"
+  }, [_vm._v(":rollIng")]), _vm._v("="), _c('span', {
+    staticClass: "hljs-string"
+  }, [_vm._v("\"roll\"")]), _vm._v(" "), _c('span', {
+    staticClass: "hljs-attr"
+  }, [_vm._v("showBar")]), _vm._v(">")])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "hljs-tag"
+  }, [_vm._v("<"), _c('span', {
+    staticClass: "hljs-name"
+  }, [_vm._v("li")]), _vm._v(" "), _c('span', {
+    staticClass: "hljs-attr"
+  }, [_vm._v("v-for")]), _vm._v("="), _c('span', {
+    staticClass: "hljs-string"
+  }, [_vm._v("\"(item,idx) in items\"")]), _vm._v(" "), _c('span', {
+    staticClass: "hljs-attr"
+  }, [_vm._v(":key")]), _vm._v("="), _c('span', {
+    staticClass: "hljs-string"
+  }, [_vm._v("\"idx\"")]), _vm._v(">")])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "hljs-tag"
+  }, [_vm._v("</"), _c('span', {
+    staticClass: "hljs-name"
+  }, [_vm._v("li")]), _vm._v(">")])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "hljs-tag"
+  }, [_vm._v("</"), _c('span', {
+    staticClass: "hljs-name"
+  }, [_vm._v("iRollBar")]), _vm._v(">")])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "hljs-tag"
+  }, [_vm._v("<"), _c('span', {
+    staticClass: "hljs-name"
+  }, [_vm._v("script")]), _vm._v(">")])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "javascript"
+  }, [_vm._v("\n  "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("import")]), _vm._v(" iRollBar "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("from")]), _vm._v(" "), _c('span', {
+    staticClass: "hljs-string"
+  }, [_vm._v("'i-ui/lib/iRollBar'")]), _vm._v("\n  "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("export")]), _vm._v(" "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("default")]), _vm._v(" {\n    "), _c('span', {
+    staticClass: "hljs-attr"
+  }, [_vm._v("components")]), _vm._v(": {\n      iRollBar\n    },\n    "), _c('span', {
+    staticClass: "hljs-attr"
+  }, [_vm._v("name")]), _vm._v(": "), _c('span', {
+    staticClass: "hljs-string"
+  }, [_vm._v("'i-roll-bar'")]), _vm._v(",\n    data() {\n      "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("return")]), _vm._v(" {\n        "), _c('span', {
+    staticClass: "hljs-attr"
+  }, [_vm._v("items")]), _vm._v(": []\n      }\n    },\n    created() {\n      "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("for")]), _vm._v(" ("), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("var")]), _vm._v(" idx = "), _c('span', {
+    staticClass: "hljs-number"
+  }, [_vm._v("0")]), _vm._v("; idx <= "), _c('span', {
+    staticClass: "hljs-number"
+  }, [_vm._v("35")]), _vm._v("; idx++) {\n        "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("this")]), _vm._v(".items.push(idx)\n      }\n    },\n    "), _c('span', {
+    staticClass: "hljs-attr"
+  }, [_vm._v("methods")]), _vm._v(": {\n      roll(done) {\n        "), _c('span', {
+    staticClass: "hljs-built_in"
+  }, [_vm._v("console")]), _vm._v(".log("), _c('span', {
+    staticClass: "hljs-built_in"
+  }, [_vm._v("Date")]), _vm._v(".now())\n        "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("for")]), _vm._v(" ("), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("var")]), _vm._v(" idx = "), _c('span', {
+    staticClass: "hljs-number"
+  }, [_vm._v("0")]), _vm._v("; idx <= "), _c('span', {
+    staticClass: "hljs-number"
+  }, [_vm._v("10")]), _vm._v("; idx++) {\n          "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("this")]), _vm._v(".items.push(idx)\n        }\n        done()\n      }\n    }\n  }\n\n")])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "hljs-tag"
+  }, [_vm._v("</"), _c('span', {
+    staticClass: "hljs-name"
+  }, [_vm._v("script")]), _vm._v(">")])
+}]}
+
+/***/ }),
+/* 61 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('section', [
+    [_c('article', [_c('i-button', {
+      directives: [{
+        name: "iTrack",
+        rawName: "v-iTrack",
+        value: (_vm.trackMessage),
+        expression: "trackMessage"
+      }],
+      attrs: {
+        "type": "primary"
+      }
+    }, [_vm._v("click me")]), _vm._v(" "), _c('h3', [_vm._v("props")]), _vm._v(" "), _vm._m(0)], 1)], _vm._v(" "), _vm._m(1)
+  ], 2)
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('table', {
+    staticClass: "bordered responsive-table"
+  }, [_c('thead', [_c('th', [_vm._v("属性")]), _vm._v(" "), _c('th', [_vm._v("说明")]), _vm._v(" "), _c('th', [_vm._v("类型")]), _vm._v(" "), _c('th', [_vm._v("example")])]), _vm._v(" "), _c('tbody', [_c('tr', [_c('td', [_vm._v("value")]), _vm._v(" "), _c('td', [_vm._v("埋点名称＋查询参数")]), _vm._v(" "), _c('td', [_vm._v("String")]), _c('td', [_vm._v("example*test*track 或 example*test*track?a=b&c=d")])])])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('pre', [_c('code', {
+    staticClass: "hljs language-html"
+  }, [_c('span', {
+    staticClass: "hljs-tag"
+  }, [_vm._v("<"), _c('span', {
+    staticClass: "hljs-name"
+  }, [_vm._v("i-button")]), _vm._v(" "), _c('span', {
+    staticClass: "hljs-attr"
+  }, [_vm._v("type")]), _vm._v("="), _c('span', {
+    staticClass: "hljs-string"
+  }, [_vm._v("\"primary\"")]), _vm._v(" "), _c('span', {
+    staticClass: "hljs-attr"
+  }, [_vm._v("v-iTrack")]), _vm._v("="), _c('span', {
+    staticClass: "hljs-string"
+  }, [_vm._v("\"trackMessage\"")]), _vm._v(">")]), _vm._v("click me"), _c('span', {
+    staticClass: "hljs-tag"
+  }, [_vm._v("</"), _c('span', {
+    staticClass: "hljs-name"
+  }, [_vm._v("i-button")]), _vm._v(">")]), _vm._v("\n"), _c('span', {
+    staticClass: "hljs-tag"
+  }, [_vm._v("<"), _c('span', {
+    staticClass: "hljs-name"
+  }, [_vm._v("script")]), _vm._v(">")]), _c('span', {
+    staticClass: "javascript"
+  }, [_vm._v("\n  "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("import")]), _vm._v(" iTrack "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("from")]), _vm._v(" "), _c('span', {
+    staticClass: "hljs-string"
+  }, [_vm._v("'i-ui/lib/iTrack'")]), _vm._v("\n  "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("export")]), _vm._v(" "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("default")]), _vm._v(" {\n    "), _c('span', {
+    staticClass: "hljs-attr"
+  }, [_vm._v("directives")]), _vm._v(": {\n      iTrack\n    },\n    "), _c('span', {
+    staticClass: "hljs-attr"
+  }, [_vm._v("name")]), _vm._v(": "), _c('span', {
+    staticClass: "hljs-string"
+  }, [_vm._v("'i-track'")]), _vm._v(",\n    data () {\n      "), _c('span', {
+    staticClass: "hljs-keyword"
+  }, [_vm._v("return")]), _vm._v(" {\n        "), _c('span', {
+    staticClass: "hljs-attr"
+  }, [_vm._v("trackMessage")]), _vm._v(": "), _c('span', {
+    staticClass: "hljs-string"
+  }, [_vm._v("'example*test*track?a=b&c=d'")]), _vm._v("\n      }\n    }\n  }\n")]), _c('span', {
+    staticClass: "hljs-tag"
+  }, [_vm._v("</"), _c('span', {
+    staticClass: "hljs-name"
+  }, [_vm._v("script")]), _vm._v(">")]), _vm._v("\n")])])
+}]}
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('section', [
     [_c('article', [_c('iBarrage', {
       attrs: {
@@ -5433,394 +5821,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v("</"), _c('span', {
     staticClass: "hljs-name"
   }, [_vm._v("script")]), _vm._v(">")]), _vm._v("\n")])])
-}]}
-
-/***/ }),
-/* 60 */
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('section', [_c('h2', [_vm._v("图片选择")]), _vm._v(" "), _c('p', [_c('canvas', {
-    ref: "result",
-    staticClass: "result"
-  }), _c('br'), _vm._v(" "), _c('br'), _c('br'), _vm._v(" "), _c('i-button', {
-    attrs: {
-      "type": "primary"
-    }
-  }, [_vm._v("选择图片"), _c('br'), _vm._v(" "), _c('iImgUpload', {
-    on: {
-      "error": _vm.error,
-      "progress": _vm.progress,
-      "done": _vm.showResult
-    }
-  }, [_c('br')])], 1), _c('br'), _vm._v(" "), _c('br')], 1), _vm._v(" "), _c('h2', [_vm._v("代码")]), _vm._v(" "), _vm._m(0)])
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('pre', [_c('code', {
-    staticClass: "hljs language-html"
-  }, [_c('span', {
-    staticClass: "hljs-tag"
-  }, [_vm._v("<"), _c('span', {
-    staticClass: "hljs-name"
-  }, [_vm._v("canvas")]), _vm._v(" "), _c('span', {
-    staticClass: "hljs-attr"
-  }, [_vm._v("class")]), _vm._v("="), _c('span', {
-    staticClass: "hljs-string"
-  }, [_vm._v("\"result\"")]), _vm._v(" "), _c('span', {
-    staticClass: "hljs-attr"
-  }, [_vm._v("ref")]), _vm._v("="), _c('span', {
-    staticClass: "hljs-string"
-  }, [_vm._v("\"result\"")]), _vm._v(">")]), _c('span', {
-    staticClass: "hljs-tag"
-  }, [_vm._v("</"), _c('span', {
-    staticClass: "hljs-name"
-  }, [_vm._v("canvas")]), _vm._v(">")]), _vm._v("\n"), _c('span', {
-    staticClass: "hljs-tag"
-  }, [_vm._v("<"), _c('span', {
-    staticClass: "hljs-name"
-  }, [_vm._v("br")]), _vm._v(" />")]), _vm._v("\n"), _c('span', {
-    staticClass: "hljs-tag"
-  }, [_vm._v("<"), _c('span', {
-    staticClass: "hljs-name"
-  }, [_vm._v("i-button")]), _vm._v(" "), _c('span', {
-    staticClass: "hljs-attr"
-  }, [_vm._v("type")]), _vm._v("="), _c('span', {
-    staticClass: "hljs-string"
-  }, [_vm._v("\"primary\"")]), _vm._v(">")]), _vm._v("选择图片\n  "), _c('span', {
-    staticClass: "hljs-tag"
-  }, [_vm._v("<"), _c('span', {
-    staticClass: "hljs-name"
-  }, [_vm._v("iImgUpload")]), _vm._v(" "), _c('span', {
-    staticClass: "hljs-attr"
-  }, [_vm._v("@error")]), _vm._v("="), _c('span', {
-    staticClass: "hljs-string"
-  }, [_vm._v("\"error\"")]), _vm._v(" "), _c('span', {
-    staticClass: "hljs-attr"
-  }, [_vm._v("@progress")]), _vm._v("="), _c('span', {
-    staticClass: "hljs-string"
-  }, [_vm._v("\"progress\"")]), _vm._v(" "), _c('span', {
-    staticClass: "hljs-attr"
-  }, [_vm._v("@done")]), _vm._v("="), _c('span', {
-    staticClass: "hljs-string"
-  }, [_vm._v("\"showResult\"")]), _vm._v(" />")]), _vm._v("\n"), _c('span', {
-    staticClass: "hljs-tag"
-  }, [_vm._v("</"), _c('span', {
-    staticClass: "hljs-name"
-  }, [_vm._v("i-button")]), _vm._v(">")]), _vm._v("\n"), _c('span', {
-    staticClass: "hljs-tag"
-  }, [_vm._v("<"), _c('span', {
-    staticClass: "hljs-name"
-  }, [_vm._v("br")]), _vm._v(" />")]), _vm._v("\n"), _c('span', {
-    staticClass: "hljs-tag"
-  }, [_vm._v("<"), _c('span', {
-    staticClass: "hljs-name"
-  }, [_vm._v("script")]), _vm._v(">")]), _c('span', {
-    staticClass: "javascript"
-  }, [_vm._v("\n  "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("import")]), _vm._v(" iImgUpload "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("from")]), _vm._v(" "), _c('span', {
-    staticClass: "hljs-string"
-  }, [_vm._v("'i-ui/lib/iImgUpload/src/index.vue'")]), _vm._v("\n  "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("export")]), _vm._v(" "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("default")]), _vm._v(" {\n    "), _c('span', {
-    staticClass: "hljs-attr"
-  }, [_vm._v("components")]), _vm._v(": {\n      iImgUpload\n    },\n    mounted () {\n      "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("this")]), _vm._v(".$refs.result.width =\n      "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("this")]), _vm._v(".$refs.result.height = "), _c('span', {
-    staticClass: "hljs-number"
-  }, [_vm._v("300")]), _vm._v("\n      "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("this")]), _vm._v(".ctx = "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("this")]), _vm._v(".$refs.result.getContext("), _c('span', {
-    staticClass: "hljs-string"
-  }, [_vm._v("'2d'")]), _vm._v(")\n    },\n    "), _c('span', {
-    staticClass: "hljs-attr"
-  }, [_vm._v("methods")]), _vm._v(": {\n      error() {},\n      progress() {},\n      showResult(img) {\n        "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("var")]), _vm._v(" height = "), _c('span', {
-    staticClass: "hljs-number"
-  }, [_vm._v("300")]), _vm._v("\n        "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("var")]), _vm._v(" width = "), _c('span', {
-    staticClass: "hljs-number"
-  }, [_vm._v("300")]), _vm._v("\n        "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("var")]), _vm._v(" rh = img.naturalHeight || img.height\n        "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("var")]), _vm._v(" rw = img.naturalWidth || img.width\n        "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("var")]), _vm._v(" ratio = "), _c('span', {
-    staticClass: "hljs-number"
-  }, [_vm._v("1")]), _vm._v("\n        "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("this")]), _vm._v(".ctx.fillStyle = "), _c('span', {
-    staticClass: "hljs-string"
-  }, [_vm._v("'#fff'")]), _vm._v("\n        "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("this")]), _vm._v(".ctx.fillRect("), _c('span', {
-    staticClass: "hljs-number"
-  }, [_vm._v("0")]), _vm._v(", "), _c('span', {
-    staticClass: "hljs-number"
-  }, [_vm._v("0")]), _vm._v(", height, width)\n        "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("this")]), _vm._v(".ctx.save()\n        "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("if")]), _vm._v(" (height == "), _c('span', {
-    staticClass: "hljs-literal"
-  }, [_vm._v("null")]), _vm._v(") {\n          height = width * rh / rw\n          ratio = width / rw\n        } "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("else")]), _vm._v(" "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("if")]), _vm._v(" (width == "), _c('span', {
-    staticClass: "hljs-literal"
-  }, [_vm._v("null")]), _vm._v(") {\n          width = height * rw / rh\n          ratio = height / rh\n        } "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("else")]), _vm._v(" {\n          ratio = "), _c('span', {
-    staticClass: "hljs-built_in"
-  }, [_vm._v("Math")]), _vm._v(".max(height / rh, width / rw)\n        }\n        "), _c('span', {
-    staticClass: "hljs-comment"
-  }, [_vm._v("// 画图片")]), _vm._v("\n        "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("this")]), _vm._v(".ctx.translate(width / "), _c('span', {
-    staticClass: "hljs-number"
-  }, [_vm._v("2")]), _vm._v(", height / "), _c('span', {
-    staticClass: "hljs-number"
-  }, [_vm._v("2")]), _vm._v(")\n        "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("this")]), _vm._v(".ctx.scale(ratio, ratio)\n        "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("this")]), _vm._v(".ctx.drawImage(img, "), _c('span', {
-    staticClass: "hljs-number"
-  }, [_vm._v("0")]), _vm._v(", "), _c('span', {
-    staticClass: "hljs-number"
-  }, [_vm._v("0")]), _vm._v(", rw, rh, -rw / "), _c('span', {
-    staticClass: "hljs-number"
-  }, [_vm._v("2")]), _vm._v(", -rh / "), _c('span', {
-    staticClass: "hljs-number"
-  }, [_vm._v("2")]), _vm._v(", rw, rh)\n        "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("this")]), _vm._v(".ctx.restore()\n      }\n    }\n  }\n")]), _c('span', {
-    staticClass: "hljs-tag"
-  }, [_vm._v("</"), _c('span', {
-    staticClass: "hljs-name"
-  }, [_vm._v("script")]), _vm._v(">")]), _vm._v("\n\n")])])
-}]}
-
-/***/ }),
-/* 61 */
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('section', [
-    [_c('article', [_c('i-button', {
-      directives: [{
-        name: "iTrack",
-        rawName: "v-iTrack",
-        value: (_vm.trackMessage),
-        expression: "trackMessage"
-      }],
-      attrs: {
-        "type": "primary"
-      }
-    }, [_vm._v("click me")]), _vm._v(" "), _c('h3', [_vm._v("props")]), _vm._v(" "), _vm._m(0)], 1)], _vm._v(" "), _vm._m(1)
-  ], 2)
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('table', {
-    staticClass: "bordered responsive-table"
-  }, [_c('thead', [_c('th', [_vm._v("属性")]), _vm._v(" "), _c('th', [_vm._v("说明")]), _vm._v(" "), _c('th', [_vm._v("类型")]), _vm._v(" "), _c('th', [_vm._v("example")])]), _vm._v(" "), _c('tbody', [_c('tr', [_c('td', [_vm._v("value")]), _vm._v(" "), _c('td', [_vm._v("埋点名称＋查询参数")]), _vm._v(" "), _c('td', [_vm._v("String")]), _c('td', [_vm._v("example*test*track 或 example*test*track?a=b&c=d")])])])])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('pre', [_c('code', {
-    staticClass: "hljs language-html"
-  }, [_c('span', {
-    staticClass: "hljs-tag"
-  }, [_vm._v("<"), _c('span', {
-    staticClass: "hljs-name"
-  }, [_vm._v("i-button")]), _vm._v(" "), _c('span', {
-    staticClass: "hljs-attr"
-  }, [_vm._v("type")]), _vm._v("="), _c('span', {
-    staticClass: "hljs-string"
-  }, [_vm._v("\"primary\"")]), _vm._v(" "), _c('span', {
-    staticClass: "hljs-attr"
-  }, [_vm._v("v-iTrack")]), _vm._v("="), _c('span', {
-    staticClass: "hljs-string"
-  }, [_vm._v("\"trackMessage\"")]), _vm._v(">")]), _vm._v("click me"), _c('span', {
-    staticClass: "hljs-tag"
-  }, [_vm._v("</"), _c('span', {
-    staticClass: "hljs-name"
-  }, [_vm._v("i-button")]), _vm._v(">")]), _vm._v("\n"), _c('span', {
-    staticClass: "hljs-tag"
-  }, [_vm._v("<"), _c('span', {
-    staticClass: "hljs-name"
-  }, [_vm._v("script")]), _vm._v(">")]), _c('span', {
-    staticClass: "javascript"
-  }, [_vm._v("\n  "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("import")]), _vm._v(" iTrack "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("from")]), _vm._v(" "), _c('span', {
-    staticClass: "hljs-string"
-  }, [_vm._v("'i-ui/lib/iTrack'")]), _vm._v("\n  "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("export")]), _vm._v(" "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("default")]), _vm._v(" {\n    "), _c('span', {
-    staticClass: "hljs-attr"
-  }, [_vm._v("directives")]), _vm._v(": {\n      iTrack\n    },\n    "), _c('span', {
-    staticClass: "hljs-attr"
-  }, [_vm._v("name")]), _vm._v(": "), _c('span', {
-    staticClass: "hljs-string"
-  }, [_vm._v("'i-track'")]), _vm._v(",\n    data () {\n      "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("return")]), _vm._v(" {\n        "), _c('span', {
-    staticClass: "hljs-attr"
-  }, [_vm._v("trackMessage")]), _vm._v(": "), _c('span', {
-    staticClass: "hljs-string"
-  }, [_vm._v("'example*test*track?a=b&c=d'")]), _vm._v("\n      }\n    }\n  }\n")]), _c('span', {
-    staticClass: "hljs-tag"
-  }, [_vm._v("</"), _c('span', {
-    staticClass: "hljs-name"
-  }, [_vm._v("script")]), _vm._v(">")]), _vm._v("\n")])])
-}]}
-
-/***/ }),
-/* 62 */
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('section', [
-    [_c('article', [_c('h3', [_vm._v("props")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('iRollBar', {
-      staticClass: "roll-bar",
-      attrs: {
-        "tag": "ul",
-        "rollIng": _vm.roll,
-        "showBar": ""
-      }
-    }, _vm._l((_vm.items), function(item, idx) {
-      return _c('li', {
-        key: idx
-      }, [_vm._v(_vm._s(item))])
-    }))], 1)], _vm._v(" "), _c('h2', [_vm._v("aaa")]), _vm._v(" "), _c('pre', [_c('code', {
-      staticClass: "hljs language-html"
-    }, [_vm._m(1), _vm._v("\n  "), _vm._m(2), _vm._v(_vm._s(_vm.item)), _vm._m(3), _vm._v("\n"), _vm._m(4), _vm._v("\n"), _vm._m(5), _vm._m(6), _vm._m(7), _vm._v("\n")])])
-  ], 2)
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('table', {
-    staticClass: "bordered responsive-table"
-  }, [_c('thead', [_c('th', [_vm._v("属性")]), _vm._v(" "), _c('th', [_vm._v("说明")]), _vm._v(" "), _c('th', [_vm._v("类型")]), _vm._v(" "), _c('th', [_vm._v("说明")]), _vm._v(" "), _c('th', [_vm._v("默认值")])]), _vm._v(" "), _c('tbody', [_c('tr', [_c('td', [_vm._v("tag")]), _vm._v(" "), _c('td', [_vm._v("转换的标签")]), _vm._v(" "), _c('td', [_vm._v("String")]), _vm._v(" "), _c('td'), _vm._v(" "), _c('td', [_vm._v("div")])]), _vm._v(" "), _c('tr', [_c('td', [_vm._v("showBar")]), _vm._v(" "), _c('td', [_vm._v("显示滚动条")]), _vm._v(" "), _c('td', [_vm._v("String")]), _vm._v(" "), _c('td', [_vm._v("当不写的时候不显示")]), _vm._v(" "), _c('td', [_vm._v("undefind")])]), _vm._v(" "), _c('tr', [_c('td', [_vm._v("rollIng")]), _vm._v(" "), _c('td', [_vm._v("滚动事件")]), _vm._v(" "), _c('td', [_vm._v("Function")]), _vm._v(" "), _c('td', [_vm._v("第一个参数为回掉参数")]), _vm._v(" "), _c('td', [_vm._v("(done) => {}")])])])])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('span', {
-    staticClass: "hljs-tag"
-  }, [_vm._v("<"), _c('span', {
-    staticClass: "hljs-name"
-  }, [_vm._v("iRollBar")]), _vm._v(" "), _c('span', {
-    staticClass: "hljs-attr"
-  }, [_vm._v("class")]), _vm._v("="), _c('span', {
-    staticClass: "hljs-string"
-  }, [_vm._v("\"roll-bar\"")]), _vm._v(" "), _c('span', {
-    staticClass: "hljs-attr"
-  }, [_vm._v("tag")]), _vm._v("="), _c('span', {
-    staticClass: "hljs-string"
-  }, [_vm._v("\"ul\"")]), _vm._v(" "), _c('span', {
-    staticClass: "hljs-attr"
-  }, [_vm._v(":rollIng")]), _vm._v("="), _c('span', {
-    staticClass: "hljs-string"
-  }, [_vm._v("\"roll\"")]), _vm._v(" "), _c('span', {
-    staticClass: "hljs-attr"
-  }, [_vm._v("showBar")]), _vm._v(">")])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('span', {
-    staticClass: "hljs-tag"
-  }, [_vm._v("<"), _c('span', {
-    staticClass: "hljs-name"
-  }, [_vm._v("li")]), _vm._v(" "), _c('span', {
-    staticClass: "hljs-attr"
-  }, [_vm._v("v-for")]), _vm._v("="), _c('span', {
-    staticClass: "hljs-string"
-  }, [_vm._v("\"(item,idx) in items\"")]), _vm._v(" "), _c('span', {
-    staticClass: "hljs-attr"
-  }, [_vm._v(":key")]), _vm._v("="), _c('span', {
-    staticClass: "hljs-string"
-  }, [_vm._v("\"idx\"")]), _vm._v(">")])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('span', {
-    staticClass: "hljs-tag"
-  }, [_vm._v("</"), _c('span', {
-    staticClass: "hljs-name"
-  }, [_vm._v("li")]), _vm._v(">")])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('span', {
-    staticClass: "hljs-tag"
-  }, [_vm._v("</"), _c('span', {
-    staticClass: "hljs-name"
-  }, [_vm._v("iRollBar")]), _vm._v(">")])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('span', {
-    staticClass: "hljs-tag"
-  }, [_vm._v("<"), _c('span', {
-    staticClass: "hljs-name"
-  }, [_vm._v("script")]), _vm._v(">")])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('span', {
-    staticClass: "javascript"
-  }, [_vm._v("\n  "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("import")]), _vm._v(" iRollBar "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("from")]), _vm._v(" "), _c('span', {
-    staticClass: "hljs-string"
-  }, [_vm._v("'i-ui/lib/iRollBar'")]), _vm._v("\n  "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("export")]), _vm._v(" "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("default")]), _vm._v(" {\n    "), _c('span', {
-    staticClass: "hljs-attr"
-  }, [_vm._v("components")]), _vm._v(": {\n      iRollBar\n    },\n    "), _c('span', {
-    staticClass: "hljs-attr"
-  }, [_vm._v("name")]), _vm._v(": "), _c('span', {
-    staticClass: "hljs-string"
-  }, [_vm._v("'i-roll-bar'")]), _vm._v(",\n    data() {\n      "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("return")]), _vm._v(" {\n        "), _c('span', {
-    staticClass: "hljs-attr"
-  }, [_vm._v("items")]), _vm._v(": []\n      }\n    },\n    created() {\n      "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("for")]), _vm._v(" ("), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("var")]), _vm._v(" idx = "), _c('span', {
-    staticClass: "hljs-number"
-  }, [_vm._v("0")]), _vm._v("; idx <= "), _c('span', {
-    staticClass: "hljs-number"
-  }, [_vm._v("35")]), _vm._v("; idx++) {\n        "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("this")]), _vm._v(".items.push(idx)\n      }\n    },\n    "), _c('span', {
-    staticClass: "hljs-attr"
-  }, [_vm._v("methods")]), _vm._v(": {\n      roll(done) {\n        "), _c('span', {
-    staticClass: "hljs-built_in"
-  }, [_vm._v("console")]), _vm._v(".log("), _c('span', {
-    staticClass: "hljs-built_in"
-  }, [_vm._v("Date")]), _vm._v(".now())\n        "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("for")]), _vm._v(" ("), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("var")]), _vm._v(" idx = "), _c('span', {
-    staticClass: "hljs-number"
-  }, [_vm._v("0")]), _vm._v("; idx <= "), _c('span', {
-    staticClass: "hljs-number"
-  }, [_vm._v("10")]), _vm._v("; idx++) {\n          "), _c('span', {
-    staticClass: "hljs-keyword"
-  }, [_vm._v("this")]), _vm._v(".items.push(idx)\n        }\n        done()\n      }\n    }\n  }\n\n")])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('span', {
-    staticClass: "hljs-tag"
-  }, [_vm._v("</"), _c('span', {
-    staticClass: "hljs-name"
-  }, [_vm._v("script")]), _vm._v(">")])
 }]}
 
 /***/ }),
@@ -6172,7 +6172,7 @@ module.exports = __webpack_require__(49);
 /* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(43);
+module.exports = __webpack_require__(46);
 
 /***/ }),
 /* 74 */
@@ -6190,13 +6190,13 @@ module.exports = __webpack_require__(41);
 /* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(44);
+module.exports = __webpack_require__(43);
 
 /***/ }),
 /* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(46);
+module.exports = __webpack_require__(44);
 
 /***/ }),
 /* 78 */
