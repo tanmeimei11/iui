@@ -8,6 +8,7 @@ export default new Config().extend('scripts/conf/webpack.base.config.js').merge(
   },
   devtool: '#source-map',
   plugins: [
+    new webpack.WatchIgnorePlugin([/_cache/]),
     new HtmlWebpackPlugin({
       filename: `index.html`,
       template: `./example/index.html`

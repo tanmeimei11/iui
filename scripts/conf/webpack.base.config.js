@@ -38,9 +38,10 @@ export default {
     },
     {
       test: /\.md/,
-      loader: 'vue-markdown-loader',
-      exclude: [/node_modules/],
-      options: markdown
+      use: [
+        {loader: 'vue-loader'}, 
+        {loader: 'vue-markdown-loader', options: markdown}, 
+      ],
     },
     {
       test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

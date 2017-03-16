@@ -84,7 +84,7 @@
     "url-loader": "^0.5.7",
     "vinyl-fs": "^2.4.4",
     "vue-loader": "^10.3.0",
-    "vue-markdown-loader": "^0.6.2",
+    "vue-markdown-loader": "github:kehao/vue-markdown-loader",
     "vue-router": "^2.2.1",
     "vue-style-loader": "^2.0.0",
     "vue-template-compiler": "^2.1.10",
