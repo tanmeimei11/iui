@@ -14,11 +14,8 @@ let newVersion
 let versionType = 'patch'
 let run = exec
 
-gulp.task('npm:run:build', (cb) => {
-  run('npm run build', cb)
-})
 
-gulp.task('bump', ['npm:run:build'], () => {
+gulp.task('bump', () => {
   let packageJson = () => { return JSON.parse(fs.readFileSync('./package.json', 'utf8')) }
   let json = packageJson()
   newVersion = semver.inc(json.version, versionType)
@@ -27,7 +24,11 @@ gulp.task('bump', ['npm:run:build'], () => {
     .pipe(gulp.dest('./'))
 })
 
-gulp.task('git:tag', ['bump'], (cb) => {
+gulp.task('npm:run:build', ['bump'], (cb) => {
+  run('npm run build', cb)
+})
+
+gulp.task('git:tag', ['npm:run:build'], (cb) => {
   run(`git tag -a ${newVersion} -m "Tagging ${newVersion}"`, cb)
 })
 
