@@ -3,14 +3,14 @@ import Config from 'webpack-config'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
-import { env, assetsPath } from './utils'
+import { env, resolvePath } from './utils'
 const cfg = new Config().extend('scripts/conf/webpack.base.config.js').merge({
   entry: {
     index: ['./example/index.js'],
     vendor: ['vue']
   },
   output: {
-    path: assetsPath('dist'),
+    path: resolvePath('dist'),
     filename: 'js/[name].js',
     publicPath: './'
   },

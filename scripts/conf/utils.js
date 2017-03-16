@@ -2,12 +2,12 @@ import { join } from 'path'
 import MarkDownIt from 'markdown-it'
 
 
-export const assetsPath = dir => join(__dirname, '../..', dir)
+export const resolvePath = dir => join(__dirname, '../..', dir)
 
 export const aliasObject = Object.assign({}, {
-  'iConfig': assetsPath('src/iConfig.example.js'),
-  'i-ui/src': assetsPath('src'),
-  'i-ui/lib': assetsPath('packages')
+  'iConfig': resolvePath('src/iConfig.example.js'),
+  'i-ui/src': resolvePath('src'),
+  'i-ui/lib': resolvePath('packages')
 })
 
 export const env = {

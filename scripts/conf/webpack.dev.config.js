@@ -4,11 +4,11 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 export default new Config().extend('scripts/conf/webpack.base.config.js').merge({
   entry: {
     index: ['./example/index.js'],
-    vendor: ['vue', 'webpack-hot-middleware/client']
+    vendor: ['vue', 'webpack-hot-middleware/client?noInfo=true']
   },
   devtool: '#source-map',
   plugins: [
-    new webpack.WatchIgnorePlugin([/_cache/]),
+    new webpack.WatchIgnorePlugin([/node_modules/]),
     new HtmlWebpackPlugin({
       filename: `index.html`,
       template: `./example/index.html`

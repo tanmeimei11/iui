@@ -30,6 +30,7 @@ app.use(connectHistory({
     to: '/index.html'
   }]
 }))
+
 Object.keys(env.proxyTable).forEach(function (context) {
   var options = env.proxyTable[context]
   if (typeof options === 'string') {
@@ -42,7 +43,6 @@ Object.keys(env.proxyTable).forEach(function (context) {
 
 app.use(koaDevMiddleware)
 app.use(koaHotMiddleware)
-
 
 app.listen(port, function (err) {
   if (err) {
