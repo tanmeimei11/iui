@@ -3,4 +3,4 @@ require('babel-register')({
     'es2015'
   ]
 })
-require('./gulpfile.babel')
+require('./gulpfile.es')

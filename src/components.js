@@ -25,7 +25,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 module.exports = {
-  version: '0.1.3',
+  version: '0.1.4',
   install,
   iAudio,
   iAvatar,

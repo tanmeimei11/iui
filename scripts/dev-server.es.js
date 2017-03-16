@@ -15,7 +15,10 @@ const port = process.env.PORT || env.port
 const koaDevMiddleware = webpackDevMiddleware(compiler, {
   stats: {
     colors: true,
-    modules: false
+    modules: false,
+    children: false,
+    chunks: false,
+    chunkModules: false
   }
 })
 const koaHotMiddleware = webpackHotMiddleware(compiler)
