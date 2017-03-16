@@ -10,8 +10,8 @@ export default new Config().extend('scripts/conf/webpack.base.config.js').merge(
   plugins: [
     new webpack.WatchIgnorePlugin([/node_modules/]),
     new HtmlWebpackPlugin({
-      filename: `index.html`,
-      template: `./example/index.html`
+      filename: 'index.html',
+      template: './example/index.html'
     }),
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor'],
