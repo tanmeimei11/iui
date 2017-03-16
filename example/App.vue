@@ -3,20 +3,8 @@
     <Row type="flex">
       <i-col :span="4">
         <Menu theme="light" class="wrapper-navigate" :active-name="activeName" width="auto" @on-select="select">
-          <Menu-group title="开发指南">
-            <Menu-item name="/install">安装</Menu-item>
-            <Menu-item name="/quickstart">快速上手</Menu-item>
-            <Menu-item name="/customPackage">自定义开发</Menu-item>
-          </Menu-group>
-          <Menu-group title="组件">
-            <Menu-item :name="component.path" v-for="(component, idx) in components">
-              <Icon :type="component.icon"></Icon>{{component.txt}}
-            </Menu-item>
-          </Menu-group>
-          <Menu-group title="指令">
-            <Menu-item :name="directive.path" v-for="(directive, idx) in directives">
-              <Icon :type="directive.icon"></Icon>{{directive.txt}}
-            </Menu-item>
+          <Menu-group v-for="navs of navConfig" :title="navs.name">
+            <Menu-item v-for="nav of navs.children" :name="nav.path"><Icon :type="nav.icon"></Icon>{{ nav.name }}</Menu-item>
           </Menu-group>
         </Menu>
       </i-col>
@@ -26,28 +14,20 @@
         </transition>
       </i-col>
     </Row>
+  </div>
 </template>
 
 <script>
+  import navConfig from './nav.config'
   import routes from './routes'
+
   export default {
     name: 'app',
     data () {
-      let _data = {
+      return {
         activeName: '/install',
-        components: [],
-        directives: []
+        navConfig
       }
-      routes.forEach(router => {
-        if (router.type) {
-          _data[`${router.type}`].push({
-            path: router.path,
-            icon: router.icon,
-            txt: router.txt
-          })
-        }
-      })
-      return _data
     },
     created () {
       this.activeName = this.$route.path
