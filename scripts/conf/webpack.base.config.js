@@ -20,8 +20,7 @@ export default {
       test: /\.(js|vue)$/,
       loader: 'eslint-loader',
       enforce: 'pre',
-      include: [assetsPath('src/views'), assetsPath('src/routers')],
-      exclude: [assetsPath('src/assets')],
+      include: [assetsPath('src/routers')],
       options: {
         formatter: require('eslint-friendly-formatter')
       }
@@ -29,18 +28,18 @@ export default {
     {
       test: /\.vue$/,
       loader: 'vue-loader',
-      exclude: [assetsPath('src/assets')],
       options: cssLoaders
 
     },
     {
       test: /\.js$/,
       loader: 'babel-loader',
-      exclude: [assetsPath('src/assets')]
+      exclude: [/node_modules/]
     },
     {
       test: /\.md/,
       loader: 'vue-markdown-loader',
+      exclude: [/node_modules/],
       options: markdown
     },
     {
