@@ -5,4 +5,5 @@ require('babel-register')({
   'plugins': ['transform-runtime']
 })
 
+process.noDeprecation = true
 module.exports = require('./karma.conf.es.js')

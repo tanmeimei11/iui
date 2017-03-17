@@ -1,14 +1,11 @@
 import Vue from 'vue/dist/vue.js'
 import iAudio from '../../../packages/iAudio'
 
+let template = require('../../../packages/iAudio/README.md')
 let vm = new Vue({
-    template: `
-        <section>
-          <iAudio autoplay loop src="//h5.in66.com/inpromo/2017/pr-beingmate/img/music.d4ffe2f.mp3"></iAudio>
-        </section> 
-    `,
     components: { iAudio  },
-    data: {}
+    data: {},
+    render: h => h(template)
 }).$mount()
 
 describe('iAudio', () => {
