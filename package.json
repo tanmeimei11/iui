@@ -11,7 +11,8 @@
     "lib": "node scripts/build-entry.js && node scripts/build.js",
     "demo": "node scripts/build.demo.js",
     "build": "npm run demo && npm run lib",
-    "release": "gulp npm:publish"
+    "release": "gulp npm:publish",
+    "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js"
   },
   "keywords": [
     "Vue.js",
@@ -54,7 +55,6 @@
     "gulp-bump": "^2.6.1",
     "html-webpack-plugin": "^2.28.0",
     "http-proxy-middleware": "^0.17.3",
-    "i-rubik": "^0.2.5",
     "inject-loader": "^2.0.1",
     "iview": "^2.0.0-rc.2",
     "karma": "^1.4.1",
@@ -64,7 +64,7 @@
     "karma-sinon-chai": "^1.2.4",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "0.0.26",
-    "karma-webpack": "^2.0.2",
+    "karma-webpack": "^2.0.3",
     "lolex": "^1.5.2",
     "markdown-it": "^8.3.1",
     "markdown-it-highlightjs": "^3.0.0",
@@ -79,8 +79,6 @@
     "shelljs": "^0.7.6",
     "sinon": "^1.17.7",
     "sinon-chai": "^2.8.0",
-    "stylus": "^0.54.5",
-    "stylus-loader": "^2.4.0",
     "url-loader": "^0.5.7",
     "vinyl-fs": "^2.4.4",
     "vue-loader": "^10.3.0",
