@@ -13,8 +13,6 @@ let vm = new Vue({
 
 describe('iAudio', () => {
     it('iAudio组件是否正常显示', () => {
-        console.log('===========')
-        console.log(vm.$el)
         expect(vm.$el.querySelectorAll('.i-audio audio').length).to.equal(1)
     })
 })
