@@ -1,17 +1,22 @@
 import { styleLoaders, default as cssLoaders } from './vue-loader.conf'
-import { aliasObject, assetsPath, markdown } from './utils'
+import { aliasObject, resolvePath, markdown } from './utils'
+
+function resolve (dir) {
+      return path.join(__dirname, '..', dir)
+
+}
 
 export default {
   output: {
-    path: assetsPath('lib'),
+    path: resolvePath('lib'),
     filename: '[name].js',
     publicPath: '/'
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     modules: [
-      assetsPath('src'),
-      assetsPath('node_modules')
+      resolvePath('src'),
+      resolvePath('node_modules')
     ],
     alias: aliasObject
   },
@@ -20,8 +25,7 @@ export default {
       test: /\.(js|vue)$/,
       loader: 'eslint-loader',
       enforce: 'pre',
-      include: [assetsPath('src/views'), assetsPath('src/routers')],
-      exclude: [assetsPath('src/assets')],
+      include: [resolvePath('src/routers')],
       options: {
         formatter: require('eslint-friendly-formatter')
       }
@@ -29,19 +33,20 @@ export default {
     {
       test: /\.vue$/,
       loader: 'vue-loader',
-      exclude: [assetsPath('src/assets')],
       options: cssLoaders
-
     },
     {
       test: /\.js$/,
       loader: 'babel-loader',
-      exclude: [assetsPath('src/assets')]
+      exclude: [/node_modules/]
     },
     {
       test: /\.md/,
-      loader: 'vue-markdown-loader',
-      options: markdown
+      use: [
+        {loader: 'vue-loader'}, 
+        {loader: 'vue-markdown-loader', options: markdown}, 
+      ],
+      exclude: [/node_modules/]
     },
     {
       test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

@@ -4,5 +4,7 @@ require('babel-register')({
   ],
   'plugins': ['transform-runtime']
 })
+
+process.noDeprecation = true
 require('shelljs/global')
 require('./dev-server.es.js')

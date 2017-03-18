@@ -3,7 +3,6 @@ import './base.scss'
 const clickCallback = function (e) {
   let items = []
   let search = this.value.trim()
-  console.log(search)
   if (!search.length) return true
   let [seed, query] = search.split('?')
   if (query && query.length) {

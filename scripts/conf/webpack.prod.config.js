@@ -28,7 +28,7 @@ const cfg = new Config().extend('scripts/conf/webpack.base.config.js').merge({
       debug: false
     }),
     new ExtractTextPlugin({ 
-      filename:  getPath =>getPath('theme-default/[name].css').replace('i-ui.common', 'index')
+      filename: getPath => getPath('theme-default/[name].css').replace('i-ui.common', 'index')
     })
   ]
 })

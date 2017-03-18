@@ -15,5 +15,5 @@ directives.json
 dist
 
 # task file
-gulpfile.babel.js
+gulpfile.es.js
 gulpfile.js

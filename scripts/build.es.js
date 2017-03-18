@@ -33,5 +33,4 @@ webpack(cfg, function (err, stats) {
     }) + '\n\n')
     console.log(cyan('  Build umd complete.\n'))
   })
-
 })

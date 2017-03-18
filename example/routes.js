@@ -23,4 +23,5 @@ const routes = [
   {name: 'iRollBar', path: '/iRollBar', component: iRollBar, type: 'components', icon: 'android-more-vertical', txt: '滚动加载'},
   {name: 'iTrack', path: '/iTrack', component: iTrack, type: 'directives', icon: 'social-rss', txt: '埋点'}
 ]
+
 export default routes

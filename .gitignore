@@ -1,4 +1,6 @@
-
+dist/
+lib/
 node_modules
 .DS_store
 *.log
+**/coverage

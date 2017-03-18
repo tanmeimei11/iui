@@ -1,9 +1,10 @@
 
 <script>
   export default {
-    name: 'i-roll-bar',
+    name: 'iRollBar',
     props: {
       tag: {
+        require: true,
         type: String,
         default: 'div'
       },
@@ -11,7 +12,13 @@
       //   type: Number,
       //   default: 1000
       // },
+      hasMore: {
+        require: true,
+        type: Boolean,
+        default: true
+      },
       rollIng: {
+        require: true,
         type: Function,
         default: () => {}
       },
@@ -28,6 +35,13 @@
     },
     destroyed () {
       window.removeEventListener('scroll', this.scrollHandler)
+    },
+    watch: {
+      hasMore: function (val) {
+        if (!val) {
+          window.removeEventListener('scroll', this.scrollHandler)
+        }
+      }
     },
     methods: {
       scrollHandler (event) {

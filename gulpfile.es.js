@@ -14,11 +14,8 @@ let newVersion
 let versionType = 'patch'
 let run = exec
 
-gulp.task('npm:run:build', (cb) => {
-  run('npm run build', cb)
-})
 
-gulp.task('bump', ['npm:run:build'], () => {
+gulp.task('bump', () => {
   let packageJson = () => { return JSON.parse(fs.readFileSync('./package.json', 'utf8')) }
   let json = packageJson()
   newVersion = semver.inc(json.version, versionType)
@@ -27,7 +24,11 @@ gulp.task('bump', ['npm:run:build'], () => {
     .pipe(gulp.dest('./'))
 })
 
-gulp.task('git:tag', ['bump'], (cb) => {
+gulp.task('npm:run:build', ['bump'], (cb) => {
+  run('npm run build', cb)
+})
+
+gulp.task('git:tag', ['npm:run:build'], (cb) => {
   run(`git tag -a ${newVersion} -m "Tagging ${newVersion}"`, cb)
 })
 
@@ -37,11 +38,11 @@ gulp.task('git:push:tags', ['git:tag'], (cb) => {
 
 gulp.task('copy:to:in', ['git:push:tags'], (cb) => {
   rm('-rf', '../InPromo/2017/in-ui/dist/demo')
-  cp('-rf', './dist/demo', '../InPromo/2017/in-ui/dist/')
+  cp('-rf', './dist', '../InPromo/2017/in-ui/dist/')
   cb()
 })
 
-gulp.task('npm:publish', ['copy:to:in'], (cb) => {
+gulp.task('npm:publish', ['git:push:tags'], (cb) => {
   run('npm publish', cb)
 })
 
