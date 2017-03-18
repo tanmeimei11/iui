@@ -20,17 +20,17 @@ const cfg = new Config().extend('scripts/conf/webpack.base.config.js').merge({
       minimize: false,
       debug: false
     }),
-    // new webpack.optimize.UglifyJsPlugin({
-    //   beautify: false,
-    //   mangle: {
-    //     screw_ie8: true,
-    //     keep_fnames: true
-    //   },
-    //   compress: {
-    //     screw_ie8: true
-    //   },
-    //   comments: false
-    // }),
+    new webpack.optimize.UglifyJsPlugin({
+      beautify: false,
+      mangle: {
+        screw_ie8: true,
+        keep_fnames: true
+      },
+      compress: {
+        screw_ie8: true
+      },
+      comments: false
+    }),
     new ExtractTextPlugin({ 
       filename: 'theme-default/index.css'
     })
