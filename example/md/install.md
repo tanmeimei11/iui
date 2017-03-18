@@ -43,11 +43,11 @@ npm install i-ui -S
 </head>
 <body>
   <div id="app">
-     <iAudio autoplay loop src="//h5.in66.com/inpromo/2017/pr-beingmate/img/music.d4ffe2f.mp3"></iAudio>
+     <i-audio autoplay loop src="//h5.in66.com/inpromo/2017/pr-beingmate/img/music.d4ffe2f.mp3"></i-audio>
   </div>
 </body>
   <!-- 先引入 Vue -->
-  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue/dist/vue..min.js"></script>
   <!-- 引入组件库 -->
   <script src="https://unpkg.com/i-ui/lib/index.js"></script>
   <script>

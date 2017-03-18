@@ -32,6 +32,7 @@
       window.lib.flexible = window.lib.flexible || {dpr: 1}
       window.lib.flexible.dpr = window.lib.flexible.dpr || 1
       window.addEventListener('scroll', this.scrollHandler, false)
+      this.scrollHandler()
     },
     destroyed () {
       window.removeEventListener('scroll', this.scrollHandler)
@@ -45,6 +46,7 @@
     },
     methods: {
       scrollHandler (event) {
+        if (!this.hasMore) return
         if (this.$el === undefined) return
         if (this.lock !== undefined) return
         let elH = this.$el.clientHeight
@@ -55,6 +57,7 @@
           this.lock = 1
           this.rollIng(() => {
             this.lock = undefined
+            this.scrollHandler()
           })
         }
       }
