@@ -47,7 +47,7 @@ npm install i-ui -S
   </div>
 </body>
   <!-- 先引入 Vue -->
-  <script src="https://unpkg.com/vue/dist/vue..min.js"></script>
+  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
   <!-- 引入组件库 -->
   <script src="https://unpkg.com/i-ui/lib/index.js"></script>
   <script>
