@@ -11,7 +11,7 @@ const cfg = new Config().extend('scripts/conf/webpack.base.config.js').merge({
   },
   output: {
     path: resolvePath('dist'),
-    filename: 'js/[name].js',
+    filename: 'js/[name].[chunkhash:7].js',
     publicPath: './'
   },
   plugins: [
@@ -32,7 +32,7 @@ const cfg = new Config().extend('scripts/conf/webpack.base.config.js').merge({
       debug: false
     }),
     new ExtractTextPlugin({
-      filename: 'css/[name].css'
+      filename: 'css/[name].[contenthash:7].css'
     })
   ]
 })
