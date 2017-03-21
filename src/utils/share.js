@@ -1,6 +1,6 @@
 import track from './track'
 import common from './common'
-import { TRACK_URL, IN_WXSDK } from 'iConfig'
+import { U_TRACK, U_IN_WXSDK } from 'iConfig'
 export default {
   initWXEnd: false,
   initData (config) {
@@ -38,7 +38,7 @@ export default {
   wxConfig () {
     if (this.initWXEnd) return this.initWx()
     this.initWXEnd = true
-    fetch(`${IN_WXSDK}?redirectUrl=${encodeURIComponent(location.href.split('#')[0])}`)
+    fetch(`${U_IN_WXSDK}?redirectUrl=${encodeURIComponent(location.href.split('#')[0])}`)
       .then(res => res.json())
       .then(res => {
         if (res.succ) {
@@ -76,7 +76,7 @@ export default {
         html.push(`<input type="hidden" id="shareImgSrc" value="${val}">`)
         html.push(`<input type="hidden" id="shareImgUrl" value="${val}">`)
       } else if (_key === 'shareTrack') {
-        val = `${location.protocol}//${TRACK_URL}?` + [`action=${val}`, `_token=${common.token}`, `_=${+new Date()}`].join('&')
+        val = `${location.protocol}//${U_TRACK}?` + [`action=${val}`, `_token=${common.token}`, `_=${+new Date()}`].join('&')
       }
       html.push(`<input type="hidden" id="${key}" value="${val}">`)
     }

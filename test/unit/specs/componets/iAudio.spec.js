@@ -1,7 +1,7 @@
 import Vue from 'vue/dist/vue.js'
-import iAudio from '../../../packages/iAudio'
+import iAudio from 'i-ui/lib/iAudio'
 
-let template = require('../../../packages/iAudio/README.md')
+let template = require('i-ui/lib/iAudio/README.md')
 let vm = new Vue({
     components: { iAudio  },
     data: {},

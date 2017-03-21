@@ -1,3 +1,7 @@
+import { 
+    U_IN_APPLINKS,
+    U_CHAT_APPLINKS
+} from 'iConfig'
 function __splitData (str, delimiter, decodeKey, decodeValue) {
   if (str.trim().length === 0) return {}
   let items = str.split(delimiter)
@@ -89,35 +93,36 @@ const common = {
       /^(ios|android)$/i.test(this.source) &&
       /^[\d\\.]+$/.test(this.version)
   },
-  /**
-   * 判断是否为app内
-   * 根据ua判断
-   */
-  get isInApp () {
-    let ua = navigator.userAgent.toLowerCase()
-    return /infashion/gi.test(ua)
+
+  appScheme () {
+    let params = arguments
+    return {
+      webview: function() { return `in://webview?url=${encodeURIComponent(params[0])}`}
+    } 
+  },  
+
+  appUri (uri, androidUri, schemeType = 'webview') {
+    let appUri
+    let appUrlObj = window && window.appUrlObj 
+
+    if (this.isIos) 
+        appUri = uri || appUrlObj && appUrlObj.iosMessage
+    if (this.isAndroid) 
+       appUri = androidUri || uri || appUrlObj && appUrlObj.androidMessage
+
+    if (!appUri) throw new Error('Please input uri ~') 
+    
+    let appScheme = this.appScheme(appUri)
+    if (appScheme[schemeType]) 
+        return appScheme[schemeType].call(appUri)
+
+    return appUri
   },
 
-  openInApp () {
-    let appUrlObj = window.appUrlObj
-    if (typeof appUrlObj === 'undefined') {
-      return false
-    }
-
-    let appUrl = ''
-    if (this.isIos) {
-      appUrl = appUrlObj.iosMessage
-    } else if (this.isAndroid) {
-      appUrl = appUrlObj.androidMessage
-    } else {
-      return false
-    }
-    if (typeof appUrl === 'undefined') {
-      return false
-    }
-    console.log(appUrl)
-    let applinks = /in:\/\//.test(appUrl) ? '//m.in66.com/applinks' : '//chat.in66.com/applinks'
-    location.href = applinks + '?protocol=' + encodeURIComponent(appUrl)
+  openInApp (uri, androidUri, appScheme = 'webview') {
+    let appUri = this.appUri(uri, androidUri, appScheme)
+    let applinks = /in:\/\//.test(appUri) && U_IN_APPLINKS || U_CHAT_APPLINKS
+    location.href = [applinks, '?protocol=', encodeURIComponent(appUri)].join('')
   },
 
   initIn () {
