@@ -102,9 +102,8 @@ const common = {
   },  
 
   appUri (uri, androidUri, schemeType = 'webview') {
-    let appUri
     let appUrlObj = window && window.appUrlObj 
-
+    let appUri = uri
     if (this.isIos) 
         appUri = uri || appUrlObj && appUrlObj.iosMessage
     if (this.isAndroid) 

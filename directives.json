@@ -1,3 +1,4 @@
 {
-  "i-track": "./packages/iTrack/index.js"
+  "i-track": "./packages/iTrack/index.js",
+  "i-open": "./packages/iOpen/index.js"
 }

@@ -7,6 +7,7 @@ import IBarrage from '../packages/IBarrage'
 import iImgUpload from '../packages/iImgUpload'
 import iRollBar from '../packages/iRollBar'
 import iTrack from '../packages/iTrack'
+import iOpen from '../packages/iOpen'
 
 const install = function (Vue, opts = {}) {
   if (install.installed) return
@@ -17,6 +18,7 @@ const install = function (Vue, opts = {}) {
   Vue.component(iImgUpload.name, iImgUpload)
   Vue.component(iRollBar.name, iRollBar)
   Vue.directive(iTrack.name, iTrack)
+  Vue.directive(iOpen.name, iOpen)
 }
 
 /* istanbul ignore if */
@@ -25,12 +27,13 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-  version: '0.1.8',
+  version: '0.1.10',
   install,
   iAudio,
   iAvatar,
   IBarrage,
   iImgUpload,
   iRollBar,
-  iTrack
+  iTrack,
+  iOpen
 }

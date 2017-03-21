@@ -1,6 +1,6 @@
 <template>
   <article>
-    <i-button type="primary" v-iOpen="appUri" >click me</i-button>
+    <i-button type="primary" v-iOpen="appUri">click me</i-button>
     <h3>props</h3>
     <table class="bordered responsive-table">
       <thead> <th>属性</th> <th>说明</th> <th>类型</th> <th>example</th> </thead>
@@ -44,7 +44,7 @@
 </script>
 
 如果iosMessage与androidMessage不一样，请使用
-<i-button type="primary" v-iOpen >click me</i-button>
+<i-button type="primary" v-iOpen>click me</i-button>
 <script>
   window.appUrlObj = {
     'iosMessage': 'http://www.baidu.com', 
