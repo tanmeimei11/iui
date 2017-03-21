@@ -89,12 +89,43 @@ const common = {
   },
   /**
    * 判断是否为app内
+   * 根据有没有source参数判断
    */
   get InApp () {
     return !this.weixin && !this.weibo &&
       this.token != null && this.token.length > 0 &&
       /^(ios|android)$/i.test(this.source) &&
       /^[\d\\.]+$/.test(this.version)
+  },
+  /**
+   * 判断是否为app内
+   * 根据ua判断
+   */
+  get isInApp () {
+    let ua = navigator.userAgent.toLowerCase()
+    return /infashion/gi.test(ua)
+  },
+
+  openInApp () {
+    let appUrlObj = window.appUrlObj
+    if (typeof appUrlObj === 'undefined') {
+      return false
+    }
+
+    let appUrl = ''
+    if (this.isIos) {
+      appUrl = appUrlObj.iosMessage
+    } else if (this.isAndroid) {
+      appUrl = appUrlObj.androidMessage
+    } else {
+      return false
+    }
+    if (typeof appUrl === 'undefined') {
+      return false
+    }
+    console.log(appUrl)
+    let applinks = /in:\/\//.test(appUrl) ? '//m.in66.com/applinks' : '//chat.in66.com/applinks'
+    location.href = applinks + '?protocol=' + encodeURIComponent(appUrl)
   },
 
   initIn () {
