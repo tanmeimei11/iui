@@ -25,19 +25,11 @@ function __getValue (...keys) {
 }
 
 const common = {
-  get weixin () { 
-    if (this._isWeixin === undefined) {
-      this._isWeixin = /MicroMessenger/gi.test(this.ua)
-    }
-    return this._isWeixin 
-  },
-
-  get weibo () { 
-    if (this._isWeibo === undefined) {
-      this._isWeibo = /Weibo/gi.test(this.ua) 
-    }
-    return this._isWeibo 
-  },
+  get isWeChat () { return /MicroMessenger/gi.test(this.ua) },
+  get isWeiBo () { return  /Weibo/gi.test(this.ua) },
+  get isAndroid () { return /android|adr/gi.test(this.ua) },
+  get isIos () { return /iphone|ipod|ipad/gi.test(this.ua) },
+  get isInApp () { return /infashion/gi.test(this.ua) },
 
   // 查询请求
   get query () { 
@@ -92,7 +84,7 @@ const common = {
    * 根据有没有source参数判断
    */
   get InApp () {
-    return !this.weixin && !this.weibo &&
+    return !this.isWechat && !this.isWeiBo &&
       this.token != null && this.token.length > 0 &&
       /^(ios|android)$/i.test(this.source) &&
       /^[\d\\.]+$/.test(this.version)
