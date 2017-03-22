@@ -1,7 +1,6 @@
 import common from 'i-ui/src/utils/common.js'
 import './base.scss'
 const clickCallback = function (e) {
-    console.log(this.value)
   if (!common.isInApp) {
     common.openInApp(this.value)
   }
