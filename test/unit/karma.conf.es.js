@@ -4,10 +4,10 @@ export default function (config) {
   config.set({
     browsers: ['PhantomJS'],
     frameworks: ['mocha', 'sinon-chai'],
-    reporters: ['spec', 'coverage'],
+    reporters: ['spec'], //, 'coverage'
     files: ['./index.js'],
     preprocessors: {
-      './index.js': ['webpack', 'sourcemap']
+      './index.js': ['webpack', 'sourcemap'] //, 'coverage'
     },
     webpack: webpackConfig,
     webpackMiddleware: {

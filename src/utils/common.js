@@ -1,7 +1,10 @@
+import { AppUrlObjError } from 'i-ui/src/utils/errors' 
 import { 
+    U_IN,
     U_IN_APPLINKS,
     U_CHAT_APPLINKS
 } from 'iConfig'
+
 function __splitData (str, delimiter, decodeKey, decodeValue) {
   if (str.trim().length === 0) return {}
   let items = str.split(delimiter)
@@ -94,28 +97,26 @@ const common = {
       /^[\d\\.]+$/.test(this.version)
   },
 
-  appScheme () {
-    let params = arguments
-    let schemes = {
-      webview: function() { return `in://webview?url=${encodeURIComponent(params[1])}`}
+  get appSchemes () {
+    return {
+      webview: function(uri) { return `in://webview?url=${encodeURIComponent(uri)}`}
     } 
-    return schemes[params[0] || 'webview']
   },  
 
   appUri (appUrlObj) {
-    if (!appUrlObj) appUrlObj = window && window.appUrlObj 
+    appUrlObj = appUrlObj || window && window.appUrlObj 
 
     if (typeof(appUrlObj) == 'string') 
         appUrlObj = {ios: appUrlObj, android: appUrlObj}
-    if (typeof(appUrlObj) == 'object' && (!appUrlObj.ios || !appUrlObj.android)) 
-      throw new Error('Please input: appUri = {iso: \'https://www.in66.com\', android: \'https://www.in66.com\'}') 
+    if (!(typeof(appUrlObj) == 'object' && appUrlObj.ios && appUrlObj.android)) throw new AppUrlObjError 
 
     let {ios, android, scheme} = appUrlObj
-    let appUri = this.isIos && ios || this.isAndroid && android
+    let appUri = this.isIos && ios || this.isAndroid && android || U_IN 
+    let appScheme = (this.appSchemes)[scheme || 'webview']
 
-    let appScheme = this.appScheme(scheme, appUri)
-    if (appScheme) 
-        return appScheme.call(appUri)
+    if (appScheme) {
+      return appScheme.call(null, appUri)
+    } 
 
     return appUri
   },
