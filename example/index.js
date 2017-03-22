@@ -7,6 +7,7 @@ import 'iview/dist/styles/iview.css'
 // https://highlightjs.org/  import 'highlight.js/styles/[styleName].css'
 import 'highlight.js/styles/solarized-light.css'
 import './scss/markdown.scss'
+import 'core-js/library/es6/promise'
 Vue.use(Router) 
 Vue.use(iView)
 const router = new Router({

@@ -3,6 +3,13 @@ http://qah5.in66.com/inpromo/2017/in-ui/demo/index.html
 
 ## Other
 
+### core-js
+
+Modular standard library for JavaScript. Includes polyfills for [ECMAScript 5](https://github.com/zloirock/core-js/blob/master/README.md#ecmascript-5), [ECMAScript 6](https://github.com/zloirock/core-js/blob/master/README.md#ecmascript-6): [promises](https://github.com/zloirock/core-js/blob/master/README.md#ecmascript-6-promise), [symbols](https://github.com/zloirock/core-js/blob/master/README.md#ecmascript-6-symbol), [collections](https://github.com/zloirock/core-js/blob/master/README.md#ecmascript-6-collections), iterators, [typed arrays](https://github.com/zloirock/core-js/blob/master/README.md#ecmascript-6-typed-arrays), [ECMAScript 7+ proposals](https://github.com/zloirock/core-js/blob/master/README.md#ecmascript-7-proposals), [setImmediate](https://github.com/zloirock/core-js/blob/master/README.md#setimmediate), etc. Some additional features such as [dictionaries](https://github.com/zloirock/core-js/blob/master/README.md#dict) or [extended partial application](https://github.com/zloirock/core-js/blob/master/README.md#partial-application). You can require only needed features or use it without global namespace pollution.
+
+
+[https://github.com/zloirock/core-js](https://github.com/zloirock/core-js)
+
 ### Webpack
 
 Webpack是将许多松散的模块按照依赖和规则打包成符合生产环境部署的前端资源。
