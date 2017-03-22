@@ -96,30 +96,32 @@ const common = {
 
   appScheme () {
     let params = arguments
-    return {
-      webview: function() { return `in://webview?url=${encodeURIComponent(params[0])}`}
+    let schemes = {
+      webview: function() { return `in://webview?url=${encodeURIComponent(params[1])}`}
     } 
+    return schemes[params[0] || 'webview']
   },  
 
-  appUri (uri, androidUri, schemeType = 'webview') {
-    let appUrlObj = window && window.appUrlObj 
-    let appUri = uri
-    if (this.isIos) 
-        appUri = uri || appUrlObj && appUrlObj.iosMessage
-    if (this.isAndroid) 
-       appUri = androidUri || uri || appUrlObj && appUrlObj.androidMessage
+  appUri (appUrlObj) {
+    if (!appUrlObj) appUrlObj = window && window.appUrlObj 
 
-    if (!appUri) throw new Error('Please input uri ~') 
-    
-    let appScheme = this.appScheme(appUri)
-    if (appScheme[schemeType]) 
-        return appScheme[schemeType].call(appUri)
+    if (typeof(appUrlObj) == 'string') 
+        appUrlObj = {ios: appUrlObj, android: appUrlObj}
+    if (typeof(appUrlObj) == 'object' && (!appUrlObj.ios || !appUrlObj.android)) 
+      throw new Error('Please input: appUri = {iso: \'https://www.in66.com\', android: \'https://www.in66.com\'}') 
+
+    let {ios, android, scheme} = appUrlObj
+    let appUri = this.isIos && ios || this.isAndroid && android
+
+    let appScheme = this.appScheme(scheme, appUri)
+    if (appScheme) 
+        return appScheme.call(appUri)
 
     return appUri
   },
 
-  openInApp (uri, androidUri, appScheme = 'webview') {
-    let appUri = this.appUri(uri, androidUri, appScheme)
+  openInApp (appUrlObj) {
+    let appUri = this.appUri(appUrlObj)
     let applinks = /in:\/\//.test(appUri) && U_IN_APPLINKS || U_CHAT_APPLINKS
     location.href = [applinks, '?protocol=', encodeURIComponent(appUri)].join('')
   },

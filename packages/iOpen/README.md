@@ -23,7 +23,7 @@
     name: 'i-open',
     data () {
       return {
-        appUri: `http://h5.in66.com/inpromo/2017/pr-beingmate/index.html`
+        appUri: 'https://www.baidu.com'
       }
     }
   }
@@ -31,35 +31,39 @@
 ``` html
 <i-button type="primary" v-iOpen="appUri" >click me</i-button>
 <script>
-  import iOpen from 'i-ui/lib/iOpen'
-  export default {
-    directives: { iOpen },
-    name: 'i-open',
-    data () {
-      return {
-        appUri: `http://h5.in66.com/inpromo/2017/pr-beingmate/index.html`
+  data () {
+    return {
+      appUri: 'https://www.baidu.com'
+    }
+  }
+</script>
+
+** 如果iosMessage与androidMessage不一样，请使用
+<i-button type="primary" v-iOpen>click me</i-button>
+<script>
+  data () {
+    return {
+      appUri: {iso: 'https://www.baidu.com', android: 'https://www.qq.com'}
+    }
+  }
+</script>
+
+** 如果不是in://webview，请使用
+<i-button type="primary" v-iOpen>click me</i-button>
+<script>
+  data () {
+    return {
+      appUri: {
+        iso: `in://scheme?url=${encodeuricomponent('https://www.baidu.com')}`, 
+        android: `in://scheme?url=${encodeuricomponent('https://www.baidu.com')}`, 
+        scheme: false
       }
     }
   }
 </script>
 
-如果iosMessage与androidMessage不一样，请使用
+** 同样可使用window.appurlobj
 <i-button type="primary" v-iOpen>click me</i-button>
-<script>
-  window.appUrlObj = {
-    'iosMessage': 'http://www.baidu.com', 
-    'androidMessage':  'http://www.qq.com'
-  };
-</script>
-
-如果不是in://webview，请使用
-<i-button type="primary" v-iOpen >click me</i-button>
-<script>
-  window.appUrlObj = {
-    'iosMessage':'in://webview?url='+encodeURIComponent(location.origin + '/inpromo/2017/pr-maybelline/index.html'), 
-    'androidMessage':'in://webview?url='+encodeURIComponent(location.origin  + '/inpromo/2017/pr-maybelline/index.html')
-  };
-</script>
-
+window.appUrlObj = 'https://www.baidu.com'
 ```
 
