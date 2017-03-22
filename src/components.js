@@ -6,6 +6,7 @@ import iAvatar from '../packages/iAvatar'
 import IBarrage from '../packages/IBarrage'
 import iImgUpload from '../packages/iImgUpload'
 import iRollBar from '../packages/iRollBar'
+import iSharePanel from '../packages/iSharePanel'
 import iTrack from '../packages/iTrack'
 import iOpen from '../packages/iOpen'
 
@@ -17,6 +18,7 @@ const install = function (Vue, opts = {}) {
   Vue.component(IBarrage.name, IBarrage)
   Vue.component(iImgUpload.name, iImgUpload)
   Vue.component(iRollBar.name, iRollBar)
+  Vue.component(iSharePanel.name, iSharePanel)
   Vue.directive(iTrack.name, iTrack)
   Vue.directive(iOpen.name, iOpen)
 }
@@ -34,6 +36,7 @@ export default {
   IBarrage,
   iImgUpload,
   iRollBar,
+  iSharePanel,
   iTrack,
   iOpen
 }
