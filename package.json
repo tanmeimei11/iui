@@ -21,6 +21,7 @@
     "UI Components"
   ],
   "dependencies": {
+    "iview": "^2.0.0-rc.5",
     "vue": "^2.1.10"
   },
   "devDependencies": {

@@ -1,10 +1,5 @@
 import { styleLoaders, default as cssLoaders } from './vue-loader.conf'
-import { aliasObject, resolvePath, markdown } from './utils'
-
-function resolve (dir) {
-      return path.join(__dirname, '..', dir)
-
-}
+import { aliasObject, resolvePath } from './utils'
 
 export default {
   output: {
@@ -43,8 +38,8 @@ export default {
     {
       test: /\.md/,
       use: [
-        {loader: 'vue-loader'}, 
-        {loader: 'vue-markdown-loader', options: markdown}, 
+        {loader: 'vue-loader', options: cssLoaders}, 
+        {loader: resolvePath('loaders/vuemd-loader/index.js')} 
       ],
       exclude: [/node_modules/]
     },

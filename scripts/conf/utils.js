@@ -1,5 +1,5 @@
 import { join } from 'path'
-import MarkDownIt from 'markdown-it'
+
 
 
 export const resolvePath = dir => join(__dirname, '../..', dir)
@@ -19,8 +19,3 @@ export const env = {
 
   }
 }
-
-export const markdown = MarkDownIt({
-  html: true,
-  breaks: true
-}).use(require('markdown-it-highlightjs'))
