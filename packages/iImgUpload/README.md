@@ -1,10 +1,12 @@
 ## 图片选择
+<template>
 <canvas class="result" ref="result"></canvas>
 <br />
-<i-button type="primary">选择图片
-  <iImgUpload @error="error" @progress="progress" @done="showResult" />
+<i-button type="primary">选择图片 
+   <iImgUpload @error="error" @progress="progress" @done="showResult" />
 </i-button>
-<br />
+</template>
+
 <script>
   import iImgUpload from 'i-ui/lib/iImgUpload'
   export default {
@@ -50,11 +52,9 @@
 ## 代码
 ```html
 <canvas class="result" ref="result"></canvas>
-<br />
 <i-button type="primary">选择图片
   <iImgUpload @error="error" @progress="progress" @done="showResult" />
 </i-button>
-<br />
 <script>
   import iImgUpload from 'i-ui/lib/iImgUpload/src/index.vue'
   export default {

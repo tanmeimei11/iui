@@ -2,7 +2,7 @@ import loaderUtils from 'loader-utils'
 import cheerio from 'cheerio'
 import MarkDownIt from 'markdown-it'
 
-const markdown = MarkDownIt({
+const markdown = MarkDownIt('default', {
   html: true,
   breaks: true
 }).use(require('markdown-it-highlightjs'))
@@ -23,7 +23,7 @@ const renderVueTemplate = function (html) {
 
   $('style').remove()
   $('script').remove()
-
+  
   result = '<template><section>' + $.html() + '</section></template>\n' +
     output.style + '\n' +
     output.script
