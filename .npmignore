@@ -17,3 +17,6 @@ dist
 # task file
 gulpfile.es.js
 gulpfile.js
+
+# config.js
+src/iConfig.js

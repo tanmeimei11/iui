@@ -5,7 +5,7 @@ import { join } from 'path'
 export const resolvePath = dir => join(__dirname, '../..', dir)
 
 export const aliasObject = Object.assign({}, {
-  'iConfig': resolvePath('src/iConfig.example.js'),
+  'iConfig': resolvePath('src/iConfig.js'),
   'i-ui/src': resolvePath('src'),
   'i-ui/lib': resolvePath('packages')
 })

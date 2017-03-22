@@ -12,6 +12,7 @@ import iSharePanel from 'i-ui/lib/iSharePanel/README.md'
 
 // 指令
 import iTrack from 'i-ui/lib/iTrack/README.md'
+import iOpen from 'i-ui/lib/iOpen/README.md'
 
 // https://www.iviewui.com/components/icon
 
@@ -27,8 +28,8 @@ const routes = [
   {name: 'iImgUpload', path: '/iImgUpload', component: iImgUpload, type: 'components', icon: 'image', txt: '图片选择'},
   {name: 'iRollBar', path: '/iRollBar', component: iRollBar, type: 'components', icon: 'android-more-vertical', txt: '滚动加载'},
   {name: 'iSharePanel', path: '/iSharePanel', component: iSharePanel, type: 'components', icon: 'android-share-alt', txt: '分享面板'},
-
-  {name: 'iTrack', path: '/iTrack', component: iTrack, type: 'directives', icon: 'social-rss', txt: '埋点'}
+  {name: 'iTrack', path: '/iTrack', component: iTrack, type: 'directives', icon: 'social-rss', txt: '埋点'},
+  {name: 'iOpen', path: '/iOpen', component: iOpen, type: 'directives', icon: 'android-send', txt: '打开in'}
 ]
 
 export default routes

@@ -1,3 +1,7 @@
+import { 
+    U_IN_APPLINKS,
+    U_CHAT_APPLINKS
+} from 'iConfig'
 function __splitData (str, delimiter, decodeKey, decodeValue) {
   if (str.trim().length === 0) return {}
   let items = str.split(delimiter)
@@ -25,19 +29,11 @@ function __getValue (...keys) {
 }
 
 const common = {
-  get weixin () { 
-    if (this._isWeixin === undefined) {
-      this._isWeixin = /MicroMessenger/gi.test(this.ua)
-    }
-    return this._isWeixin 
-  },
-
-  get weibo () { 
-    if (this._isWeibo === undefined) {
-      this._isWeibo = /Weibo/gi.test(this.ua) 
-    }
-    return this._isWeibo 
-  },
+  get isWeChat () { return /MicroMessenger/gi.test(this.ua) },
+  get isWeiBo () { return  /Weibo/gi.test(this.ua) },
+  get isAndroid () { return /android|adr/gi.test(this.ua) },
+  get isIos () { return /iphone|ipod|ipad/gi.test(this.ua) },
+  get isInApp () { return /infashion/gi.test(this.ua) },
 
   // 查询请求
   get query () { 
@@ -89,12 +85,43 @@ const common = {
   },
   /**
    * 判断是否为app内
+   * 根据有没有source参数判断
    */
   get InApp () {
-    return !this.weixin && !this.weibo &&
+    return !this.isWechat && !this.isWeiBo &&
       this.token != null && this.token.length > 0 &&
       /^(ios|android)$/i.test(this.source) &&
       /^[\d\\.]+$/.test(this.version)
+  },
+
+  appScheme () {
+    let params = arguments
+    return {
+      webview: function() { return `in://webview?url=${encodeURIComponent(params[0])}`}
+    } 
+  },  
+
+  appUri (uri, androidUri, schemeType = 'webview') {
+    let appUrlObj = window && window.appUrlObj 
+    let appUri = uri
+    if (this.isIos) 
+        appUri = uri || appUrlObj && appUrlObj.iosMessage
+    if (this.isAndroid) 
+       appUri = androidUri || uri || appUrlObj && appUrlObj.androidMessage
+
+    if (!appUri) throw new Error('Please input uri ~') 
+    
+    let appScheme = this.appScheme(appUri)
+    if (appScheme[schemeType]) 
+        return appScheme[schemeType].call(appUri)
+
+    return appUri
+  },
+
+  openInApp (uri, androidUri, appScheme = 'webview') {
+    let appUri = this.appUri(uri, androidUri, appScheme)
+    let applinks = /in:\/\//.test(appUri) && U_IN_APPLINKS || U_CHAT_APPLINKS
+    location.href = [applinks, '?protocol=', encodeURIComponent(appUri)].join('')
   },
 
   initIn () {
