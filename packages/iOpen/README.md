@@ -39,7 +39,7 @@
 </script>
 
 ** 如果iosMessage与androidMessage不一样，请使用
-<i-button type="primary" v-iOpen>click me</i-button>
+<i-button type="primary" v-iOpen="appUri" >click me</i-button>
 <script>
   data () {
     return {
@@ -49,7 +49,7 @@
 </script>
 
 ** 如果不是in://webview，请使用
-<i-button type="primary" v-iOpen>click me</i-button>
+<i-button type="primary" v-iOpen="appUri">click me</i-button>
 <script>
   data () {
     return {
