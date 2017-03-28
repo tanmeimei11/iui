@@ -12,7 +12,7 @@
       types: {
         require: false,
         type: Array,
-        default: () => ['wechat', 'wechattimeline', 'qq', 'weibo']
+        default: () => ['wechat', 'wechattimeline', 'qq', 'qzone', 'weibo']
       },
       show: {
         require: false,
@@ -50,7 +50,7 @@
       transform: translate(0, 100%);
       transition: transform .5s;
       a {
-        padding: 1.2rem .4rem .4rem;
+        padding: 1.2rem .3rem .3rem;
         width: 1.2rem;
         display: inline-block;
         background-size: 1.2rem;
@@ -70,7 +70,13 @@
         &[data-type="qq"] {
           background-image: url("./assets/01.png");
           &:after {
-            content: "QQ";
+            content: "QQ好友";
+          }
+        }
+        &[data-type="qzone"] {
+          background-image: url("./assets/05.png");
+          &:after {
+            content: "QQ空间";
           }
         }
         &[data-type="wechat"] {

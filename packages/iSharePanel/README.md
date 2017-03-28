@@ -41,12 +41,14 @@
 </style>
 
 ## props
+
  |属性 | 说明 | 类型 | 默认值 |
  |---  | --- | ---  | --- |
  |show  | 是否显示  | Boolean | false |
  |types  | 分享的渠道  | Array | ['wechat', 'wechattimeline', 'qq', 'weibo'] |
 
  ## events
+ 
  |事件名 | 说明 | 参数 | 默认值 |
  |---  | --- | ---  | --- |
  |invoke  | 点击按钮  | 渠道字符串 | 无 |
