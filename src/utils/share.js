@@ -6,7 +6,7 @@ export default {
   initData (config) {
     this._config = config
     if (this._config.shareTitle) {
-      common.weixin && this.wxConfig()
+      common.isWeChat && this.wxConfig()
       common.InApp && this.inConfig()
     }
   },
