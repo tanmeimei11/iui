@@ -48,7 +48,10 @@ const common = {
   },
 
   get ua () {
-    return window.navigator.userAgent.toLowerCase()
+    if (!this._ua) {
+      this._ua = window.navigator.userAgent.toLowerCase()  
+    }
+    return this._ua 
   },
   // 获取版本
   get version () {
