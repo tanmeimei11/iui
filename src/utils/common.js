@@ -48,7 +48,10 @@ const common = {
   },
 
   get ua () {
-    return window.navigator.userAgent.toLowerCase()
+    if (!this._ua) {
+      this._ua = window.navigator.userAgent.toLowerCase()  
+    }
+    return this._ua 
   },
   // 获取版本
   get version () {
@@ -99,7 +102,10 @@ const common = {
 
   get appSchemes () {
     return {
-      webview: function(uri) { return `in://webview?url=${encodeURIComponent(uri)}`}
+      webview: function(uri) { 
+        if (this.isIos) uri = encodeURIComponent(uri)
+        return `in://webview?url=${encodeURIComponent(uri)}`
+      }
     } 
   },  
 
@@ -112,10 +118,11 @@ const common = {
 
     let {ios, android, scheme} = appUrlObj
     let appUri = this.isIos && ios || this.isAndroid && android || U_IN 
+    if (scheme === false) scheme = 'NOT_EXIST'
     let appScheme = (this.appSchemes)[scheme || 'webview']
 
     if (appScheme) {
-      return appScheme.call(null, appUri)
+      return appScheme.call(this, appUri)
     } 
 
     return appUri

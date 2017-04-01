@@ -43,7 +43,7 @@
 <script>
   data () {
     return {
-      appUri: {iso: 'https://www.baidu.com', android: 'https://www.qq.com'}
+      appUri: {ios: 'https://www.baidu.com', android: 'https://www.qq.com'}
     }
   }
 </script>
@@ -54,8 +54,8 @@
   data () {
     return {
       appUri: {
-        iso: `in://scheme?url=${encodeuricomponent('https://www.baidu.com')}`, 
-        android: `in://scheme?url=${encodeuricomponent('https://www.baidu.com')}`, 
+        ios: `in://scheme?url=${encodeURIComponent(encodeURIComponent('https://www.baidu.com'))}`, 
+        android: `in://scheme?url=${encodeURIComponent('https://www.baidu.com')}`, 
         scheme: false
       }
     }

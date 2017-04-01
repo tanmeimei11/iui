@@ -1,7 +1,7 @@
 import common from 'i-ui/src/utils/common'
 describe('common.js', function () {
   let stub1, stub2  
-  let iosUri, iosRs, androidUri, androidRs, appUrlObj 
+  let iosUri, iosRs, iosRs1, androidUri, androidRs1, androidRs, appUrlObj 
 
   let platform = function (platform, cb) {
     if (!cb) return
@@ -22,7 +22,10 @@ describe('common.js', function () {
     androidUri = 'https://www.in66.com_android'
 
     appUrlObj = {ios: iosUri, android: androidUri}
-    iosRs = `in://webview?url=${encodeURIComponent(iosUri)}`
+
+    iosRs1 = `in://webview?url=${encodeURIComponent(iosUri)}`
+    iosRs = `in://webview?url=${encodeURIComponent(encodeURIComponent(iosUri))}`
+    androidRs1 = `in://webview?url=${encodeURIComponent(encodeURIComponent(androidUri))}`
     androidRs = `in://webview?url=${encodeURIComponent(androidUri)}`
   })
   afterEach(function () {})
@@ -41,7 +44,7 @@ describe('common.js', function () {
         expect(common.appUri(appUrlObj)).to.equal(androidRs)
       })
       platform('android', function () {
-        expect(common.appUri(iosUri)).to.equal(iosRs)
+        expect(common.appUri(iosUri)).to.equal(iosRs1)
       })
     })
 
@@ -56,23 +59,23 @@ describe('common.js', function () {
       }) 
       platform('android', function () {
         window.appUrlObj = iosUri 
-        expect(common.appUri()).to.equal(iosRs)
+        expect(common.appUri()).to.equal(iosRs1)
       })
     })
 
     it('appUri params/appUrlObj', () => {
       platform('ios', function () {
         window.appUrlObj = appUrlObj 
-        expect(common.appUri({ios: androidUri, android: iosUri})).to.equal(androidRs)
+        expect(common.appUri({ios: androidUri, android: iosUri})).to.equal(androidRs1)
       }) 
       platform('android', function () {
         window.appUrlObj = appUrlObj 
-        expect(common.appUri({ios: androidUri, android: iosUri})).to.equal(iosRs)
+        expect(common.appUri({ios: androidUri, android: iosUri})).to.equal(iosRs1)
       }) 
     })
 
     it('appUri scheme', () => {
-      if (!appUrlObj.scheme) appUrlObj.scheme = 'webview1'
+      if (!appUrlObj.scheme) appUrlObj.scheme = false 
       platform('ios', function () {
         expect(common.appUri(appUrlObj)).to.equal(appUrlObj.ios)
       }) 
