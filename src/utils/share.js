@@ -76,7 +76,7 @@ export default {
         html.push(`<input type="hidden" id="shareImgSrc" value="${val}">`)
         html.push(`<input type="hidden" id="shareImgUrl" value="${val}">`)
       } else if (_key === 'shareTrack') {
-        val = `${location.protocol}//${U_TRACK}?` + [`action=${val}`, `_token=${common.token}`, `_=${+new Date()}`].join('&')
+        val = `${location.protocol}${U_TRACK}?` + [`action=${val}`, `_token=${common.token}`, `_=${+new Date()}`].join('&')
       }
       html.push(`<input type="hidden" id="${key}" value="${val}">`)
     }
