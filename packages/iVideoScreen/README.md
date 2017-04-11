@@ -28,7 +28,7 @@
  |src  | 视频地址  | String | 无 |
 
 ``` html
-<iVideSreen></iVideSreen>  
+<iVideoScreen></iVideoScreen>  
 <script>
   import Vue from 'vue'
 

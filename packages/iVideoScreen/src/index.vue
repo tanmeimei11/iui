@@ -5,7 +5,6 @@
 </template>
 <script>
   import Vue from 'vue'
-  import toast from 'i-ui/src/utils/toast.js'
   export default {
     props: {
       url: {
@@ -58,8 +57,6 @@
         }
       },
       play (videoUrl) {
-        console.log(videoUrl)
-        if (!(videoUrl && videoUrl.length)) return toast('该视频已被删除')
         this.src = videoUrl 
         this.isOn = true
         this.$nextTick(() => {
