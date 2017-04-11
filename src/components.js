@@ -7,6 +7,7 @@ import IBarrage from '../packages/IBarrage'
 import iImgUpload from '../packages/iImgUpload'
 import iRollBar from '../packages/iRollBar'
 import iSharePanel from '../packages/iSharePanel'
+import iVideoScreen from '../packages/iVideoScreen'
 import iTrack from '../packages/iTrack'
 import iOpen from '../packages/iOpen'
 
@@ -19,6 +20,7 @@ const install = function (Vue, opts = {}) {
   Vue.component(iImgUpload.name, iImgUpload)
   Vue.component(iRollBar.name, iRollBar)
   Vue.component(iSharePanel.name, iSharePanel)
+  Vue.component(iVideoScreen.name, iVideoScreen)
   Vue.directive(iTrack.name, iTrack)
   Vue.directive(iOpen.name, iOpen)
 }
@@ -29,7 +31,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-  version: '0.1.15',
+  version: '0.1.16',
   install,
   iAudio,
   iAvatar,
@@ -37,6 +39,7 @@ export default {
   iImgUpload,
   iRollBar,
   iSharePanel,
+  iVideoScreen,
   iTrack,
   iOpen
 }

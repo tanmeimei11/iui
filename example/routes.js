@@ -9,6 +9,7 @@ import IBarrage from 'i-ui/lib/IBarrage/README.md'
 import iImgUpload from 'i-ui/lib/iImgUpload/README.md'
 import iRollBar from 'i-ui/lib/iRollBar/README.md'
 import iSharePanel from 'i-ui/lib/iSharePanel/README.md'
+import iVideoScreen from 'i-ui/lib/iVideoScreen/README.md'
 
 // 指令
 import iTrack from 'i-ui/lib/iTrack/README.md'
@@ -28,6 +29,8 @@ const routes = [
   {name: 'iImgUpload', path: '/iImgUpload', component: iImgUpload, type: 'components', icon: 'image', txt: '图片选择'},
   {name: 'iRollBar', path: '/iRollBar', component: iRollBar, type: 'components', icon: 'android-more-vertical', txt: '滚动加载'},
   {name: 'iSharePanel', path: '/iSharePanel', component: iSharePanel, type: 'components', icon: 'android-share-alt', txt: '分享面板'},
+  {name: 'iVideoScreen', path: '/iVideoScreen', component: iVideoScreen, type: 'components', icon: 'ios-film', txt: '视频播放'},
+
   {name: 'iTrack', path: '/iTrack', component: iTrack, type: 'directives', icon: 'social-rss', txt: '埋点'},
   {name: 'iOpen', path: '/iOpen', component: iOpen, type: 'directives', icon: 'android-send', txt: '打开in'}
 ]
