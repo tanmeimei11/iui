@@ -1,14 +1,8 @@
-import track from 'i-ui/src/utils/track.js'
+import { trackParam } from 'i-ui/src/utils/track.js'
 import './base.scss'
 const clickCallback = function (e) {
-  let items = []
   let search = this.value.trim()
-  if (!search.length) return true
-  let [seed, query] = search.split('?')
-  if (query && query.length) {
-    items = query.split('&')
-  }
-  track(seed, items)
+  trackParam(search)
 }
 
 const directive = (el, binding, _v) => {
