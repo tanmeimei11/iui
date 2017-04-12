@@ -25,6 +25,11 @@
       return {
         appUri: 'https://www.baidu.com'
       }
+    },
+    created () {
+      setTimeout(()=>{
+        this.appUri = `https://www.in66.com`
+      })
     }
   }
 </script>
