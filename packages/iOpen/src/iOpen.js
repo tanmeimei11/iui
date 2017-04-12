@@ -1,33 +1,24 @@
 import common from 'i-ui/src/utils/common.js'
 import './base.scss'
-const clickCallback = function (e) {
-  if (!common.isInApp) {
-    (this.handle || (() => {}))()
-  }
-}
 
 const directive = (el, binding, _v) => {
+  el.removeEventListener('onclick', el.handle)
   el.handle = () => {
-    common.openInApp(binding.value)
+    if (!common.isInApp) {
+      common.openInApp(binding.value)
+    }
   }
-  el.addEventListener('click', clickCallback.bind(el))
-}
-
-const updated = (el, binding, _v) => { 
-  el.handle = () => {
-    common.openInApp(binding.value)
-  }
+  el.addEventListener('click', el.handle)
 }
 
 const unbind = (el, binding, _v) => {
-  el.handle = () => {}
-  el.removeEventListener('onclick', clickCallback.bind(el))
+  el.removeEventListener('onclick', el.handle)
 }
 
 export default {
   name: 'iOpen',
   bind: directive,
-  updated: updated,
-  componentUpdated: updated,
+  updated: directive,
+  componentUpdated: directive,
   unbind: unbind
 }
