@@ -1,5 +1,5 @@
 export class AppUrlObjError extends Error {
-  constructor () { 
+`  constructor () { 
     super(`
       appUrlObj should be one of these below:\n   
       1. https://www.in66.com\n
