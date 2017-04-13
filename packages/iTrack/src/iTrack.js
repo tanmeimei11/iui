@@ -1,28 +1,23 @@
-import track from 'i-ui/src/utils/track.js'
+import { trackParam } from 'i-ui/src/utils/track.js'
 import './base.scss'
-const clickCallback = function (e) {
-  let items = []
-  let search = this.value.trim()
-  if (!search.length) return true
-  let [seed, query] = search.split('?')
-  if (query && query.length) {
-    items = query.split('&')
-  }
-  track(seed, items)
-}
-
+// let bindingValue = {}
 const directive = (el, binding, _v) => {
-  el.addEventListener('click', clickCallback.bind(binding))
+  el.removeEventListener('click', el.handle)
+  el.handle = () => {
+    let search = binding.value.trim()
+    trackParam(search)
+  }
+  el.addEventListener('click', el.handle)
 }
 
 const unbind = (el, binding, _v) => {
-  el.removeEventListener('onclick', clickCallback.bind(binding))
+  el.removeEventListener('onclick', el.handle)
 }
 
 export default {
   name: 'iTrack',
   bind: directive,
-  // updated: directive,
-  // componentUpdated: directive,
+  updated: directive,
+  componentUpdated: directive,
   unbind: unbind
 }

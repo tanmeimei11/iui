@@ -33,7 +33,7 @@ function __getValue (...keys) {
 
 const common = {
   get isWeChat () { return /MicroMessenger/gi.test(this.ua) },
-  get isWeiBo () { return  /Weibo/gi.test(this.ua) },
+  get isWeiBo () { return /Weibo/gi.test(this.ua) },
   get isAndroid () { return /android|adr/gi.test(this.ua) },
   get isIos () { return /iphone|ipod|ipad/gi.test(this.ua) },
   get isInApp () { return /infashion/gi.test(this.ua) },
@@ -102,7 +102,7 @@ const common = {
 
   get appSchemes () {
     return {
-      webview: function(uri) { 
+      webview: function (uri) { 
         if (this.isIos) uri = encodeURIComponent(uri)
         return `in://webview?url=${encodeURIComponent(uri)}`
       }
@@ -112,9 +112,8 @@ const common = {
   appUri (appUrlObj) {
     appUrlObj = appUrlObj || window && window.appUrlObj 
 
-    if (typeof(appUrlObj) == 'string') 
-        appUrlObj = {ios: appUrlObj, android: appUrlObj}
-    if (!(typeof(appUrlObj) == 'object' && appUrlObj.ios && appUrlObj.android)) throw new AppUrlObjError 
+    if (typeof (appUrlObj) === 'string') { appUrlObj = {ios: appUrlObj, android: appUrlObj} }
+    if (!(typeof (appUrlObj) === 'object' && appUrlObj.ios && appUrlObj.android)) throw new AppUrlObjError() 
 
     let {ios, android, scheme} = appUrlObj
     let appUri = this.isIos && ios || this.isAndroid && android || U_IN 

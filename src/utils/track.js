@@ -12,3 +12,12 @@ export default function track (seed, query = []) {
   ]).join('&')
 }
 
+export function trackParam (search) {
+  let items = []
+  if (!search.length) return true
+  let [seed, query] = search.split('?')
+  if (query && query.length) {
+    items = query.split('&')
+  }
+  track(seed, items)
+}

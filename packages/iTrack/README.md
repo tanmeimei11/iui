@@ -22,6 +22,11 @@
       return {
         trackMessage: 'example*test*track?a=b&c=d'
       }
+    },
+    created () {
+      setTimeout(()=>{
+        this.trackMessage = `example*test*track?a=b&c=d&date=${Date.now()}`
+      })
     }
   }
 </script>
