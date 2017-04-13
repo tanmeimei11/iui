@@ -32,8 +32,8 @@ function __getValue (...keys) {
 }
 
 const common = {
-  get isWeChat () { return /MicroMessenger/gi.test(this.ua) },
-  get isWeiBo () { return /Weibo/gi.test(this.ua) },
+  get isWeChat () { return /micromessenger/gi.test(this.ua) },
+  get isWeiBo () { return /weibo/gi.test(this.ua) },
   get isAndroid () { return /android|adr/gi.test(this.ua) },
   get isIos () { return /iphone|ipod|ipad/gi.test(this.ua) },
   get isInApp () { return /infashion/gi.test(this.ua) },
