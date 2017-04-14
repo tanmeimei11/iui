@@ -1,6 +1,6 @@
 import common from 'i-ui/src/utils/common'
 describe('common.js', function () {
-  let stub1, stub2  
+  let stub1, stub2, ver
   let iosUri, iosRs, iosRs1, androidUri, androidRs1, androidRs, appUrlObj 
 
   let platform = function (platform, cb) {
@@ -15,6 +15,13 @@ describe('common.js', function () {
     cb()
     stub1.restore()
     stub2.restore()
+  }
+
+  let loacalVersion = function (version, cb) {
+    if (!cb) return
+    ver = sinon.stub(common, 'version', { get: () => version })
+    cb()
+    ver.restore()
   }
 
   beforeEach(function () {
@@ -82,6 +89,16 @@ describe('common.js', function () {
       platform('android', function () {
         expect(common.appUri(appUrlObj)).to.equal(appUrlObj.android)
       }) 
+    })
+  })
+  describe('lessThanVer', function () {
+    it('lessThanVer params', () => {
+      loacalVersion('3.0.0', function () {
+        expect(common.lessThanVer('2.0.0')).to.be.equal(false)
+      })
+      loacalVersion('1.0.0', function () {
+        expect(common.lessThanVer('2.0.0')).to.be.equal(true)
+      })
     })
   })
 })
