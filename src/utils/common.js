@@ -116,12 +116,12 @@ const common = {
     let curVer = rgx.exec(`${this.version}`).slice(1)
     let tagVer = rgx.exec(`${_version}`).slice(1)
     if (!curVer) return true
-    // alert(curVer + '-----' + tagVer)
     for (var i = 0; i < curVer.length; i++) {
       if (Number(curVer[i]) !== Number(tagVer[i])) {
         return Number(curVer[i]) < Number(tagVer[i])
       }
     }
+   
     return curVer.length < tagVer.length
   },
 
