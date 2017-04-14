@@ -111,7 +111,7 @@ const common = {
   /**
    * 判断版本
    */
-  LessThanVer (_version) {
+  lessThanVer (_version) {
     let rgx = /(\d+)\.?(\d+)?\.?(\d+)?/
     let curVer = rgx.exec(`${this.version}`).slice(1)
     let tagVer = rgx.exec(`${_version}`).slice(1)
