@@ -14,6 +14,7 @@ import iVideoScreen from 'i-ui/lib/iVideoScreen/README.md'
 // 指令
 import iTrack from 'i-ui/lib/iTrack/README.md'
 import iOpen from 'i-ui/lib/iOpen/README.md'
+import iBgImg from 'i-ui/lib/iBgImg/README.md'
 
 // https://www.iviewui.com/components/icon
 
@@ -32,7 +33,8 @@ const routes = [
   {name: 'iVideoScreen', path: '/iVideoScreen', component: iVideoScreen, type: 'components', icon: 'ios-film', txt: '视频播放'},
 
   {name: 'iTrack', path: '/iTrack', component: iTrack, type: 'directives', icon: 'social-rss', txt: '埋点'},
-  {name: 'iOpen', path: '/iOpen', component: iOpen, type: 'directives', icon: 'android-send', txt: '打开in'}
+  {name: 'iOpen', path: '/iOpen', component: iOpen, type: 'directives', icon: 'android-send', txt: '打开in'},
+  {name: 'iBgImg', path: '/iBgImg', component: iBgImg, type: 'directives', icon: 'image', txt: '背景图'}
 ]
 
 export default routes

@@ -49,10 +49,9 @@
         if (!this.hasMore) return
         if (this.$el === undefined) return
         if (this.lock !== undefined) return
-        let elH = this.$el.clientHeight
         let elOffset = this.$el.getBoundingClientRect()
         let screeH = window.screen.height * window.lib.flexible.dpr
-        let elBottomOffset = elOffset.top + elH
+        let elBottomOffset = elOffset.top + elOffset.height
         if (elBottomOffset < (screeH + 50)) {
           this.lock = 1
           this.rollIng(() => {

@@ -5,6 +5,9 @@
 </template>
 <script>
   import Vue from 'vue'
+  Vue.use(Vue => {
+    Vue.prototype.$eventHub = Vue.prototype.$eventHub || new Vue()
+  })
   export default {
     props: {
       url: {
@@ -17,14 +20,15 @@
         isOn: false
       }  
     },
+    computed: {
+      isIos: () => (/iphone|ipod|ipad/gi.test(window.navigator.userAgent.toLowerCase()))
+    },
     created () {
-      let $eventHub = this.$eventHub || this.$root.$eventHub || (this.$root.$eventHub = new Vue())
-      $eventHub.$on('iVideoScreen:playVideo', this.play)
+      this.$eventHub.$on('iVideoScreen:playVideo', this.play)
     },
     mounted () {
-      const UA = window.navigator.userAgent.toLowerCase()
       window.onresize = () => {
-        if (/iphone|ipod|ipad/gi.test(UA)) return
+        if (this.isIos) return
         if (this.$refs.video.paused && this.isOn) {
           this.off()
         }
@@ -48,6 +52,7 @@
       off () {
         this.src = ''
         this.isOn = false
+        this.$eventHub.$emit('iVideoScreen:end')
       },
       togglePlay () {
         if (this.$refs.video.paused) {
