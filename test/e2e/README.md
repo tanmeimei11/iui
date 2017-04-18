@@ -1,6 +1,7 @@
 # e2e
 
 ```bash
-sudo docker build -t node-jdk:7 .
-
+docker build -t node-jdk:7 .
+cd lib
+docker build -t e2e:7 .
 ```
