@@ -2,6 +2,9 @@ import Vue from 'vue/dist/vue.js'
 import iVideoScreen from 'i-ui/lib/iVideoScreen'
 
 let template = require('i-ui/lib/iVideoScreen/README.md')
+Vue.use(Vue => {
+  Vue.prototype.$eventHub = Vue.prototype.$eventHub || new Vue()
+})
 let vm = new Vue({
   components: {
     iVideoScreen

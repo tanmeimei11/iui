@@ -39,7 +39,7 @@
           var base64 = reader.result.replace(/^.*?,/, '')
           var img = new Image()
           img.onload = () => compressImg(img, orientation, this.maxWidth, canvas => this.doneAll(canvas))
-          img.src = 'data:' + fileType + ';base64,' + base64
+          img.src = 'data:image/' + fileType + ';base64,' + base64
         }
         reader.readAsDataURL(file)
       },

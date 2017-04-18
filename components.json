@@ -3,6 +3,7 @@
   "i-avatar": "./packages/iAvatar/index.js",
   "I-barrage": "./packages/IBarrage/index.js",
   "i-img-upload": "./packages/iImgUpload/index.js",
+  "i-img-cut": "./packages/iImgCut/index.js",
   "i-roll-bar": "./packages/iRollBar/index.js",
   "i-share-panel": "./packages/iSharePanel/index.js",
   "i-video-screen": "./packages/iVideoScreen/index.js"
