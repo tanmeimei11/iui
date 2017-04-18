@@ -1,3 +1,4 @@
+## 设置背景图片
 <template>
   <article>
     <div class="sample" v-i-bg-img="coverUrl"></div>
