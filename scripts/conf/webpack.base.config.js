@@ -11,7 +11,8 @@ export default {
     extensions: ['.js', '.vue', '.json'],
     modules: [
       resolvePath('src'),
-      resolvePath('node_modules')
+      resolvePath('node_modules'),
+      resolvePath('../node_modules')
     ],
     alias: aliasObject
   },

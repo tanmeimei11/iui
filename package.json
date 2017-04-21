@@ -12,7 +12,8 @@
     "demo": "node scripts/build.demo.js",
     "build": "npm run demo && npm run lib",
     "release": "gulp npm:publish",
-    "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js"
+    "test:unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js",
+    "test:e2e": "node test/e2e/runner.js"
   },
   "keywords": [
     "Vue.js",
@@ -98,5 +99,9 @@
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "optionalDependencies": {
+    "nightwatch": "^0.9.14",
+    "cross-spawn":"^5.1.0"
+  }
 }

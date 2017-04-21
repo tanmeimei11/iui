@@ -1,6 +1,15 @@
 # iui
 http://qah5.in66.com/inpromo/2017/in-ui/demo/index.html
 
+
+# e2e
+
+```bash
+docker build -t iui:0.1.17 .
+docker run -it --rm -v ${PWD}:/usr/src/app -p 8091:8091  iui:0.1.17  sh
+npm run test:e2e
+```
+
 ## Other
 
 ### core-js
