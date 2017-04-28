@@ -1,4 +1,4 @@
-import track from './track'
+import { trackParam } from './track'
 import common from './common'
 import { U_TRACK, U_IN_WXSDK } from 'iConfig'
 export default {
@@ -17,7 +17,7 @@ export default {
       imgUrl: this._config.shareImg,
       desc: this._config.shareDesc,
       success: () => {
-        this._config.shareTrack && track(this._config.shareTrack)
+        this._config.shareTrack && trackParam(this._config.shareTrack)
         this._config.success && this._config.success()
       },
       cancel: () => {
@@ -76,9 +76,10 @@ export default {
         html.push(`<input type="hidden" id="shareImgSrc" value="${val}">`)
         html.push(`<input type="hidden" id="shareImgUrl" value="${val}">`)
       } else if (_key === 'shareTrack') {
+        key = 'shareCallback'
         val = `${location.protocol}${U_TRACK}?` + [`action=${val}`, `_token=${common.token}`, `_=${+new Date()}`].join('&')
       }
-      html.push(`<input type="hidden" id="${key}" value="${val}">`)
+      html.push(`<input type="hidden" id="${_key}" value="${val}">`)
     }
     shareSet.innerHTML = html.join('')
   },
