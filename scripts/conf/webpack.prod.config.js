@@ -3,11 +3,11 @@ import Config from 'webpack-config'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import { env } from './utils'
-import Components from '../../components.json'
+import components from '../../components.json'
 import directives from '../../directives.json'
 
 const cfg = new Config().extend('scripts/conf/webpack.base.config.js').merge({
-  entry: Components
+  entry: components
 }).merge({
   entry: directives
 }).merge({

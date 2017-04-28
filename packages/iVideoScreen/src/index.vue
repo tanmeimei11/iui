@@ -9,6 +9,7 @@
     Vue.prototype.$eventHub = Vue.prototype.$eventHub || new Vue()
   })
   export default {
+    name: 'iVideoScreen',
     props: {
       url: {
         type: String

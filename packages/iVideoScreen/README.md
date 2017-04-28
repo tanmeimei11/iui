@@ -1,16 +1,16 @@
 <template>
   <article>
     <i-button type="primary" @click.stop="play">click me</i-button>
-    <iVideSreen></iVideSreen>  
+    <iVideoScreen></iVideoScreen>  
   </article>
 </template>
 <script>
   import Vue from 'vue'
-  import iVideSreen from 'i-ui/lib/iVideoScreen'
+  import iVideoScreen from 'i-ui/lib/iVideoScreen'
   export default {
     name: 'i-video-screen',
     components: {
-      iVideSreen
+      iVideoScreen
     },
     created () {
       this.$eventHub.$on('iVideoScreen:end', ()=>{
@@ -34,11 +34,11 @@
 ``` html
 <iVideoScreen></iVideoScreen>  
 <script>
-  import iVideSreen from 'i-ui/lib/iVideoScreen'
+  import iVideoScreen from 'i-ui/lib/iVideoScreen'
   import Vue from 'vue'
   export default {
     components: {
-      iVideSreen
+      iVideoScreen
     },
     created () {
       this.$eventHub.$on('iVideoScreen:end', ()=>{
