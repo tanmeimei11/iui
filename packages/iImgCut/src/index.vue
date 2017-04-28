@@ -1,12 +1,16 @@
 <template>
-  <div @touchstart.prevent="_touchstart"
-       @touchmove.prevent="_touchmove"
-       @touchend="_touchend"> 
+  <div @touchstart.prevent="_touchstart" @touchmove.prevent="_touchmove" @touchend="_touchend">
     <canvas ref="canvas"></canvas>
+    <slot></slot>
   </div>
 </template>
 <script>
-  import { _toFloatX, _fixedDrawSize, _fixedEdgePic, _fixedCenterPic } from './fixPos.js'
+  import {
+    _toFloatX,
+    _fixedDrawSize,
+    _fixedEdgePic,
+    _fixedCenterPic
+  } from './fixPos.js'
   export default {
     name: 'iImgCut',
     props: {
@@ -47,8 +51,18 @@
     mounted () {
       // set canvas size
       let style = window.getComputedStyle(this.canvas)
+      let rect = this.canvas.getBoundingClientRect()
       this.canvas.width = parseFloat(style.width)
       this.canvas.height = parseFloat(style.height)
+      // set offset
+      let parentStyle = window.getComputedStyle(this.canvas.parentElement)
+      let parentRect = this.canvas.parentElement.getBoundingClientRect()
+      this.offset = {
+        top: parentRect.top - rect.top,
+        left: rect.left - parentRect.left,
+        width: parseFloat(parentStyle.width),
+        height: parseFloat(parentStyle.height)
+      }
       this._changeImg()
     },
     data () {
@@ -65,6 +79,8 @@
           dw: 0,
           dh: 0
         },
+        imageRatio: undefined,
+        containerRatio: undefined,
         minScale: 1,
         maxScale: 4,
         scale: 1
@@ -155,14 +171,21 @@
       _touchend (event) {
         if (!this.resource) return
         if (this.scale < 1) {
-
+          _fixedCenterPic.apply(this)
         } else {
           _fixedEdgePic.apply(this)
         }
         this._drawImage()
       },
       toDataURL (type, encoderOptions) {
-        return this.canvas.toDataURL(type, encoderOptions)
+        let rcanvas = document.createElement('canvas')
+        let rctx = rcanvas.getContext('2d')
+        rcanvas.width = this.offset.width
+        rcanvas.height = this.offset.height
+        rctx.translate(-this.offset.left, -this.offset.top)
+        rctx.drawImage(this.canvas, 0, 0, this.canvas.width, this.canvas.height, 0, 0,
+          this.canvas.width, this.canvas.height)
+        return rcanvas.toDataURL(type, encoderOptions)
       }
     }
   }
