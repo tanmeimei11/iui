@@ -11,7 +11,7 @@ var i = args.indexOf('--test')
 if (i > -1) {
   args[i + 1] = 'test/e2e/specs/' + args[i + 1] + '.js'
 }
-var runner = spawn('./node_modules/.bin/nightwatch', args, {
+var runner = spawn('../node_modules/.bin/nightwatch', args, {
   stdio: 'inherit'
 })
 
