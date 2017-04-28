@@ -1,5 +1,5 @@
 import Vue from 'vue/dist/vue.js'
-import iImgCut from 'i-ui/lib/iImgCut/index.js'
+import iImgCut from 'i-ui/lib/iImgCut/src/index.vue'
 
 const Ctor = Vue.extend({
   components: {

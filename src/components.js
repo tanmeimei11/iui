@@ -35,7 +35,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-  version: '0.1.19',
+  version: '0.1.20',
   install,
   iAudio,
   iAvatar,
