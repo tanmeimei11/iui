@@ -59,10 +59,12 @@
       let parentRect = this.canvas.parentElement.getBoundingClientRect()
       this.offset = {
         top: parentRect.top - rect.top,
-        left: rect.left - parentRect.left,
+        left: parentRect.left - rect.left,
         width: parseFloat(parentStyle.width),
         height: parseFloat(parentStyle.height)
       }
+      this.offset.top = this.offset.top <= 0 ? 0 : this.offset.top
+      this.offset.left = this.offset.left <= 0 ? 0 : this.offset.left
       this._changeImg()
     },
     data () {
