@@ -9,6 +9,7 @@ import iImgCut from '../packages/iImgCut'
 import iRollBar from '../packages/iRollBar'
 import iSharePanel from '../packages/iSharePanel'
 import iVideoScreen from '../packages/iVideoScreen'
+import iFireWorks from '../packages/iFireWorks'
 import iTrack from '../packages/iTrack'
 import iOpen from '../packages/iOpen'
 import iBgImg from '../packages/iBgImg'
@@ -24,6 +25,7 @@ const install = function (Vue, opts = {}) {
   Vue.component(iRollBar.name, iRollBar)
   Vue.component(iSharePanel.name, iSharePanel)
   Vue.component(iVideoScreen.name, iVideoScreen)
+  Vue.component(iFireWorks.name, iFireWorks)
   Vue.directive(iTrack.name, iTrack)
   Vue.directive(iOpen.name, iOpen)
   Vue.directive(iBgImg.name, iBgImg)
@@ -45,6 +47,7 @@ export default {
   iRollBar,
   iSharePanel,
   iVideoScreen,
+  iFireWorks,
   iTrack,
   iOpen,
   iBgImg

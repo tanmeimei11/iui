@@ -6,5 +6,6 @@
   "i-img-cut": "./packages/iImgCut/index.js",
   "i-roll-bar": "./packages/iRollBar/index.js",
   "i-share-panel": "./packages/iSharePanel/index.js",
-  "i-video-screen": "./packages/iVideoScreen/index.js"
+  "i-video-screen": "./packages/iVideoScreen/index.js",
+  "i-fire-works": "./packages/iFireWorks/index.js"
 }
