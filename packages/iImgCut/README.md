@@ -64,7 +64,7 @@
     data() {
       return {
         fillStyle: '#fff',
-        src: undefined,
+        src: '',
         resource: undefined,
         resource1: undefined
       }

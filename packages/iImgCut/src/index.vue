@@ -14,8 +14,16 @@
   export default {
     name: 'iImgCut',
     props: {
-      'src': {},
-      'fillStyle': {
+      src: [HTMLElement, String],
+      minScale: {
+        type: Number,
+        default: 1
+      },
+      maxScale: {
+        type: Number,
+        default: 4
+      },
+      fillStyle: {
         type: String,
         default: '#fff'
       }
@@ -83,8 +91,6 @@
         },
         imageRatio: undefined,
         containerRatio: undefined,
-        minScale: 1,
-        maxScale: 4,
         scale: 1
       }
     },
