@@ -74,7 +74,7 @@ export default {
       let val = this._config[key]
       if (_key === 'shareImg') {
         html.push(`<input type="hidden" id="shareImgSrc" value="${val}">`)
-        html.push(`<input type="hidden" id="shareImgUrl" value="${val}">`)
+        // html.push(`<input type="hidden" id="shareImgUrl" value="${val}">`)
       } else if (_key === 'shareTrack') {
         _key = 'shareCallback'
         val = `${location.protocol}${U_TRACK}?` + [`action=${val}`, `_token=${common.token}`, `_=${+new Date()}`].join('&')
