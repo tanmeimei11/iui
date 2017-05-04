@@ -14,8 +14,16 @@
   export default {
     name: 'iImgCut',
     props: {
-      'src': {},
-      'fillStyle': {
+      src: [HTMLElement, String],
+      minScale: {
+        type: Number,
+        default: 1
+      },
+      maxScale: {
+        type: Number,
+        default: 4
+      },
+      fillStyle: {
         type: String,
         default: '#fff'
       }
@@ -59,10 +67,12 @@
       let parentRect = this.canvas.parentElement.getBoundingClientRect()
       this.offset = {
         top: parentRect.top - rect.top,
-        left: rect.left - parentRect.left,
+        left: parentRect.left - rect.left,
         width: parseFloat(parentStyle.width),
         height: parseFloat(parentStyle.height)
       }
+      this.offset.top = this.offset.top <= 0 ? 0 : this.offset.top
+      this.offset.left = this.offset.left <= 0 ? 0 : this.offset.left
       this._changeImg()
     },
     data () {
@@ -81,8 +91,6 @@
         },
         imageRatio: undefined,
         containerRatio: undefined,
-        minScale: 1,
-        maxScale: 4,
         scale: 1
       }
     },

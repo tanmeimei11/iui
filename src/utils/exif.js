@@ -1,3 +1,4 @@
+import common from './common'
 /**
  * http://blog.csdn.net/libins/article/details/50973498
  * http://blog.csdn.net/han_jiang_xue/article/details/8266207
@@ -125,7 +126,7 @@ export const vaildImgType = (blob, done) => {
  * @param {function} done
  */
 export const compressImg = (img, orientation, maxWidth, done) => {
-    // 1:0,3:180,6:90,8:270
+  // 1:0,3:180,6:90,8:270
   var canvas = document.createElement('canvas')
   var ctx = canvas.getContext('2d')
   var imgRotation = {
@@ -152,6 +153,78 @@ export const compressImg = (img, orientation, maxWidth, done) => {
   }
   ctx.translate(canvas.width / 2, canvas.height / 2)
   ctx.rotate(imgRotation)
-  ctx.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight, -1 * dw / 2, -1 * dh / 2, dw, dh)
+  let vertSquashRatio = 1
+  // 当ios7 ／ ios6 的时候算压缩比
+  if (common.isIos) {
+    vertSquashRatio = detectVerticalSquash(img)
+  }
+  ctx.drawImage(img, 0, 0, img.naturalWidth * vertSquashRatio, img.naturalHeight * vertSquashRatio, -1 * dw / 2, -1 * dh / 2, dw, dh)
   done(canvas)
+}
+
+/**
+ * 画圆角矩形
+ * @param {Context} ctx Canvas的Context上下文
+ * @param {Int} x 左上角的X轴
+ * @param {Int} y 左上角的Y轴
+ * @param {Int} w 宽度
+ * @param {Int} h 高度
+ * @param {Int} r 圆角的半径
+ */
+export const roundRect = (ctx, x, y, w, h, r) => {
+  if (w < 2 * r) r = w / 2
+  if (h < 2 * r) r = h / 2
+  ctx.beginPath()
+  ctx.moveTo(x + r, y)
+  ctx.arcTo(x + w, y, x + w, y + h, r)
+  ctx.arcTo(x + w, y + h, x, y + h, r)
+  ctx.arcTo(x, y + h, x, y, r)
+  ctx.arcTo(x, y, x + w, y, r)
+  ctx.closePath()
+}
+
+/**
+ * 因为 iOS6 & iOS7 在canvas上绘制图片时，默认会垂直挤压图片，所以我们需要检测出图片的挤压比例
+ * @param {Img} image 
+ */
+const detectVerticalSquash = image => {
+  var ih = image.naturalHeight
+  // 创建画布
+  var cvs = document.createElement('canvas')
+  // 设置宽度为1
+  cvs.width = 1
+  // 设置高度为图片高度
+  cvs.height = ih
+  // 获取描画对象
+  var ctx = cvs.getContext('2d')
+  // 绘制图片
+  ctx.drawImage(image, 0, 0)
+  // getImageData(int x,int y,int width,int height)：该方法获取canvas上从(x,y)点开始，宽为width、高为height的图片区域的数据，
+  // 该方法返回的是一个CanvasPixelArray对象，该对象具有width、height、data等属性。
+  // data属性为一个数组，该数组每4个元素对应一个像素点。
+  var data = ctx.getImageData(0, 0, 1, ih).data
+  // 有图像的像素点位置 检测图像边缘的情况下，此时它被垂直挤压像素的位置
+  var sy = 0
+  // 透明的像素点位置
+  var ey = ih
+  // 当前检索的像素点位置
+  var py = ih
+
+  while (py > sy) {
+    // data属性为一个数组，该数组每4个元素对应一个像素点。py - 1：最后一个像素点；
+    // 3：根据RGBA是代表Red（红色） Green（绿色） Blue（蓝色）和 Alpha的色彩空间，得出Alpha在第四个位置（索引是3）
+    var alpha = data[(py - 1) * 4 + 3]
+    // 透明
+    if (alpha === 0) {
+      ey = py
+    } else {
+      sy = py
+    }
+    // num >> 1 右移一位相当于除2，右移n位相当于除以2的n次方
+    // 如果检测到了像素则扩大检索范围，如果没有检索到像素则会缩小范围，每次浮动值为检索到像素的点加没有检索到像素点的一半
+    py = (ey + sy) >> 1
+  }
+  // 求出垂直压缩的比例
+  var ratio = (py / ih)
+  return (ratio === 0) ? 1 : ratio
 }

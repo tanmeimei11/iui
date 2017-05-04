@@ -10,6 +10,8 @@ export function _fixedDrawSize () {
   this.drawPos.dh = this.canvas.height
   this.imageRatio = this.resPos.sw / this.resPos.sh
   this.containerRatio = this.drawPos.dw / this.drawPos.dh
+  this.drawPos.dx = this.drawPos.dy = 0
+  this.scale = 1
   // 当图片比较宽
   if (this.imageRatio > this.containerRatio) {
     this.drawPos.dw = this.drawPos.dh * this.imageRatio
