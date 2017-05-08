@@ -60,6 +60,8 @@ const inserted = (el, binding, _v) => {
 
 const unbind = (el, binding, _v) => {
   window.removeEventListener('scroll', el.lazyload)
+  el.style.backgroundImage = ''
+  el.style.backgroundSize = ''
 }
 
 export default {
