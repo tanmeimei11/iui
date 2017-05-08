@@ -49,6 +49,19 @@
   }
 </script>
 
+### props
+ |属性 | 说明 | 类型 | 默认值 |
+ |---  | --- | ---  | --- |
+ |analyze  | 处理图片  | Boolean | true  |
+ |maxWidth  | 最大的宽度  | Number | Infinity  |
+
+### Event
+ |事件 | 说明 | 类型 | 默认值 |
+ |---  | --- | ---  | --- |
+ |progress  | 开始处理图片  | function |   |
+ |done  | 上传回调  | function | [canvas\|File]  |
+ |error  | 处理出错  | function |   |
+
 ## 代码
 ```html
 <canvas class="result" ref="result"></canvas>

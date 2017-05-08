@@ -14,7 +14,6 @@ let newVersion
 let versionType = 'patch'
 let run = exec
 
-
 gulp.task('bump', () => {
   let packageJson = () => { return JSON.parse(fs.readFileSync('./package.json', 'utf8')) }
   let json = packageJson()
@@ -42,7 +41,7 @@ gulp.task('copy:to:in', ['git:push:tags'], (cb) => {
   cb()
 })
 
-gulp.task('npm:publish', ['git:push:tags'], (cb) => {
+gulp.task('npm:publish', ['copy:to:in'], (cb) => {
   run('npm publish', cb)
 })
 
