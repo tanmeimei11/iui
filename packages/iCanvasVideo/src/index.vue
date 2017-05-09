@@ -37,7 +37,9 @@
         imgObjs: [],
         canvas: null,
         ctx: null,
-        activeIndex: 0
+        activeIndex: 0,
+        intervalTimer: null,
+        delayTimer: null
       }
     },
     methods: {
@@ -104,8 +106,10 @@
         ctx.drawImage(imgObj.img, 0, 0, imgObj.w, imgObj.h, temp.x, temp.y, temp.w, temp.h)
       },
       timer () {
-        setTimeout(() => {
-          setInterval(() => {
+        clearTimeout(this.delayTimer)
+        this.delayTimer = setTimeout(() => {
+          clearInterval(this.intervalTimer)
+          this.intervalTimer = setInterval(() => {
             this.drawImg(this.ctx, this.imgObjs[this.activeIndex], 0, 0, this.canvas.width, this.canvas.height)
             this.changeEnd(this)
             this.activeIndex++ >= (this.imgObjs.length - 1) && (this.activeIndex = 0)
