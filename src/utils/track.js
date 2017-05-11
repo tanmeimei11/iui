@@ -8,6 +8,7 @@ export default function track (seed, query = []) {
     `_token=${common.token}`,
     `_s=${common.source}`,
     `_v=${common.version}`,
+    `_ig=${common.query._ig || common.query.ig}`,
     `_=${+new Date()}`
   ]).join('&')
 }

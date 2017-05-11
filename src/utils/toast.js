@@ -8,6 +8,6 @@ export default function toast (msg, millisecond = 3000) {
   hitEle.innerText = msg
   document.body.appendChild(hitEle)
   setTimeout(function () {
-    document.body.removeChild(hitEle)
+    document.getElementsByClassName('hint-box')[0] && document.body.removeChild(hitEle)
   }, millisecond)
 }
