@@ -36,8 +36,8 @@ gulp.task('git:push:tags', ['git:tag'], (cb) => {
 })
 
 gulp.task('copy:to:in', ['git:push:tags'], (cb) => {
-  rm('-rf', '../InPromo/2017/in-ui/dist/demo')
-  cp('-rf', './dist', '../InPromo/2017/in-ui/dist/')
+  rm('-rf', '../InPromo/2017/in-ui/demo/dist')
+  cp('-rf', './dist', '../InPromo/2017/in-ui/demo/dist/')
   cb()
 })
 
