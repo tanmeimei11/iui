@@ -1,17 +1,19 @@
 import { trackParam } from 'i-ui/src/utils/track.js'
 import './base.scss'
-// let bindingValue = {}
+
+const TRACK_HANDLE_KEY = `__iUI_TRACK_HANDLE__`
+
 const directive = (el, binding, _v) => {
-  el.removeEventListener('click', el.handle)
-  el.handle = () => {
+  el.removeEventListener('click', el[`${TRACK_HANDLE_KEY}`])
+  el[`${TRACK_HANDLE_KEY}`] = () => {
     let search = binding.value.trim()
     trackParam(search)
   }
-  el.addEventListener('click', el.handle)
+  el.addEventListener('click', el[`${TRACK_HANDLE_KEY}`])
 }
 
 const unbind = (el, binding, _v) => {
-  el.removeEventListener('onclick', el.handle)
+  el.removeEventListener('onclick', el[`${TRACK_HANDLE_KEY}`])
 }
 
 export default {
