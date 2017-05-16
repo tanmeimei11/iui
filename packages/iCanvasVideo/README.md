@@ -36,7 +36,7 @@
 ### props
  |属性 | 说明 | 类型 | 默认值 |
  |---  | --- | ---  | --- |
- |src  | 视频地址  | String | 无 | 
+ |对象  | 地址 方式 时间间隔  | object | 无 | 
 
 ``` html
  <iCanvasVideo :imgs="imgs" :cover="cover" :interval="interval" :changeEnd="changeEnd"></iCanvasVideo>
