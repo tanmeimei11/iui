@@ -7,7 +7,7 @@ const directive = (el, binding, _v) => {
   el.removeEventListener('click', el[`${TRACK_HANDLE_KEY}`])
   el[`${TRACK_HANDLE_KEY}`] = () => {
     let search = binding.value.trim()
-    trackParam(search, window._track || [])
+    trackParam(search)
   }
   el.addEventListener('click', el[`${TRACK_HANDLE_KEY}`])
 }
