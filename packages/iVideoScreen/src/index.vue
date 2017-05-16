@@ -1,5 +1,5 @@
 <template>
-    <div class="component i-video-screen" :class="{on: isOn, off: !isOn}">
+    <div class="component i-video-screen" :class="{on: isOn, off: !isOn}" ref="videoWrap">
         <video ref="video" controls="controls" :src="src" x5-video-player-fullscreen="true" x5-video-player-type="h5"></video>
     </div>      
 </template>
@@ -40,7 +40,7 @@
       this.$refs.video.onended = () => {
         this.off()
       }
-      document.addEventListener('click', event => {
+      this.$refs.videoWrap.addEventListener('click', event => {
         if (this.src === '') return
         if (event.target === this.$refs.video) {
           this.togglePlay()

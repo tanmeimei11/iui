@@ -1,6 +1,6 @@
 <template>
   <article>
-    <i-button type="primary" @click.stop="play">click me</i-button>
+    <i-button type="primary" @click="play">click me</i-button>
     <iVideoScreen></iVideoScreen>  
   </article>
 </template>
@@ -48,8 +48,7 @@
     methods: {
       play () {
         let url = 'http://vooha01.jiuyan.info/bc/2017/04/08/893C7DEC-758D-BFC7-C393-B3BF4C2460D4-1MVZAnQ.mp4'
-        let $eventHub = this.$eventHub || this.$root.$eventHub || (this.$root.$eventHub = new Vue())
-        $eventHub.$emit('iVideoScreen:playVideo', url)
+        this.$eventHub.$emit('iVideoScreen:playVideo', url)
       }
     }
 </script>
