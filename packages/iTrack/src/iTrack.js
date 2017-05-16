@@ -1,13 +1,13 @@
 import { trackParam } from 'i-ui/src/utils/track.js'
 import './base.scss'
+// 设置默认基本参数
 
 const TRACK_HANDLE_KEY = `__iUI_TRACK_HANDLE__`
-
 const directive = (el, binding, _v) => {
   el.removeEventListener('click', el[`${TRACK_HANDLE_KEY}`])
   el[`${TRACK_HANDLE_KEY}`] = () => {
     let search = binding.value.trim()
-    trackParam(search)
+    trackParam(search, window._track || [])
   }
   el.addEventListener('click', el[`${TRACK_HANDLE_KEY}`])
 }
