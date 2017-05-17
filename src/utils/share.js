@@ -1,6 +1,6 @@
-import { trackParam } from './track'
+import { trackParam, combineQuery } from './track'
 import common from './common'
-import { U_TRACK, U_IN_WXSDK } from 'iConfig'
+import { U_IN_WXSDK } from 'iConfig'
 export default {
   initWXEnd: false,
   initData (config) {
@@ -77,7 +77,7 @@ export default {
         html.push(`<input type="hidden" id="shareImgUrl" value="${val}">`)
       } else if (_key === 'shareTrack') {
         _key = 'shareCallback'
-        val = `${location.protocol}${U_TRACK}?` + [`action=${val}`, `_token=${common.token}`, `_=${+new Date()}`].join('&')
+        val = combineQuery(val)
       }
       html.push(`<input type="hidden" id="${_key}" value="${val}">`)
     }
