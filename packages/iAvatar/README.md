@@ -1,3 +1,4 @@
+<iAvatar src="//inimg01.jiuyan.info/in/2015/12/06/50E0D236-8186-87D4-278E-184399C6B81D-1ndoVWb.jpg" :uid="`1MqMnqMP`"></iAvatar>
 <iAvatar src="//inimg01.jiuyan.info/in/2015/12/06/50E0D236-8186-87D4-278E-184399C6B81D-1ndoVWb.jpg"></iAvatar>
 <table class="bordered responsive-table">
       <thead>
@@ -10,6 +11,12 @@
         <tr>
           <td>src</td>
           <td>头像地址</td>
+          <td>String</td>
+          <td>无</td>
+        </tr>
+        <tr>
+          <td>uid</td>
+          <td>用户id（可选参数,存在时点击头像进in记）</td>
           <td>String</td>
           <td>无</td>
         </tr>
@@ -28,6 +35,7 @@
 ### props
 
 ```html
+<iAvatar src="//inimg01.jiuyan.info/in/2015/12/06/50E0D236-8186-87D4-278E-184399C6B81D-1ndoVWb.jpg" :uid="`1MqMnqMP`"></iAvatar>
 <iAvatar src="//inimg01.jiuyan.info/in/2015/12/06/50E0D236-8186-87D4-278E-184399C6B81D-1ndoVWb.jpg"></iAvatar>
 ```
 

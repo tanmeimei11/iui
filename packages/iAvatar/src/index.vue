@@ -1,5 +1,5 @@
 <template>
-  <div class="i-avatar" :style="{'background-image': `url(${avatar})`}" @click="avatarClick"></div>
+  <div class="i-avatar" :style="{'background-image': `url(${avatar})`}" @click="uid&&avatarClick()"></div>
 </template>
 <script>
   import comm from 'i-ui/src/utils/common.js'
@@ -13,7 +13,8 @@
       },
       uid: {
         type: String,
-        required: true
+        default: '',
+        required: false
       }
     },
     computed: {
