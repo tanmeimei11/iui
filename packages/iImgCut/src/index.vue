@@ -11,6 +11,7 @@
     _fixedEdgePic,
     _fixedCenterPic
   } from './fixPos.js'
+  import { setSize } from 'i-ui/src/utils/canvasExt.js'
   export default {
     name: 'iImgCut',
     props: {
@@ -64,10 +65,8 @@
     },
     mounted () {
       // set canvas size
-      let style = window.getComputedStyle(this.canvas)
+      setSize(this.canvas)
       let rect = this.canvas.getBoundingClientRect()
-      this.canvas.width = this.width || parseFloat(style.width)
-      this.canvas.height = this.height || parseFloat(style.height)
       // set offset
       let parentStyle = window.getComputedStyle(this.canvas.parentElement)
       let parentRect = this.canvas.parentElement.getBoundingClientRect()

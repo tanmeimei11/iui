@@ -1,13 +1,13 @@
+function removeToastDom () {
+  let oldDom = document.getElementsByClassName('hint-box')[0]
+  oldDom && document.body.removeChild(oldDom)
+}
+
 export default function toast (msg, millisecond = 3000) {
-  let dom = document.getElementsByClassName('hint-box')[0]
-  if (dom) {
-    document.body.removeChild(dom)
-  }
+  removeToastDom()
   let hitEle = document.createElement('div')
   hitEle.setAttribute('class', 'hint-box')
   hitEle.innerText = msg
   document.body.appendChild(hitEle)
-  setTimeout(function () {
-    document.getElementsByClassName('hint-box')[0] && document.body.removeChild(hitEle)
-  }, millisecond)
+  setTimeout(removeToastDom, millisecond)
 }
