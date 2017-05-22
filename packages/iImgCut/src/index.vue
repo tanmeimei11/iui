@@ -15,6 +15,12 @@
     name: 'iImgCut',
     props: {
       src: [HTMLElement, String],
+      width: {
+        type: Number
+      },
+      height: {
+        type: Number
+      },
       minScale: {
         type: Number,
         default: 1
@@ -60,8 +66,8 @@
       // set canvas size
       let style = window.getComputedStyle(this.canvas)
       let rect = this.canvas.getBoundingClientRect()
-      this.canvas.width = parseFloat(style.width)
-      this.canvas.height = parseFloat(style.height)
+      this.canvas.width = this.width || parseFloat(style.width)
+      this.canvas.height = this.height || parseFloat(style.height)
       // set offset
       let parentStyle = window.getComputedStyle(this.canvas.parentElement)
       let parentRect = this.canvas.parentElement.getBoundingClientRect()
