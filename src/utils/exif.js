@@ -163,27 +163,6 @@ export const compressImg = (img, orientation, maxWidth, done) => {
 }
 
 /**
- * 画圆角矩形
- * @param {Context} ctx Canvas的Context上下文
- * @param {Int} x 左上角的X轴
- * @param {Int} y 左上角的Y轴
- * @param {Int} w 宽度
- * @param {Int} h 高度
- * @param {Int} r 圆角的半径
- */
-export const roundRect = (ctx, x, y, w, h, r) => {
-  if (w < 2 * r) r = w / 2
-  if (h < 2 * r) r = h / 2
-  ctx.beginPath()
-  ctx.moveTo(x + r, y)
-  ctx.arcTo(x + w, y, x + w, y + h, r)
-  ctx.arcTo(x + w, y + h, x, y + h, r)
-  ctx.arcTo(x, y + h, x, y, r)
-  ctx.arcTo(x, y, x + w, y, r)
-  ctx.closePath()
-}
-
-/**
  * 因为 iOS6 & iOS7 在canvas上绘制图片时，默认会垂直挤压图片，所以我们需要检测出图片的挤压比例
  * @param {Img} image 
  */
