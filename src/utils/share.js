@@ -1,11 +1,17 @@
+/* globals wx */
 import { trackParam, combineQuery } from './track'
 import common from './common'
 import { U_IN_WXSDK } from 'iConfig'
-export default {
+let share = {
   initWXEnd: false,
+  _config: {},
   initData (config) {
     this._config = config
     if (this._config.shareTitle) {
+      // fix shareImgAddr
+      let anchor = document.createElement('a')
+      anchor.href = this._config.shareImg
+      this._config.shareImg = anchor.href
       common.isWeChat && this.wxConfig()
       common.InApp && this.inConfig()
     }
@@ -24,15 +30,15 @@ export default {
         this._config.cancel && this._config.cancel()
       }
     }
-    wx.error(function (res) { //eslint-disable-line
+    wx.error(function (res) { 
       // alert(JSON.stringify(res))
     })
-    wx.ready(function () { //eslint-disable-line
-      wx.onMenuShareTimeline(shareObj) //eslint-disable-line
-      wx.onMenuShareAppMessage(shareObj) //eslint-disable-line
-      wx.onMenuShareQQ(shareObj)//eslint-disable-line
-      wx.onMenuShareWeibo(shareObj)//eslint-disable-line
-      wx.onMenuShareQZone(shareObj)//eslint-disable-line
+    wx.ready(function () {
+      wx.onMenuShareTimeline(shareObj) 
+      wx.onMenuShareAppMessage(shareObj) 
+      wx.onMenuShareQQ(shareObj)
+      wx.onMenuShareWeibo(shareObj)
+      wx.onMenuShareQZone(shareObj)
     })
   },
   wxConfig () {
@@ -43,7 +49,7 @@ export default {
       .then(res => {
         if (res.succ) {
           let data = res.data
-          wx.config({//eslint-disable-line
+          wx.config({
             debug: false,
             appId: data.appId,
             timestamp: data.timestamp,
@@ -84,9 +90,52 @@ export default {
     shareSet.innerHTML = html.join('')
   },
   get config () {
-    return this._config
+    let thisObj = this
+    return Object.defineProperties({}, {
+      shareTitle: {
+        set (value) {
+          let _config = thisObj._config
+          _config.shareTitle = value
+          thisObj.config = _config
+        },
+        get () { return thisObj._config.shareTitle }
+      },
+      shareDesc: {
+        set (value) {
+          let _config = thisObj._config
+          _config.shareDesc = value
+          thisObj.config = _config
+        },
+        get () { return thisObj._config.shareDesc }
+      },
+      shareLink: {
+        set (value) {
+          let _config = thisObj._config
+          _config.shareLink = value
+          thisObj.config = _config
+        },
+        get () { return thisObj._config.shareLink }
+      },
+      shareImg: {
+        set (value) {
+          let _config = thisObj._config
+          _config.shareImg = value
+          thisObj.config = _config
+        },
+        get () { return thisObj._config.shareImg }
+      },
+      shareTrack: {
+        set (value) {
+          let _config = thisObj._config
+          _config.shareTrack = value
+          thisObj.config = _config
+        },
+        get () { return thisObj._config.shareTrack }
+      }
+    })
   },
   set config (config) {
     this.initData(config)
   }
 }
+export default share
