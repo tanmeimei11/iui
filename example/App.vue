@@ -31,7 +31,9 @@
 
 <script>
   import routes from './routes'
+  import {share} from 'i-ui/src/mixins/inPromo'
   export default {
+    mixins: [share],
     name: 'app',
     data () {
       let _data = {
@@ -51,6 +53,7 @@
       return _data
     },
     created () {
+      this.$utils.share.shareTitle = 'a'
       this.activeName = this.$route.path
     },
     methods: {

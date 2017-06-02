@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import App from './App'
 import Router from 'vue-router'
 import routes from './routes'
@@ -8,14 +7,24 @@ import 'iview/dist/styles/iview.css'
 import 'highlight.js/styles/solarized-light.css'
 import './scss/markdown.scss'
 import 'core-js/library/es6/promise'
-Vue.use(Router) 
-Vue.use(iView)
+// 分享
+import InVue from 'i-ui/src/extends/InVue'
+
 const router = new Router({
   routes
 })
 
-new Vue({ // eslint-disable-line
+new InVue({ // eslint-disable-line
   el: '#app',
   router,
+  track: 'enter',
+  plugins: [Router, iView],
+  share: {
+    shareTitle: 'shareTitle', // 分享标题
+    shareDesc: 'shareDesc', // 分享描述
+    shareLink: location.protocol + `//${location.host}/inpromo/2017/{{ name }}/index.html?_ig=share`,
+    shareImg: location.protocol + '//inimg02.jiuyan.info/in/2017/02/27/307746C7-A0AC-4D21-4D92-B480A77ADFA2.jpg',
+    shareTrack: 'share'
+  },
   render: h => h(App)
 })
