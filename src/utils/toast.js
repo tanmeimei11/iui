@@ -7,7 +7,7 @@ export default function toast (msg, millisecond = 3000) {
   removeToastDom()
   let hitEle = document.createElement('div')
   hitEle.setAttribute('class', 'hint-box')
-  hitEle.innerText = msg
+  hitEle.innerHTML = msg
   document.body.appendChild(hitEle)
   setTimeout(removeToastDom, millisecond)
 }
