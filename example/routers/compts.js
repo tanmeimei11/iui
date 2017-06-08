@@ -1,7 +1,3 @@
-import install from './md/install.md'
-import quickstart from './md/quickstart.md'
-import customPackage from './md/custom-package.md'
-
 // 组件
 import iAudio from 'i-ui/lib/iAudio/README.md'
 import iAvatar from 'i-ui/lib/iAvatar/README.md'
@@ -15,33 +11,7 @@ import iImgCut from 'i-ui/lib/iImgCut/README.md'
 import iFireWorks from 'i-ui/lib/iFireWorks/README.md'
 import iSticker from 'i-ui/lib/iSticker/README.md'
 
-// 指令
-import iTrack from 'i-ui/lib/iTrack/README.md'
-import iOpen from 'i-ui/lib/iOpen/README.md'
-import iBgImg from 'i-ui/lib/iBgImg/README.md'
-
-// https://www.iviewui.com/components/icon
-
-const routes = [{
-  path: '/',
-  redirect: '/install'
-},
-{
-  name: 'install',
-  path: '/install',
-  component: install
-},
-{
-  name: 'customPackage',
-  path: '/customPackage',
-  component: customPackage
-},
-{
-  name: 'quickstart',
-  path: '/quickstart',
-  component: quickstart
-},
-{
+export default [{
   name: 'iAudio',
   path: '/iAudio',
   component: iAudio,
@@ -126,33 +96,6 @@ const routes = [{
   path: '/iSticker',
   component: iSticker,
   type: 'components',
-  icon: 'ios-rose',
+  icon: 'ios-snowy',
   txt: '贴纸'
-},
-{
-  name: 'iTrack',
-  path: '/iTrack',
-  component: iTrack,
-  type: 'directives',
-  icon: 'social-rss',
-  txt: '埋点'
-},
-{
-  name: 'iOpen',
-  path: '/iOpen',
-  component: iOpen,
-  type: 'directives',
-  icon: 'android-send',
-  txt: '打开in'
-},
-{
-  name: 'iBgImg',
-  path: '/iBgImg',
-  component: iBgImg,
-  type: 'directives',
-  icon: 'image',
-  txt: '背景图'
-}
-]
-
-export default routes
+}]

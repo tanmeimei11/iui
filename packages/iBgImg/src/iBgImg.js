@@ -1,13 +1,7 @@
 import {
   BgimgError
 } from 'i-ui/src/utils/errors.js'
-
-// inject common
-window.lib = window.lib || {}
-window.lib.flexible = window.lib.flexible || {
-  dpr: 1
-}
-window.lib.flexible.dpr = window.lib.flexible.dpr || 1
+import 'i-ui/src/utils/flexible.js'
 
 const fixProtocol = (url) => {
   // to fix url address protocol
