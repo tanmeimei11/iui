@@ -6,8 +6,9 @@
 <i-button type="primary" @click="showResult">查看结果</i-button>
 <br/>
 <br/>
-<img v-if="resource" class="done" :src="resource" />
+<div class="view" v-if="resource"  v-iBgImg.contain="resource"></div>
 <script>
+  import iBgImg from 'i-ui/lib/iBgImg'
   import iSticker from 'i-ui/lib/iSticker'
   export default {
     data() {
@@ -30,6 +31,9 @@
         }]
       }
     },
+    directives: {
+      iBgImg
+    },
     components: {
       iSticker
     },
@@ -38,8 +42,14 @@
     },
     methods: {
       showResult() {
-        this.$refs.sticker.result().then(res => {
-          this.resource = res.toDataURL('image/png')
+        this.$refs.sticker.result().then(canvas => {
+          if (canvas.toBlob){
+          canvas.toBlob(blob => {
+            this.resource = URL.createObjectURL(blob)
+          }, 'image/png')
+          } else {
+            this.resource = canvas.toDataURL('image/png')
+          }
         })
       }
     }
@@ -47,10 +57,11 @@
 
 </script>
 <style lang="scss">
-  .stickerImg {
+  .stickerImg,.view {
     width: 375px;
     height: 400px;
     background: #dedede;
+    background-repeat:no-repeat;
   }
 </style>
 
@@ -62,11 +73,19 @@
  |width  | 用于导出的时候的宽度  | Number |   |
  |height  | 用于导出的时候的高度  | Number |   |
 
+### events
+ |事件 | 说明 | 参数 |
+ |---  | --- | ---  | 
+ |del  | 删除贴纸  | 索引 |  
+ |reverse  | 反转元素  | 索引 | 
+ |scale  | 缩放元素  | 索引 | 
+
 ## 代码
 ```html
 <iSticker class="stickerImg" ref="sticker" :width="width" :height="height" :stickers="stickers"></iSticker>
-<img v-if="resource" class="done" :src="resource" />
+<div class="view" v-if="resource"  v-iBgImg.contain="resource"></div>
 <script>
+ import iBgImg from 'i-ui/lib/iBgImg'
  import iSticker from 'i-ui/lib/iSticker'
  export default {
     data() {
@@ -88,6 +107,9 @@
           top: 500
         }]
       }
+    },
+    directives: {
+      iBgImg
     },
     components: {
       iSticker

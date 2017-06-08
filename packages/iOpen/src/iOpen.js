@@ -4,7 +4,7 @@ import './base.scss'
 const OPEN_HANDLE_KEY = `__iUI_OPEN_HANDLE__`
 
 const directive = (el, binding, _v) => {
-  el.removeEventListener('onclick', el[`${OPEN_HANDLE_KEY}`])
+  el.removeEventListener('click', el[`${OPEN_HANDLE_KEY}`])
   el[`${OPEN_HANDLE_KEY}`] = () => {
     if (!common.isInApp) {
       common.openInApp(binding.value)
@@ -14,7 +14,7 @@ const directive = (el, binding, _v) => {
 }
 
 const unbind = (el, binding, _v) => {
-  el.removeEventListener('onclick', el[`${OPEN_HANDLE_KEY}`])
+  el.removeEventListener('click', el[`${OPEN_HANDLE_KEY}`])
 }
 
 export default {

@@ -1,7 +1,6 @@
 import App from './App'
 import Router from 'vue-router'
 import routes from './routes'
-import routers from './routers'
 import iView from 'iview'
 import 'iview/dist/styles/iview.css'
 // https://highlightjs.org/  import 'highlight.js/styles/[styleName].css'
@@ -11,8 +10,6 @@ import 'core-js/library/es6/promise'
 // 分享
 import InVue from 'i-ui/src/extends/InVue'
 
-console.log(routes)
-console.log(routers)
 const router = new Router({
   routes
 })

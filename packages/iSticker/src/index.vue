@@ -85,15 +85,15 @@
             ...this.baseInfo,
             ...sticker
           }
-          mixinInfo = {
+          return {
             ...mixinInfo,
             'left': lib.flexible.rem2px(mixinInfo.left / 75),
             'top': lib.flexible.rem2px(mixinInfo.top / 75),
             'width': lib.flexible.rem2px(mixinInfo.width / 75),
-            'height': lib.flexible.rem2px(mixinInfo.height / 75)
+            'height': lib.flexible.rem2px(mixinInfo.height / 75),
+            'extraX': lib.flexible.rem2px((mixinInfo.left + mixinInfo.width) / 75),
+            'extraY': lib.flexible.rem2px((mixinInfo.top + mixinInfo.height) / 75)
           }
-          this._initPos(mixinInfo)
-          return mixinInfo
         })
       },
       del (idx, event) {
@@ -112,14 +112,6 @@
         this._touchstart(idx, event)
         this.$emit('scale', idx)
       },
-      _initPos (sticker) {
-        sticker.centerX = sticker.left + sticker.width / 2
-        sticker.centerY = sticker.top + sticker.height / 2
-        sticker.allX = sticker.left + sticker.width
-        sticker.allY = sticker.top + sticker.width
-        sticker.extraX = sticker.extraX || 0
-        sticker.extraY = sticker.extraY || 0
-      },
       _touchstart (idx, event) {
         this.stickerIdx = idx
         if (!event) return
@@ -127,6 +119,9 @@
         if (touches.length === 1) {
           this.startX = Math.floor(touches[0].pageX)
           this.startY = Math.floor(touches[0].pageY)
+          let sticker = this.cacheStickers[this.stickerIdx]
+          sticker.centerX = sticker.left + sticker.width / 2
+          sticker.centerY = sticker.top + sticker.height / 2
         }
       },
       _touchmove (event) {
@@ -135,11 +130,10 @@
           let sticker = this.cacheStickers[this.stickerIdx]
           let nowX = Math.floor(touches[0].pageX)
           let nowY = Math.floor(touches[0].pageY)
-          let extraX = nowX - this.startX
-          let extraY = nowY - this.startY
-          sticker.left += extraX
-          sticker.top += extraY
-          this._initPos(sticker)
+          sticker.left += nowX - this.startX
+          sticker.top += nowY - this.startY
+          sticker.extraX += nowX - this.startX
+          sticker.extraY += nowY - this.startY
           this.startX = nowX
           this.startY = nowY
         }
@@ -152,14 +146,11 @@
           let nowY = Math.floor(touches[0].pageY)
           sticker.extraX += nowX - this.startX
           sticker.extraY += nowY - this.startY
-          var lbPosX = sticker.allX + sticker.extraX
-          var lbPosY = sticker.allY + sticker.extraY
-          var targetAngle = Math.atan2(lbPosX - sticker.centerX, lbPosY - sticker.centerY) * 180 / Math.PI - 45
+          var targetAngle = Math.atan2(sticker.extraX - sticker.centerX, sticker.extraY - sticker.centerY) * 180 / Math.PI - 45
           sticker.angle = 360 - targetAngle
-          let radio = sticker.height / sticker.width
-          sticker.width = Math.sqrt(2 * Math.pow((lbPosX - sticker.centerX), 2) + Math.pow((lbPosY - sticker.centerY),
-            2))
-          sticker.height = sticker.width * radio
+          let radio = sticker.width / sticker.height
+          sticker.height = Math.sqrt(2 * Math.pow((sticker.extraX - sticker.centerX), 2) + Math.pow((sticker.extraY - sticker.centerY), 2)) 
+          sticker.width = sticker.height * radio
           sticker.left = sticker.centerX - sticker.width / 2
           sticker.top = sticker.centerY - sticker.height / 2
           this.startX = nowX
@@ -175,7 +166,7 @@
             let ctx = canvas.getContext('2d')
             ctx.scale(
               canvas.width / parseFloat(window.getComputedStyle(this.$el).width),
-              canvas.height / parseFloat(window.getComputedStyle(this.$el).height)
+              canvas.height / parseFloat(window.getComputedStyle(this.$el).height) 
             )
             stickerImgs.forEach((img, idx) => {
               let state = this.cacheStickers[idx]
@@ -202,7 +193,6 @@
       }
     }
   }
-
 </script>
 <style lang="scss">
   .i-sticker {
