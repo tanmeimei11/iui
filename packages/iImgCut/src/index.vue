@@ -30,6 +30,10 @@
         type: Number,
         default: 4
       },
+      bgSize: {
+        type: String,
+        default: 'cover'
+      },
       fillStyle: {
         type: String,
         default: '#fff'
@@ -42,7 +46,10 @@
             return this.src
           } else if (typeof (this.src) === 'string') {
             let img = new Image()
-            if (!/^data:image/.test(this.src)) {
+            let anchor = document.createElement('a')
+            anchor.href = this.src
+             // cross domain (除了base64 和 当前域名)
+            if (/^data:image/.test(this.src) || location.host === anchor.host) {} else {
               img.crossOrigin = ''
             }
             img.src = this.src
@@ -65,7 +72,7 @@
     },
     mounted () {
       // set canvas size
-      setSize(this.canvas)
+      setSize(this.canvas, this.width, this.height)
       let rect = this.canvas.getBoundingClientRect()
       // set offset
       let parentStyle = window.getComputedStyle(this.canvas.parentElement)
@@ -105,6 +112,7 @@
         let img = this.resource
         if (!ctx) return
         ctx.save()
+        ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
         ctx.fillStyle = this.fillStyle
         ctx.fillRect(0, 0, this.canvas.width, this.canvas.height)
         ctx.translate(this.drawPos.dx + this.drawPos.dw / 2, this.drawPos.dy + this.drawPos.dh / 2)
@@ -127,7 +135,7 @@
         }
       },
       _loadImg () {
-        _fixedDrawSize.apply(this)
+        _fixedDrawSize.bind(this)(this.bgSize)
         this._drawImage()
       },
       _touchstart (event) {
@@ -173,10 +181,10 @@
           this.scale = _toFloatX(this.scale)
           if (this.scale < 1) {
             this.scale = Math.max(this.scale, this.minScale)
-            _fixedCenterPic.apply(this)
+            _fixedCenterPic.bind(this)(this.bgSize)
           } else {
             this.scale = Math.min(this.scale, this.maxScale)
-            _fixedEdgePic.apply(this)
+            _fixedEdgePic.bind(this)(this.bgSize)
           }
           this._drawImage()
         }
@@ -184,9 +192,9 @@
       _touchend (event) {
         if (!this.resource) return
         if (this.scale < 1) {
-          _fixedCenterPic.apply(this)
+          _fixedCenterPic.bind(this)(this.bgSize)
         } else {
-          _fixedEdgePic.apply(this)
+          _fixedEdgePic.bind(this)(this.bgSize)
         }
         this._drawImage()
       },

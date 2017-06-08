@@ -13,7 +13,7 @@ const directive = (el, binding, _v) => {
 }
 
 const unbind = (el, binding, _v) => {
-  el.removeEventListener('onclick', el[`${TRACK_HANDLE_KEY}`])
+  el.removeEventListener('click', el[`${TRACK_HANDLE_KEY}`])
 }
 
 export default {

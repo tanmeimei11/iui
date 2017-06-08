@@ -85,8 +85,8 @@
  |属性 | 说明 | 类型 | 默认值 |
  |---  | --- | ---  | --- |
  |src  | 资源地址  | [ Image,Canvas,Base64,Url ] | 无 |
- |width  | 宽度  | Number | 取样式的宽  |
- |height  | 高度  | Number | 取样式的高  |
+ |width  | 宽度  | Number | 取样式的宽（用于导出的时候的宽度）  |
+ |height  | 高度  | Number | 取样式的高（用于导出的时候的高度）  |
  |minScale  | 最小的缩放  | Number | 1  |
  |maxScale  | 最大的缩放  | Number | 4  |
  |fillStyle  | 填充的颜色  | hex | #fff  |

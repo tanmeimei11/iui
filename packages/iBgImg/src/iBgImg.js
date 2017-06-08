@@ -1,15 +1,10 @@
 import {
   BgimgError
 } from 'i-ui/src/utils/errors.js'
-
-// inject common
-window.lib = window.lib || {}
-window.lib.flexible = window.lib.flexible || {
-  dpr: 1
-}
-window.lib.flexible.dpr = window.lib.flexible.dpr || 1
+import 'i-ui/src/utils/flexible.js'
 
 const fixProtocol = (url) => {
+  if (/^data:image/.test(url) || /^blob:http/.test(url)) return url
   // to fix url address protocol
   let anchor = document.createElement('a')
   anchor.href = url
@@ -50,6 +45,7 @@ const directive = (el, binding, _v) => {
   } else if (binding.modifiers.cover) {
     el.style.backgroundSize = 'cover'
   }
+  el.className = `iBgImg ${el.className.replace('iBgImg', '').trim()}`
 }
 
 const inserted = (el, binding, _v) => {
@@ -62,6 +58,7 @@ const unbind = (el, binding, _v) => {
   window.removeEventListener('scroll', el.lazyload)
   el.style.backgroundImage = ''
   el.style.backgroundSize = ''
+  el.className = el.className.replace('iBgImg', '').trim()
 }
 
 export default {
