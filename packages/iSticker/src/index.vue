@@ -23,7 +23,7 @@
     data () {
       return {
         cacheStickers: this.mapSticker(),
-        stickerIdx: -1
+        stickerIdx: this.defaultStickerIdx
       }
     },
     props: {
@@ -38,6 +38,10 @@
       },
       stickers: {
         type: Array
+      },
+      defaultStickerIdx: {
+        type: Number,
+        default: -1
       },
       width: {
         require: true,
