@@ -68,31 +68,31 @@
           font-family: HY-QiHei40;
         }
         &[data-type="qq"] {
-          background-image: url("./assets/01.png");
+          background-image: url("./assets/qq.png");
           &:after {
             content: "QQ好友";
           }
         }
         &[data-type="qzone"] {
-          background-image: url("./assets/05.png");
+          background-image: url("./assets/qqzone.png");
           &:after {
             content: "QQ空间";
           }
         }
         &[data-type="wechat"] {
-          background-image: url("./assets/02.png");
+          background-image: url("./assets/wx.png");
           &:after {
             content: "微信";
           }
         }
         &[data-type="wechattimeline"] {
-          background-image: url("./assets/03.png");
+          background-image: url("./assets/pyq.png");
           &:after {
             content: "朋友圈";
           }
         }
         &[data-type="weibo"] {
-          background-image: url("./assets/04.png");
+          background-image: url("./assets/wb.png");
           &:after {
             content: "微博";
           }
