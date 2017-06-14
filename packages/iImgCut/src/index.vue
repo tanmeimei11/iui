@@ -37,6 +37,10 @@
       fillStyle: {
         type: String,
         default: '#fff'
+      },
+      rotateEnable: {
+        type: Boolean,
+        default: false
       }
     },
     computed: {
@@ -103,6 +107,7 @@
         },
         imageRatio: undefined,
         containerRatio: undefined,
+        imgRotation: 0,
         scale: 1
       }
     },
@@ -117,6 +122,7 @@
         ctx.fillRect(0, 0, this.canvas.width, this.canvas.height)
         ctx.translate(this.drawPos.dx + this.drawPos.dw / 2, this.drawPos.dy + this.drawPos.dh / 2)
         ctx.scale(this.scale, this.scale)
+        ctx.rotate(this.imgRotation)
         ctx.drawImage(img, this.resPos.sx, this.resPos.sy, this.resPos.sw, this.resPos.sh, -1 * this.drawPos.dw / 2, -1 *
           this.drawPos.dh / 2, this.drawPos.dw, this.drawPos.dh)
         ctx.restore()
@@ -179,22 +185,37 @@
           let nowDis = Math.sqrt(disx + disy)
           this.scale += Math.floor(nowDis - this.satrtDis) * 0.0005
           this.scale = _toFloatX(this.scale)
+          if (this.rotateEnable) {
+            let nowAngle = Math.atan2(touch1.pageY - touch0.pageY, touch1.pageX - touch0.pageX)
+            var temp = nowAngle - this.startAngle
+            if (temp > 6) {
+              temp -= Math.PI * 2
+            } else if (temp < -6) {
+              temp += Math.PI * 2
+            }
+            this.imgRotation += temp * 1
+            this.imgRotation = _toFloatX(this.imgRotation)
+            this.startAngle = nowAngle
+          }
           if (this.scale < 1) {
             this.scale = Math.max(this.scale, this.minScale)
-            _fixedCenterPic.bind(this)(this.bgSize)
+            if (!this.rotateEnable) _fixedCenterPic.bind(this)(this.bgSize)
           } else {
             this.scale = Math.min(this.scale, this.maxScale)
-            _fixedEdgePic.bind(this)(this.bgSize)
+            if (!this.rotateEnable) _fixedEdgePic.bind(this)(this.bgSize)
           }
           this._drawImage()
+          this.satrtDis = nowDis
         }
       },
       _touchend (event) {
         if (!this.resource) return
         if (this.scale < 1) {
-          _fixedCenterPic.bind(this)(this.bgSize)
+          this.scale = Math.max(this.scale, this.minScale)
+          if (!this.rotateEnable) _fixedCenterPic.bind(this)(this.bgSize)
         } else {
-          _fixedEdgePic.bind(this)(this.bgSize)
+          this.scale = Math.min(this.scale, this.maxScale)
+          if (!this.rotateEnable) _fixedEdgePic.bind(this)(this.bgSize)
         }
         this._drawImage()
       },

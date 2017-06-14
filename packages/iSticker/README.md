@@ -14,8 +14,8 @@
     data() {
       return {
         resource: '',
-        width: 375,
-        height: 400,
+        width: 750,
+        height: 800,
         stickers: [{
           src: `//inimg01.jiuyan.info/in/2017/06/07/4CE32AA2-C416-DCC7-6B86-27CC17144B27.jpg`,
           left: 400,
