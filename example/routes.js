@@ -19,6 +19,7 @@ import iSticker from 'i-ui/lib/iSticker/README.md'
 import iTrack from 'i-ui/lib/iTrack/README.md'
 import iOpen from 'i-ui/lib/iOpen/README.md'
 import iBgImg from 'i-ui/lib/iBgImg/README.md'
+import iLongTap from 'i-ui/lib/iLongTap/README.md'
 
 // https://www.iviewui.com/components/icon
 
@@ -152,6 +153,14 @@ const routes = [{
   type: 'directives',
   icon: 'image',
   txt: '背景图'
+},
+{
+  name: 'iLongTap',
+  path: '/iLongTap',
+  component: iLongTap,
+  type: 'directives',
+  icon: 'mouse',
+  txt: '长按'
 }
 ]
 

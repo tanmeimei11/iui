@@ -42,3 +42,17 @@ export const photo = {
     }
   }
 }
+/**
+ * 打开直播
+ */
+export const live = {
+  methods: {
+    liveOpen (liveId, refresh = false) {
+      if (icommon.InApp) {
+        awake(`in://live/audience?liveid=${liveId}${refresh ? '&refresh=1' : ''}`)
+      } else {
+        location.href = `${location.protocol}//www.in66.com/intv/${liveId}`
+      }
+    }
+  }
+}

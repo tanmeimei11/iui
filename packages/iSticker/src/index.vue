@@ -4,7 +4,7 @@
     <template v-for="(sticker,idx) in cacheStickers">
       <div class="sticker" @touchstart.prevent.stop="_touchstart(idx,$event)" @touchmove.prevent.stop :class="{'active':stickerIdx === idx}"
         :style="stickerState[idx]">
-        <div class="control-img" v-iBgImg.contain="sticker.src" :style="moveState[idx]" @touchmove.prevent.stop="stickerIdx === idx && _touchmove($event)"></div>
+        <div class="control-img" v-iBgImg.contain="sticker.src" :style="moveState[idx]" @touchmove.prevent.stop="stickerIdx === idx && _touchmove($event)" @touchend="click(idx,$event)"></div>
         <a href="javascript:;" class="control-del" @touchstart.stop="del(idx,$event)"></a>
         <a href="javascript:;" class="control-reverse" @touchstart.stop="reverse(idx,$event)"></a>
         <a href="javascript:;" class="control-scale" @touchmove.prevent.stop="scaleMove" @touchstart.stop="scale(idx,$event)"></a>
@@ -23,7 +23,7 @@
     data () {
       return {
         cacheStickers: this.mapSticker(),
-        stickerIdx: -1
+        stickerIdx: this.defaultStickerIdx
       }
     },
     props: {
@@ -38,6 +38,10 @@
       },
       stickers: {
         type: Array
+      },
+      defaultStickerIdx: {
+        type: Number,
+        default: -1
       },
       width: {
         require: true,
@@ -95,6 +99,9 @@
             'extraY': lib.flexible.rem2px((mixinInfo.top + mixinInfo.height) / 75)
           }
         })
+      },
+      click (idx, event) {
+        this.$emit('click', idx)
       },
       del (idx, event) {
         this.cacheStickers.splice(idx, 1)

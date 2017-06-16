@@ -27,16 +27,21 @@
         this.audioAutoPlay()
       }
     },
+    beforeDestroy () {
+      document.removeEventListener('touchstart', this.play, false)
+    },
     methods: {
       play () {
         this.isOn = true
         this.$refs.audio.play()
+        this.$emit('play')
         document.removeEventListener('touchstart', this.play, false)
         // console.log(audio.paused)
       },
       pause () {
         this.isOn = false
         this.$refs.audio.pause()
+        this.$emit('pause')
       },
       toggle () {
         if (this.isOn) {

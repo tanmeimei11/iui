@@ -4,16 +4,16 @@ import './base.scss'
 
 const TRACK_HANDLE_KEY = `__iUI_TRACK_HANDLE__`
 const directive = (el, binding, _v) => {
-  el.removeEventListener('click', el[`${TRACK_HANDLE_KEY}`])
+  el.removeEventListener('touchstart', el[`${TRACK_HANDLE_KEY}`])
   el[`${TRACK_HANDLE_KEY}`] = () => {
     let search = binding.value.trim()
     trackParam(search)
   }
-  el.addEventListener('click', el[`${TRACK_HANDLE_KEY}`])
+  el.addEventListener('touchstart', el[`${TRACK_HANDLE_KEY}`])
 }
 
 const unbind = (el, binding, _v) => {
-  el.removeEventListener('click', el[`${TRACK_HANDLE_KEY}`])
+  el.removeEventListener('touchstart', el[`${TRACK_HANDLE_KEY}`])
 }
 
 export default {
