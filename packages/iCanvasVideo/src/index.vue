@@ -117,6 +117,10 @@
         }, this.delay)
       }
     },
+    beforeDestroy () {
+      clearTimeout(this.delayTimer)
+      clearInterval(this.intervalTimer)
+    },
     mounted () {
       if (!this.imgs.length) {
         return false

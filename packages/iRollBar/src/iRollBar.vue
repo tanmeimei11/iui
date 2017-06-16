@@ -31,16 +31,17 @@
       window.lib = window.lib || { }
       window.lib.flexible = window.lib.flexible || {dpr: 1}
       window.lib.flexible.dpr = window.lib.flexible.dpr || 1
-      window.addEventListener('scroll', this.scrollHandler, false)
+      this.$el.__scrollHandle = this.scrollHandler
+      window.addEventListener('scroll', this.$el.__scrollHandle, false)
       this.scrollHandler()
     },
-    destroyed () {
-      window.removeEventListener('scroll', this.scrollHandler)
+    beforeDestroy () {
+      window.removeEventListener('scroll', this.$el.__scrollHandle)
     },
     watch: {
       hasMore: function (val) {
         if (!val) {
-          window.removeEventListener('scroll', this.scrollHandler)
+          window.removeEventListener('scroll', this.$el.__scrollHandle)
         }
       }
     },
