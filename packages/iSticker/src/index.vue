@@ -58,6 +58,15 @@
     watch: {
       stickers: function () {
         this.cacheStickers = this.mapSticker()
+        if (this.stickerIdx + 1 > this.cacheStickers.length) {
+          this.stickerIdx = -1
+        }
+      },
+      defaultStickerIdx: function () {
+        this.stickerIdx = this.defaultStickerIdx
+        if (this.stickerIdx + 1 > this.cacheStickers.length) {
+          throw new RangeError('Parameter must be between 0 and ' + this.cacheStickers.length - 1) 
+        }
       }
     },
     computed: {
