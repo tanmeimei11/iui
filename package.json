@@ -1,6 +1,6 @@
 {
   "name": "i-ui",
-  "version": "0.1.27",
+  "version": "0.1.28",
   "description": "vue components",
   "author": "all <all@in66.com>",
   "main": "lib/i-ui.common.js",

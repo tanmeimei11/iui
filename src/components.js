@@ -15,6 +15,7 @@ import iSticker from '../packages/iSticker'
 import iTrack from '../packages/iTrack'
 import iOpen from '../packages/iOpen'
 import iBgImg from '../packages/iBgImg'
+import iLongTap from '../packages/iLongTap'
 
 const install = function (Vue, opts = {}) {
   if (install.installed) return
@@ -33,6 +34,7 @@ const install = function (Vue, opts = {}) {
   Vue.directive(iTrack.name, iTrack)
   Vue.directive(iOpen.name, iOpen)
   Vue.directive(iBgImg.name, iBgImg)
+  Vue.directive(iLongTap.name, iLongTap)
 }
 
 /* istanbul ignore if */
@@ -41,7 +43,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-  version: '0.1.27',
+  version: '0.1.28',
   install,
   iAudio,
   iAvatar,
@@ -56,5 +58,6 @@ export default {
   iSticker,
   iTrack,
   iOpen,
-  iBgImg
+  iBgImg,
+  iLongTap
 }
