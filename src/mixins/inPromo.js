@@ -17,8 +17,7 @@ import {
  */
 export const toast = {
   created: function () {
-    this.$utils = this.$utils || {}
-    this.$utils.toast = toastCall
+    this.$toast = toastCall
   }
 }
 
@@ -27,8 +26,7 @@ export const toast = {
  */
 export const awake = {
   created: function () {
-    this.$utils = this.$utils || {}
-    this.$utils.awake = awakeCall
+    this.$awake = awakeCall
   }
 }
 
@@ -37,18 +35,16 @@ export const awake = {
  */
 export const track = {
   created: function () {
-    this.$utils = this.$utils || {}
-    this.$utils.track = trackParam
+    this.$track = trackParam
   }
 }
 
 /**
- * 判断是否为inapp
+ * common 内置 
  */
-export const inApp = {
+export const common = {
   created: function () {
-    this.$utils = this.$utils || {}
-    this.$utils.inApp = icommon.InApp
+    this.$common = icommon
   }
 }
 
@@ -57,7 +53,6 @@ export const inApp = {
  */
 export const share = {
   created: function () {
-    this.$utils = this.$utils || {}
-    this.$utils.share = shareConfig.config
+    this.$share = shareConfig.config
   }
 }
