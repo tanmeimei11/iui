@@ -1,3 +1,4 @@
+@charset "UTF-8";
 // $name 定位类型  $position 上 右 下 左
 @mixin pos($name, $position) {
   position: $name;
@@ -68,4 +69,44 @@
   background:$bg;
 }
 
+// 绝对定位居中
+// @example scss
+//   .element {
+//     @include absCenter(100px);
+//   }   
+//
+//   // CSS Output
+//   .element {
+//     left: 50%;
+//     margin-left: -25px;
+//   } 
+@mixin absCenter($width){
+  left: 50%;
+  margin-left: - $width/2;
+}
 
+// @example scss
+//   .element {
+//     @include ellipsis;
+//   }
+//
+//   // CSS Output
+//   .element {
+//     display: inline-block;
+//     max-width: 100%;
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+//     white-space: nowrap;
+//     word-wrap: normal;
+//   }
+@mixin ellipsis(
+  $width: 100%,
+  $display: inline-block
+) {
+  display: $display;
+  max-width: $width;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
