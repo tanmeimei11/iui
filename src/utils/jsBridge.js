@@ -1,3 +1,4 @@
+import common from './common'
 (function (context) {
   function bridgeCall (src, callback) {
     context.iframe = document.createElement('iframe')
@@ -88,18 +89,6 @@
 
   }
 
-  function getQueryString (name) {
-    var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i')
-    var r = window.location.search.substr(1).match(reg)
-    return r && decodeURIComponent(r[2])
-  };
-
-  function getCookie (name) {
-    var reg = new RegExp('(^|\\s)' + name + '=([^;]*)(;|$)')
-    var r = document.cookie.match(reg)
-    return r && decodeURIComponent(r[2])
-  };
-
   /**
    *  Android Method
    *  'client' is given by the app.
@@ -126,9 +115,7 @@
 
     if ((typeof message === 'object') &&
       ('iosMessage' in message) && ('androidMessage' in message)) {
-      var source = getQueryString('_source') || getQueryString('_s') || getCookie('_source') || getCookie('_s')
-
-      if (source === 'ios') {
+      if (common.isIos) {
         context.jsBridge = new JSBridge()
         try {
           // console.log("ios:", message.iosMessage );
@@ -138,7 +125,7 @@
         } catch (e) {
           console.error(e)
         }
-      } else if (source === 'android') {
+      } else if (common.isAndroid) {
         try {
           // console.log("android:", message.androidMessage);
           getprotocol(message.androidMessage)
@@ -146,7 +133,7 @@
           console.error(e)
         }
       } else {
-        console.log('Source "' + source + '" is not supported.')
+        console.log('UA: ' + window.navigator.userAgent.toLowerCase() + '  is not supported.')
       }
     } else {
       console.error("Parameter error. The correct format should be: {iosMessage:'',androidMessage:''}.")
