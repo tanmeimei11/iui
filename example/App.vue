@@ -53,7 +53,7 @@
       return _data
     },
     created () {
-      this.$utils.share.shareTitle = 'a'
+      this.$share.shareTitle = 'a'
       this.activeName = this.$route.path
     },
     methods: {
