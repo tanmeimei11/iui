@@ -37,6 +37,7 @@ const common = {
   get isAndroid () { return /android|adr/gi.test(this.ua) },
   get isIos () { return /iphone|ipod|ipad/gi.test(this.ua) },
   get isInApp () { return /infashion/gi.test(this.ua) },
+  get isWYMusic () { return /NeteaseMusic/gi.test(this.ua) },
 
   // 查询请求
   get query () { 

@@ -14,6 +14,7 @@ import iCanvasVideo from 'i-ui/lib/iCanvasVideo/README.md'
 import iImgCut from 'i-ui/lib/iImgCut/README.md'
 import iFireWorks from 'i-ui/lib/iFireWorks/README.md'
 import iSticker from 'i-ui/lib/iSticker/README.md'
+import iLoading from 'i-ui/lib/iLoading/README.md'
 
 // 指令
 import iTrack from 'i-ui/lib/iTrack/README.md'
@@ -161,6 +162,14 @@ const routes = [{
   type: 'directives',
   icon: 'mouse',
   txt: '长按'
+},
+{
+  name: 'iLoading',
+  path: '/iLoading',
+  component: iLoading,
+  type: 'components',
+  icon: 'load-c',
+  txt: '加载'
 }
 ]
 

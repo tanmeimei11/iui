@@ -9,5 +9,6 @@
   "i-video-screen": "./packages/iVideoScreen/index.js",
   "i-canvas-video": "./packages/iCanvasVideo/index.js",
   "i-fire-works": "./packages/iFireWorks/index.js",
-  "i-sticker": "./packages/iSticker/index.js"
+  "i-sticker": "./packages/iSticker/index.js",
+  "i-loading": "./packages/iSticker/loading.js"
 }
