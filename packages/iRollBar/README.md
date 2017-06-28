@@ -64,6 +64,12 @@
         items: []
       }
     },
+    mounted() {
+      document.documentElement.style.fontSize = '75px'
+    },
+    beforeDestroy() {
+      document.documentElement.style.fontSize = ''
+    },
     created() {
       for (var idx = 0; idx <= 5; idx++) {
         this.items.push(idx)

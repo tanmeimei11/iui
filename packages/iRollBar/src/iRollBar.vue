@@ -1,4 +1,3 @@
-
 <script>
   export default {
     name: 'iRollBar',
@@ -28,8 +27,10 @@
     },
     mounted () {
       this.lock = undefined
-      window.lib = window.lib || { }
-      window.lib.flexible = window.lib.flexible || {dpr: 1}
+      window.lib = window.lib || {}
+      window.lib.flexible = window.lib.flexible || {
+        dpr: 1
+      }
       window.lib.flexible.dpr = window.lib.flexible.dpr || 1
       this.$el.__scrollHandle = this.scrollHandler
       window.addEventListener('scroll', this.$el.__scrollHandle, false)
@@ -62,20 +63,52 @@
         }
       }
     },
-    render (h) {
+    render (createElement) {
       const data = {
         class: `i-roll-bar ${(this.showBar === undefined) ? 'hiddenBar' : ''}`
       }
-      return h(this.tag, data, this.$slots.default)
+      let child = this.$slots.default
+      if (this.hasMore) {
+        child.push(createElement('svg', {
+          attrs: {
+            class: 'loading-svg',
+            xmlns: 'http://www.w3.org/2000/svg',
+            viewBox: '0 0 32 32'
+          },
+          domProps: {
+            innerHTML: `<circle transform="translate(8 0)" cx="0" cy="16" r="0"> 
+              <animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0"
+                keytimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline" />
+            </circle>
+            <circle transform="translate(16 0)" cx="0" cy="16" r="0"> 
+              <animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0.3"
+                keytimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline" />
+            </circle>
+            <circle transform="translate(24 0)" cx="0" cy="16" r="0"> 
+              <animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0.6"
+                keytimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline" />
+            </circle>`
+          }
+        }))
+      }
+      return createElement(this.tag, data, child)
     }
   }
+
 </script>
 <style lang="scss">
-  .i-roll-bar{
-     -webkit-overflow-scrolling: touch;
-     overflow: auto;
-     &.hiddenBar::-webkit-scrollbar {
-       display: none;
-     }
+  .i-roll-bar {
+    -webkit-overflow-scrolling: touch;
+    overflow: auto;
+    &.hiddenBar::-webkit-scrollbar {
+      display: none;
+    }
+
+    svg {
+      width: .42rem;
+      height: .42rem;
+      fill: #f54;
+    }
   }
+
 </style>
