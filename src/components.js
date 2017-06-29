@@ -12,6 +12,7 @@ import iVideoScreen from '../packages/iVideoScreen'
 import iCanvasVideo from '../packages/iCanvasVideo'
 import iFireWorks from '../packages/iFireWorks'
 import iSticker from '../packages/iSticker'
+import iLoading from '../packages/iLoading'
 import iTrack from '../packages/iTrack'
 import iOpen from '../packages/iOpen'
 import iBgImg from '../packages/iBgImg'
@@ -31,6 +32,7 @@ const install = function (Vue, opts = {}) {
   Vue.component(iCanvasVideo.name, iCanvasVideo)
   Vue.component(iFireWorks.name, iFireWorks)
   Vue.component(iSticker.name, iSticker)
+  Vue.component(iLoading.name, iLoading)
   Vue.directive(iTrack.name, iTrack)
   Vue.directive(iOpen.name, iOpen)
   Vue.directive(iBgImg.name, iBgImg)
@@ -43,7 +45,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-  version: '0.1.28',
+  version: '0.1.29',
   install,
   iAudio,
   iAvatar,
@@ -56,6 +58,7 @@ export default {
   iCanvasVideo,
   iFireWorks,
   iSticker,
+  iLoading,
   iTrack,
   iOpen,
   iBgImg,
