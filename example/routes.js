@@ -15,6 +15,7 @@ import iImgCut from 'i-ui/lib/iImgCut/README.md'
 import iFireWorks from 'i-ui/lib/iFireWorks/README.md'
 import iSticker from 'i-ui/lib/iSticker/README.md'
 import iLoading from 'i-ui/lib/iLoading/README.md'
+import imagesBox from 'i-ui/lib/imagesBox/README.md'
 
 // 指令
 import iTrack from 'i-ui/lib/iTrack/README.md'
@@ -170,6 +171,14 @@ const routes = [{
   type: 'components',
   icon: 'load-c',
   txt: '加载'
+},
+{
+  name: 'imagesBox',
+  path: '/imagesBox',
+  component: imagesBox,
+  type: 'components',
+  icon: 'ios-snowy',
+  txt: '9宫格图片显示'
 }
 ]
 

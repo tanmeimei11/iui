@@ -10,6 +10,7 @@ import iCanvasVideo from 'i-ui/lib/iCanvasVideo/README.md'
 import iImgCut from 'i-ui/lib/iImgCut/README.md'
 import iFireWorks from 'i-ui/lib/iFireWorks/README.md'
 import iSticker from 'i-ui/lib/iSticker/README.md'
+import imagesBox from 'i-ui/lib/imagesBox/README.md'
 
 export default [{
   name: 'iAudio',
@@ -98,4 +99,13 @@ export default [{
   type: 'components',
   icon: 'ios-snowy',
   txt: '贴纸'
-}]
+},
+{
+  name: 'imagesBox',
+  path: '/imagesBox',
+  component: imagesBox,
+  type: 'components',
+  icon: 'ios-snowy',
+  txt: '9宫格图片显示'
+}
+]
