@@ -1,5 +1,7 @@
 <iAvatar src="//inimg01.jiuyan.info/in/2015/12/06/50E0D236-8186-87D4-278E-184399C6B81D-1ndoVWb.jpg" :uid="`1MqMnqMP`"></iAvatar>
-<iAvatar src="//inimg01.jiuyan.info/in/2015/12/06/50E0D236-8186-87D4-278E-184399C6B81D-1ndoVWb.jpg"></iAvatar>
+<iAvatar icon="talent" src="//inimg01.jiuyan.info/in/2015/12/06/50E0D236-8186-87D4-278E-184399C6B81D-1ndoVWb.jpg"></iAvatar>
+<iAvatar icon="tizhu" src="//inimg01.jiuyan.info/in/2015/12/06/50E0D236-8186-87D4-278E-184399C6B81D-1ndoVWb.jpg"></iAvatar>
+<iAvatar icon="renzheng" src="//inimg01.jiuyan.info/in/2015/12/06/50E0D236-8186-87D4-278E-184399C6B81D-1ndoVWb.jpg"></iAvatar>
 <table class="bordered responsive-table">
       <thead>
         <th>属性</th>
@@ -20,6 +22,12 @@
           <td>String</td>
           <td>无</td>
         </tr>
+        <tr>
+          <td>icon</td>
+          <td>小图标</td>
+          <td>String</td>
+          <td>无/题主tizhu/达人talent/认证renzheng</td>
+        </tr>
       </tbody>
     </table>
 <script>
@@ -36,6 +44,6 @@
 
 ```html
 <iAvatar src="//inimg01.jiuyan.info/in/2015/12/06/50E0D236-8186-87D4-278E-184399C6B81D-1ndoVWb.jpg" :uid="`1MqMnqMP`"></iAvatar>
-<iAvatar src="//inimg01.jiuyan.info/in/2015/12/06/50E0D236-8186-87D4-278E-184399C6B81D-1ndoVWb.jpg"></iAvatar>
+<iAvatar icon="talent" src="//inimg01.jiuyan.info/in/2015/12/06/50E0D236-8186-87D4-278E-184399C6B81D-1ndoVWb.jpg"></iAvatar>
 ```
 
