@@ -41,6 +41,9 @@ gulp.task('copy:to:in', ['git:push:tags'], (cb) => {
   cb()
 })
 
+// name: kehao.qiu
+// password: 123qq123
+// email: kehao.qiu@gmail.com
 gulp.task('npm:publish', ['copy:to:in'], (cb) => {
   run('npm publish', cb)
 })
