@@ -16,6 +16,7 @@ import iFireWorks from 'i-ui/lib/iFireWorks/README.md'
 import iSticker from 'i-ui/lib/iSticker/README.md'
 import iLoading from 'i-ui/lib/iLoading/README.md'
 import imagesBox from 'i-ui/lib/imagesBox/README.md'
+import iInput from 'i-ui/lib/iInput/README.md'
 
 // 指令
 import iTrack from 'i-ui/lib/iTrack/README.md'
@@ -178,7 +179,15 @@ const routes = [{
   component: imagesBox,
   type: 'components',
   icon: 'ios-snowy',
-  txt: '9宫格图片显示'
+  txt: '9宫格图片'
+},
+{
+  name: 'iInput',
+  path: '/iInput',
+  component: iInput,
+  type: 'components',
+  icon: 'compose',
+  txt: '输入框'
 }
 ]
 

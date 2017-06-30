@@ -12,8 +12,7 @@
   </article>
 </template>
 <script>
-  require('../../lib/theme-default/imagesBox.css')
-  import imagesBox from '../../lib/imagesBox'
+  import imagesBox from 'i-ui/lib/imagesBox'
   export default {
     name: 'images-box-example',
     data () {
