@@ -11,6 +11,6 @@
   "i-fire-works": "./packages/iFireWorks/index.js",
   "i-sticker": "./packages/iSticker/index.js",
   "i-loading": "./packages/iLoading/index.js",
-  "imagesBox": "./packages/imagesBox/index.js",
+  "i-images-box": "./packages/iImagesBox/index.js",
   "i-input": "./packages/iInput/index.js"
 }
