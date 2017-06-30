@@ -18,7 +18,9 @@
         <a href="javascript:;" class="btn-code" @click="$emit('rclick')">获取验证码</a>
       </template>
       <template v-if="type==='captcha'">
-        <a href="javascript:;" class="btn-captcha" v-iBgImg.cover="captchaUrl" @click="captchaUrl=refreshCaptch(),$emit('refreshCaptch')"></a>
+        <a href="javascript:;" class="btn-captcha" @click="captchaUrl=refreshCaptch(),$emit('refreshCaptch')">
+          <img :src="captchaUrl" alt="">
+        </a>
       </template>
     </template>
   </div>
@@ -176,7 +178,6 @@
     }
     .btn-captcha {
       position: absolute;
-      width: 3.106667rem;
       height: 0.84rem;
       background: #e8e5e3;
       top: 50%;
@@ -184,6 +185,9 @@
       transform: translate(0, -50%);
       border-radius: 0.066667rem;
       overflow: hidden;
+      img {
+        height: 0.84rem;
+      }
     }
     &.i-input-button {
       display: block;
