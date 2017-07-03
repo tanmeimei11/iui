@@ -33,24 +33,27 @@
       }
       window.lib.flexible.dpr = window.lib.flexible.dpr || 1
       this.$el.__scrollHandle = this.scrollHandler
-      window.addEventListener('scroll', this.$el.__scrollHandle, false)
+      window.addEventListener('scroll', this.$el.__scrollHandle)
+      document.addEventListener('touchmove', this.$el.__scrollHandle)
       this.scrollHandler()
     },
     beforeDestroy () {
       window.removeEventListener('scroll', this.$el.__scrollHandle)
+      document.removeEventListener('touchmove', this.$el.__scrollHandle)
     },
     watch: {
       hasMore: function (val) {
         if (!val) {
           window.removeEventListener('scroll', this.$el.__scrollHandle)
+          document.removeEventListener('touchmove', this.$el.__scrollHandle)
         }
       }
     },
     methods: {
       scrollHandler (event) {
-        if (!this.hasMore) return
-        if (this.$el === undefined) return
-        if (this.lock !== undefined) return
+        if (!this.hasMore) return 
+        if (this.$el === undefined) return 
+        if (this.lock !== undefined) return 
         let elOffset = this.$el.getBoundingClientRect()
         let screeH = window.screen.height * window.lib.flexible.dpr
         let elBottomOffset = elOffset.top + elOffset.height
@@ -67,16 +70,14 @@
       const data = {
         class: `i-roll-bar ${(this.showBar === undefined) ? 'hiddenBar' : ''}`
       }
-      let child = this.$slots.default
+      let child = this.$slots.default || []
       if (this.hasMore) {
-        child.push(createElement('svg', {
+        child.push(createElement('div', {
           attrs: {
-            class: 'loading-svg',
-            xmlns: 'http://www.w3.org/2000/svg',
-            viewBox: '0 0 32 32'
+            class: 'i-rollbar-loading-svg'
           },
           domProps: {
-            innerHTML: `<circle transform="translate(8 0)" cx="0" cy="16" r="0"> 
+            innerHTML: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><circle transform="translate(8 0)" cx="0" cy="16" r="0"> 
               <animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0"
                 keytimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline" />
             </circle>
@@ -87,7 +88,7 @@
             <circle transform="translate(24 0)" cx="0" cy="16" r="0"> 
               <animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0.6"
                 keytimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline" />
-            </circle>`
+            </circle></svg>`
           }
         }))
       }
@@ -103,11 +104,13 @@
     &.hiddenBar::-webkit-scrollbar {
       display: none;
     }
-
-    svg {
-      width: .42rem;
-      height: .42rem;
-      fill: #f54;
+    .i-rollbar-loading-svg {
+      text-align: center;
+      svg {
+        width: .42rem;
+        height: .42rem;
+        fill: #f54;
+      }
     }
   }
 
