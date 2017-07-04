@@ -7,10 +7,10 @@
         type: String,
         default: 'div'
       },
-      // debounce: {
-      //   type: Number,
-      //   default: 1000
-      // },
+      debounce: {
+        type: Number,
+        default: 100
+      },
       hasMore: {
         require: true,
         type: Boolean,
@@ -35,34 +35,24 @@
       this.$el.__scrollHandle = this.scrollHandler
       window.addEventListener('scroll', this.$el.__scrollHandle)
       document.addEventListener('touchmove', this.$el.__scrollHandle)
-      this.scrollHandler()
     },
     beforeDestroy () {
       window.removeEventListener('scroll', this.$el.__scrollHandle)
       document.removeEventListener('touchmove', this.$el.__scrollHandle)
     },
-    watch: {
-      hasMore: function (val) {
-        if (!val) {
-          window.removeEventListener('scroll', this.$el.__scrollHandle)
-          document.removeEventListener('touchmove', this.$el.__scrollHandle)
-        }
-      }
-    },
     methods: {
       scrollHandler (event) {
-        if (!this.hasMore) return 
-        if (this.$el === undefined) return 
-        if (this.lock !== undefined) return 
+        if (!this.hasMore) return
+        if (this.$el === undefined) return
+        if (this.lock !== undefined) return
         let elOffset = this.$el.getBoundingClientRect()
-        let screeH = window.screen.height * window.lib.flexible.dpr
+        let screeH = (window.screen.height + 200) * window.lib.flexible.dpr
         let elBottomOffset = elOffset.top + elOffset.height
-        if (elBottomOffset < (screeH + 50)) {
-          this.lock = 1
-          this.rollIng(() => {
+        if (elBottomOffset < screeH) {
+          this.lock = setTimeout(() => {
+            this.$emit('scroll')
             this.lock = undefined
-            this.scrollHandler()
-          })
+          }, this.debounce)
         }
       }
     },
@@ -99,18 +89,15 @@
 </script>
 <style lang="scss">
   .i-roll-bar {
-    -webkit-overflow-scrolling: touch;
-    overflow: auto;
+    // -webkit-overflow-scrolling: touch;
+    // overflow: auto;
     &.hiddenBar::-webkit-scrollbar {
       display: none;
     }
-    .i-rollbar-loading-svg {
-      text-align: center;
-      svg {
-        width: .42rem;
-        height: .42rem;
-        fill: #f54;
-      }
+    svg {
+      width: 100%;
+      height: .42rem;
+      fill: #f54;
     }
   }
 

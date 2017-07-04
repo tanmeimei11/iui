@@ -1,8 +1,8 @@
 ```html
 <template>
   <article>
-    <iRollBar class="roll-bar" tag="ul" :hasMore="hasMore" :rollIng="roll" showBar>
-       <li v-for="(item,idx) in items" :key="idx" v-text=“item”></li>
+    <iRollBar class="roll-bar" tag="ul" :hasMore="hasMore" @scroll="roll" showBar>
+      <li v-for="(item,idx) in items" :key="idx" v-text=“item”></li>
     </iRollBar>
   </article>
 </template>
@@ -25,20 +25,17 @@
       }
     },
     methods: {
-      roll(done) {
+      roll() {
         if (this.items.length >= 30) {
           this.hasMore = false;
         }
-        console.log(1)
-         setTimeout(() => {
-          for (var idx = 0; idx <= 10; idx++) {
-            this.items.push(idx)
-          }
-          done()
-        }, 1000)
+        for (var idx = 0; idx <= 10; idx++) {
+          this.items.push(idx)
+        }
       }
     }
   }
+
 </script>
 
 ```
@@ -47,7 +44,7 @@
 <template>
   <article>
     <iRollBar class="roll-bar" tag="ul" :hasMore="hasMore" :rollIng="roll" showBar>
-       <li v-for="(_,idx) in items" :key="idx">{{_}}</li>
+      <li v-for="(_,idx) in items" :key="idx">{{_}}</li>
     </iRollBar>
   </article>
 </template>
@@ -81,7 +78,7 @@
           this.hasMore = false;
         }
         console.log(1)
-         setTimeout(() => {
+        setTimeout(() => {
           for (var idx = 0; idx <= 10; idx++) {
             this.items.push(idx)
           }
