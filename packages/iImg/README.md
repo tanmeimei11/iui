@@ -42,7 +42,7 @@
   import iImg from 'i-ui/packages/iImg'
   export default {
     directives: {
-      'iImg',iImg
+      'iImg':iImg
     },
     data() {
       return {
