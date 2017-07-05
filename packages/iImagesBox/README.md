@@ -1,19 +1,18 @@
 <template>
   <article>
-    <div class="images-box-wrapper"><images-box :images="imgs" :imagesLength="1" @clickImage="clickImageBox"></images-box></div>
-    <div class="images-box-wrapper"><images-box :images="imgs" :imagesLength="2" @clickImage="clickImageBox"></images-box></div>
-    <div class="images-box-wrapper"><images-box :images="imgs" :imagesLength="3" @clickImage="clickImageBox"></images-box></div>
-    <div class="images-box-wrapper"><images-box :images="imgs" :imagesLength="4" @clickImage="clickImageBox"></images-box></div>
-    <div class="images-box-wrapper"><images-box :images="imgs" :imagesLength="5" @clickImage="clickImageBox"></images-box></div>
-    <div class="images-box-wrapper"><images-box :images="imgs" :imagesLength="6" @clickImage="clickImageBox"></images-box></div>
-    <div class="images-box-wrapper"><images-box :images="imgs" :imagesLength="7" @clickImage="clickImageBox"></images-box></div>
-    <div class="images-box-wrapper"><images-box :images="imgs" :imagesLength="8" @clickImage="clickImageBox"></images-box></div>
-    <div class="images-box-wrapper"><images-box :images="imgs" @clickImage="clickImageBox"></images-box></div>
+    <div class="images-box-wrapper"><iImages-box :images="imgs" :imagesLength="1" @clickImage="clickImageBox"></iImages-box></div>
+    <div class="images-box-wrapper"><iImages-box :images="imgs" :imagesLength="2" @clickImage="clickImageBox"></iImages-box></div>
+    <div class="images-box-wrapper"><iImages-box :images="imgs" :imagesLength="3" @clickImage="clickImageBox"></iImages-box></div>
+    <div class="images-box-wrapper"><iImages-box :images="imgs" :imagesLength="4" @clickImage="clickImageBox"></iImages-box></div>
+    <div class="images-box-wrapper"><iImages-box :images="imgs" :imagesLength="5" @clickImage="clickImageBox"></iImages-box></div>
+    <div class="images-box-wrapper"><iImages-box :images="imgs" :imagesLength="6" @clickImage="clickImageBox"></iImages-box></div>
+    <div class="images-box-wrapper"><iImages-box :images="imgs" :imagesLength="7" @clickImage="clickImageBox"></iImages-box></div>
+    <div class="images-box-wrapper"><iImages-box :images="imgs" :imagesLength="8" @clickImage="clickImageBox"></iImages-box></div>
+    <div class="images-box-wrapper"><iImages-box :images="imgs" @clickImage="clickImageBox"></iImages-box></div>
   </article>
 </template>
 <script>
-  require('../../lib/theme-default/imagesBox.css')
-  import imagesBox from '../../lib/imagesBox'
+  import iImagesBox from 'i-ui/lib/iImagesBox'
   export default {
     name: 'images-box-example',
     data () {
@@ -33,7 +32,7 @@
       }
     },
     components: {
-      imagesBox
+      iImagesBox
     },
     methods: {
       clickImageBox (idx) {

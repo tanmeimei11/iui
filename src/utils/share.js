@@ -13,7 +13,7 @@ let share = {
       anchor.href = this._config.shareImg
       this._config.shareImg = anchor.href
       common.isWeChat && this.wxConfig()
-      common.InApp && this.inConfig()
+      common.isInApp && this.inConfig()
     }
   },
   initWx () {

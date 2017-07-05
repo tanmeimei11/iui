@@ -1,5 +1,5 @@
 ## 分享组件
-<div class="phone">
+<div class="i-share-panel-phone">
   <i-button type="primary" @click.native="share">share</i-button>
   <iSharePanel :show="show" @invoke="invoke" @close="show=false"></iSharePanel>
 </div>
@@ -29,7 +29,7 @@
 
 </script>
 <style lang="scss">
-  .phone {
+  .i-share-panel-phone {
     position: relative;
     width: 375px;
     height: 400px;

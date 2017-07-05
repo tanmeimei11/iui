@@ -33,7 +33,7 @@
     // background: url('./assets/inlogo.png') no-repeat center;
     // background-size: .88rem .72rem;
     .i-loading-svg {
-      width: 1.65rem;
+      width: 100%;
       height: 1.65rem;
       circle {
         stroke: #ffffff;

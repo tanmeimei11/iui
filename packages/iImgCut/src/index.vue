@@ -183,7 +183,7 @@
           var disx = (touch1.pageX - touch0.pageX) * (touch1.pageX - touch0.pageX)
           var disy = (touch1.pageY - touch0.pageY) * (touch1.pageY - touch0.pageY)
           let nowDis = Math.sqrt(disx + disy)
-          this.scale += Math.floor(nowDis - this.satrtDis) * 0.0005
+          this.scale += Math.floor(nowDis - this.satrtDis) * 0.005
           this.scale = _toFloatX(this.scale)
           if (this.rotateEnable) {
             let nowAngle = Math.atan2(touch1.pageY - touch0.pageY, touch1.pageX - touch0.pageX)
