@@ -23,6 +23,7 @@ import iTrack from 'i-ui/lib/iTrack/README.md'
 import iOpen from 'i-ui/lib/iOpen/README.md'
 import iBgImg from 'i-ui/lib/iBgImg/README.md'
 import iLongTap from 'i-ui/lib/iLongTap/README.md'
+import iImg from 'i-ui/lib/iImg/README.md'
 
 // https://www.iviewui.com/components/icon
 
@@ -164,6 +165,13 @@ const routes = [{
   type: 'directives',
   icon: 'mouse',
   txt: '长按'
+},{
+  name: 'iImg',
+  path: '/iImg',
+  component: iImg,
+  type: 'directives',
+  icon: 'mouse',
+  txt: '图片预览'
 },
 {
   name: 'iLoading',
