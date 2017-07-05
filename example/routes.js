@@ -20,6 +20,7 @@ import imagesBox from 'i-ui/lib/imagesBox/README.md'
 // 指令
 import iTrack from 'i-ui/lib/iTrack/README.md'
 import iOpen from 'i-ui/lib/iOpen/README.md'
+import iLink from 'i-ui/lib/iLink/README.md'
 import iBgImg from 'i-ui/lib/iBgImg/README.md'
 import iLongTap from 'i-ui/lib/iLongTap/README.md'
 
@@ -147,6 +148,14 @@ const routes = [{
   type: 'directives',
   icon: 'android-send',
   txt: '打开in'
+},
+{
+  name: 'iLink',
+  path: '/iLink',
+  component: iLink,
+  type: 'directives',
+  icon: 'ios-snowy',
+  txt: 'iLink'
 },
 {
   name: 'iBgImg',
