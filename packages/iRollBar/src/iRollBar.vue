@@ -46,7 +46,7 @@
         if (this.$el === undefined) return
         if (this.lock !== undefined) return
         let elOffset = this.$el.getBoundingClientRect()
-        let screeH = (window.screen.height + 200) * window.lib.flexible.dpr
+        let screeH = (window.screen.height + 1000) * window.lib.flexible.dpr
         let elBottomOffset = elOffset.top + elOffset.height
         if (elBottomOffset < screeH) {
           this.lock = setTimeout(() => {

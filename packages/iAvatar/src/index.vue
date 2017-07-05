@@ -1,5 +1,5 @@
 <template>
-  <div class="i-avatar" :style="{'background-image': `url(${avatar})`}" @click="uid&&avatarClick()">
+  <div class="i-avatar" :style="{'background-image': `url(${avatar})`}" @click="uid&&avatarClick($event)">
     <em :class="icon" v-if="icon.length"></em>
   </div>
 </template>
@@ -33,7 +33,8 @@
       }
     },
     methods: {
-      avatarClick () {
+      avatarClick (event) {
+        event.stopPropagation()
         if (comm.isInApp) {
           awake(`in://diary/other?userid=${this.uid}`)
         } else {
