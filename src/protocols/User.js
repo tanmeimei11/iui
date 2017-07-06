@@ -8,9 +8,8 @@ export default class User extends DirectiveProtocol {
     if (typeof(params) === 'string') {
       params = {userId: params}
     }
-    if (params['userId']) {
-      params['uid'] = params['userid'] = params['userId']
-    }
+    params['uid'] = params['userid'] = params['userId']
+
     if (params[`refresh`] === undefined) {
       params[`refresh`] = 0
     }

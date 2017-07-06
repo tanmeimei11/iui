@@ -8,9 +8,8 @@ export default class Post extends DirectiveProtocol {
     if (typeof(params) === 'string') {
       params = {postId: params}
     }
-    if (params['postId']) {
-      params['pid'] = params['postId'] 
-    }
+    params['pid'] = params['postId'] 
+
     if (params[`refresh`] === undefined) {
       params[`refresh`] = 0
     }

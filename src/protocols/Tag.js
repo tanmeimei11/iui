@@ -8,9 +8,8 @@ export default class Tag extends DirectiveProtocol {
     if (typeof(params) === 'string') {
       params = {tagId: params}
     }
-    if (params['tagId']) {
-      params['tagid'] = params['tagId']
-    }
+    params['tagid'] = params['tagId']
+
     if (params[`refresh`] === undefined) {
       params[`refresh`] = 0
     }

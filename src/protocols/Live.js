@@ -8,9 +8,8 @@ export default class Live extends DirectiveProtocol {
     if (typeof(params) === 'string') {
       params = {liveId: params}
     }
-    if (params['liveId']) {
-      params['liveid'] = params['liveId']
-    }
+    params['liveid'] = params['liveId']
+
     super(params)
     this._scheme = 'in://live/audience'
     this._href = '//www.in66.com/intv' 
