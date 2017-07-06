@@ -9,7 +9,7 @@
 </template>
 <script>
   export default {
-    name: 'imagesBox',
+    name: 'iImagesBox',
     data () {
       return {
       }

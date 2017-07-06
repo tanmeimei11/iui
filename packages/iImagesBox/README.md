@@ -58,12 +58,12 @@
  |@clickImage  | 点击单个图片  | Method | 无 | 
 
 ``` html
-<div class="images-box-wrapper"><images-box :images="imgs" :imagesLength="1" @clickImage="clickImageBox"></images-box></div>
+<div class="images-box-wrapper"><iImages-box :images="imgs" :imagesLength="1" @clickImage="clickImageBox"></images-box></div>
 <script>
-  import imagesBox from 'i-ui/lib/imagesBox'
+  import iImagesBox from 'i-ui/lib/iImagesBox'
   export default {
     components: {
-      imagesBox
+      iImagesBox
     },
     data () {
       let exampleUrl = 'http://inimg05.jiuyan.info/in/2017/04/11/AD70A4B2-A492-1E08-FEDC-E5B117D313B2-1rzMYEZj.jpg?imageMogr2/format/jpg/thumbnail/720x%3E/quality/80!' 

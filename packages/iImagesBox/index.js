@@ -1,7 +1,7 @@
-import imagesBox from './src/index.vue'
+import iImagesBox from './src/index.vue'
 
-imagesBox.install = function (Vue) {
-  Vue.component(imagesBox.name, imagesBox)
+iImagesBox.install = function (Vue) {
+  Vue.component(iImagesBox.name, iImagesBox)
 }
 
-export default imagesBox
+export default iImagesBox
