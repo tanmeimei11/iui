@@ -13,11 +13,13 @@ import iCanvasVideo from '../packages/iCanvasVideo'
 import iFireWorks from '../packages/iFireWorks'
 import iSticker from '../packages/iSticker'
 import iLoading from '../packages/iLoading'
-import imagesBox from '../packages/imagesBox'
+import iImagesBox from '../packages/iImagesBox'
+import iInput from '../packages/iInput'
 import iTrack from '../packages/iTrack'
 import iOpen from '../packages/iOpen'
 import iBgImg from '../packages/iBgImg'
 import iLongTap from '../packages/iLongTap'
+import iImg from '../packages/iImg'
 
 const install = function (Vue, opts = {}) {
   if (install.installed) return
@@ -34,11 +36,13 @@ const install = function (Vue, opts = {}) {
   Vue.component(iFireWorks.name, iFireWorks)
   Vue.component(iSticker.name, iSticker)
   Vue.component(iLoading.name, iLoading)
-  Vue.component(imagesBox.name, imagesBox)
+  Vue.component(iImagesBox.name, iImagesBox)
+  Vue.component(iInput.name, iInput)
   Vue.directive(iTrack.name, iTrack)
   Vue.directive(iOpen.name, iOpen)
   Vue.directive(iBgImg.name, iBgImg)
   Vue.directive(iLongTap.name, iLongTap)
+  Vue.directive(iImg.name, iImg)
 }
 
 /* istanbul ignore if */
@@ -47,7 +51,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-  version: '0.1.31',
+  version: '0.2.0',
   install,
   iAudio,
   iAvatar,
@@ -61,9 +65,11 @@ export default {
   iFireWorks,
   iSticker,
   iLoading,
-  imagesBox,
+  iImagesBox,
+  iInput,
   iTrack,
   iOpen,
   iBgImg,
-  iLongTap
+  iLongTap,
+  iImg
 }
