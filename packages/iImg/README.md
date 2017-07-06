@@ -13,27 +13,16 @@
   import iImg from './index'
 
   export default {
-    components: {
-
-    },
+    components: {},
     directives:{
-      'iImg':iImg
+      'iImg': iImg
     },
     data() {
-      return {
-       
-      }
+      return {}
     },
-    methods: {
-
-    }
+    methods: {}
   }
 </script>
-
-### props
- |属性 | 说明 | 类型 | 默认值 |
- |---  | --- | ---  | --- |
-
 
 ## 代码
 ```html
