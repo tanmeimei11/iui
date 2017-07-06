@@ -18,7 +18,7 @@
           <td>value</td>
           <td>打开链接或协议</td>
           <td>String</td>
-          <td>1. href (链接)<br />2. protocol（协议）<br />3 为空时，in内跳协议,in外跳到链接 </td>
+          <td>1. href (链接)<br />2. protocol（协议）<br />3. 为空时,in内跳协议,in外跳到链接 </td>
         </tr>
       </tbody>
     </table>
