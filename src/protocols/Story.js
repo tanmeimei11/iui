@@ -1,6 +1,6 @@
 import DirectiveProtocol from './DirectiveProtocol'
 
-export default class Story extends DirectiveProtocol {
+class Story extends DirectiveProtocol {
   static directiveKey = `__IUI_STORY_PROTOCOL_HANDLE__` 
   static directiveName = `iLinkStory`
 
@@ -22,4 +22,4 @@ export default class Story extends DirectiveProtocol {
   }
 }
 
-export const iLinkStory = Story.directive(Story) 
+export default Story.directive(Story) 

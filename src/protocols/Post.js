@@ -1,6 +1,6 @@
 import DirectiveProtocol from './DirectiveProtocol'
 
-export default class Post extends DirectiveProtocol {
+class Post extends DirectiveProtocol {
   static directiveKey = `__IUI_POST_PROTOCOL_HANDLE__` 
   static directiveName = `iLinkPost` 
 
@@ -19,4 +19,4 @@ export default class Post extends DirectiveProtocol {
   }
 }
 
-export const iLinkPost = Post.directive(Post) 
+export default Post.directive(Post) 

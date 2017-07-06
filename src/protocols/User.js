@@ -1,6 +1,6 @@
 import DirectiveProtocol from './DirectiveProtocol'
 
-export default class User extends DirectiveProtocol {
+class User extends DirectiveProtocol {
   static directiveKey = `__IUI_USERPROTOCOL_HANDLE__` 
   static directiveName = `iLinkUser`
 
@@ -19,4 +19,4 @@ export default class User extends DirectiveProtocol {
   }
 }
 
-export const iLinkUser = User.directive(User) 
+export default User.directive(User) 

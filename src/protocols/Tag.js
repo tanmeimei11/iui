@@ -1,6 +1,6 @@
 import DirectiveProtocol from './DirectiveProtocol'
 
-export default class Tag extends DirectiveProtocol {
+class Tag extends DirectiveProtocol {
   static directiveKey = `__IUI_TAG_PROTOCOL_HANDLE__` 
   static directiveName = `iLinkTag`
 
@@ -22,4 +22,4 @@ export default class Tag extends DirectiveProtocol {
   }
 }
 
-export const iLinkTag = Tag.directive(Tag)  
+export default Tag.directive(Tag)  

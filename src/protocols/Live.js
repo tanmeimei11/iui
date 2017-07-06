@@ -1,6 +1,6 @@
 import DirectiveProtocol from './DirectiveProtocol'
 
-export default class Live extends DirectiveProtocol {
+class Live extends DirectiveProtocol {
   static directiveKey = `__IUI_LIVE_PROTOCOL_HANDLE__` 
   static directiveName = `iLinkLive`
 
@@ -22,4 +22,4 @@ export default class Live extends DirectiveProtocol {
 
 }
 
-export const iLinkLive = Live.directive(Live) 
+export default Live.directive(Live) 

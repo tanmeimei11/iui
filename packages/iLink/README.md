@@ -27,11 +27,12 @@
 </template>
 
 <script>
-  import { iLinkTag } from 'i-ui/src/protocols/Tag'
-  import { iLinkUser } from 'i-ui/src/protocols/User'
-  import { iLinkPost } from 'i-ui/src/protocols/Post'
-  import { iLinkStory } from 'i-ui/src/protocols/Story'
-  import { iLinkLive } from 'i-ui/src/protocols/Live'
+  import iLinkTag from 'i-ui/src/protocols/Tag'
+  import iLinkUser from 'i-ui/src/protocols/User'
+  import iLinkPost from 'i-ui/src/protocols/Post'
+  import iLinkStory from 'i-ui/src/protocols/Story'
+  import iLinkLive from 'i-ui/src/protocols/Live'
+  import Protocol from 'i-ui/src/protocols/Protocol'
 
   export default {
     directives: { 
@@ -41,7 +42,16 @@
       iLinkStory,
       iLinkLive
     },
-    name: 'i-Link'
+    name: 'i-Link',
+    created () {
+      let p = new Protocol({ 
+        scheme: 'in://story/detail',
+        href: '//www.in66.com/story/detail',
+        storyId: '1MqbGZP' 
+      })
+      console.log(p.protocol)
+      console.log(p.link)
+    }
   }
 </script>
 
@@ -73,11 +83,12 @@
 
 ``` html
 <script>
-  import { iLinkTag } from 'i-ui/src/protocols/Tag'
-  import { iLinkUser } from 'i-ui/src/protocols/User'
-  import { iLinkPost } from 'i-ui/src/protocols/Post'
-  import { iLinkStory } from 'i-ui/src/protocols/Story'
-  import { iLinkLive } from 'i-ui/src/protocols/Live'
+  import iLinkTag from 'i-ui/src/protocols/Tag'
+  import iLinkUser from 'i-ui/src/protocols/User'
+  import iLinkPost from 'i-ui/src/protocols/Post'
+  import iLinkStory from 'i-ui/src/protocols/Story'
+  import iLinkLive from 'i-ui/src/protocols/Live'
+  import Protocol from 'i-ui/src/protocols/Protocol'
 
   export default {
     directives: { 
@@ -87,7 +98,17 @@
       iLinkStory,
       iLinkLive
     },
-    name: 'i-Link'
+    name: 'i-Link',
+    created () {
+      let p = new Protocol({ 
+        scheme: 'in://story/detail',
+        href: '//www.in66.com/story/detail',
+        storyId: '1MqbGZP' 
+      })
+      console.log(p.protocol)
+      console.log(p.link)
+    }
+
   }
 </script>
 ```
