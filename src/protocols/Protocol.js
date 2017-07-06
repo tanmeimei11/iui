@@ -1,7 +1,7 @@
 export default class Protocol {
   constructor (params = {}) {
-    this._scheme = ''      
-    this._href = ''
+    this._scheme = params['scheme'] || ''      
+    this._href = params['href'] || ''
     this._protocol = ''
     this._link = ''
     this._params = params
