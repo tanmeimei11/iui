@@ -57,18 +57,18 @@
 
 ``` html
   <i-button type="primary" v-iLinkTag="`1NYABArKQ`">tag页</i-button>
-  <i-button type="primary" v-iLinkTag.href="{tagid: '1NYABArKQ'}">tag页</i-button>
-  <i-button type="primary" v-iLinkTag.protocol="{tagid: '1NYABArKQ', otherParam: 'otherParam'}">tag页</i-button>
+  <i-button type="primary" v-iLinkTag.href="{tagId: '1NYABArKQ'}">tag页</i-button>
+  <i-button type="primary" v-iLinkTag.protocol="{tagId: '1NYABArKQ', otherParam: 'otherParam'}">tag页</i-button>
 ```
 
 ``` html
   <i-button type="primary" v-iLinkUser="`74026136`}">in记</i-button>
-  <i-button type="primary" v-iLinkUser="{userid: '74026136'}">in记</i-button>
+  <i-button type="primary" v-iLinkUser="{userId: '74026136'}">in记</i-button>
 ```
 
 ``` html
   <i-button type="primary" v-iLinkPost="`1PMovPwz`}">图片视频详情</i-button>
-  <i-button type="primary" v-iLinkPost="{pid: '1PMovPwz'}">图片视频详情</i-button>
+  <i-button type="primary" v-iLinkPost="{postId: '1PMovPwz'}">图片视频详情</i-button>
 ```
 
 ``` html
@@ -78,7 +78,7 @@
 
 ``` html
   <i-button type="primary" v-iLinkLive="`1jPxPBV`">直播详情</i-button>
-  <i-button type="primary" v-iLinkLive="{liveid: '1jPxPBV'}">直播详情</i-button>
+  <i-button type="primary" v-iLinkLive="{liveId: '1jPxPBV'}">直播详情</i-button>
 ```
 
 ``` html
