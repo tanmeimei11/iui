@@ -2,6 +2,7 @@
 import iTrack from 'i-ui/lib/iTrack/README.md'
 import iOpen from 'i-ui/lib/iOpen/README.md'
 import iBgImg from 'i-ui/lib/iBgImg/README.md'
+import iImg from 'i-ui/lib/iImg/README.md'
 
 export default [ 
   {
@@ -27,5 +28,13 @@ export default [
     type: 'directives',
     icon: 'image',
     txt: '背景图'
+  },
+  {
+    name: 'iImg',
+    path: '/iImg',
+    component: iImg,
+    type: 'directives',
+    icon: 'image',
+    txt: '图片预览'
   }
 ]
