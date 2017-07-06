@@ -108,7 +108,7 @@ const routes = [{
   path: '/iCanvasVideo',
   component: iCanvasVideo,
   type: 'components',
-  icon: 'ios-film',
+  icon: 'android-film',
   txt: '播放动画'
 },
 {
@@ -156,7 +156,7 @@ const routes = [{
   path: '/iLink',
   component: iLink,
   type: 'directives',
-  icon: 'ios-snowy',
+  icon: 'link',
   txt: 'iLink'
 },
 {
@@ -179,7 +179,7 @@ const routes = [{
   path: '/iImg',
   component: iImg,
   type: 'directives',
-  icon: 'mouse',
+  icon: 'android-image',
   txt: '图片预览'
 },
 {
