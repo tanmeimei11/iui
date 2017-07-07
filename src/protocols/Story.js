@@ -8,7 +8,7 @@ class Story extends DirectiveProtocol {
     if (typeof(params) === 'string') {
       params = {storyId: params}
     }
-    params['story_id'] = params['storyid'] = params['sid'] = params['storyId'] = params['storyId']
+    params['story_id'] = params['storyid'] = params['sid'] = params['storyId']
 
     if (params[`uid`] === undefined) {
       params[`uid`] = '74026136' 
