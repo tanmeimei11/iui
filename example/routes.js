@@ -25,6 +25,7 @@ import iLink from 'i-ui/lib/iLink/README.md'
 import iBgImg from 'i-ui/lib/iBgImg/README.md'
 import iLongTap from 'i-ui/lib/iLongTap/README.md'
 import iImg from 'i-ui/lib/iImg/README.md'
+import iUpdate from 'i-ui/lib/iUpdate/README.md'
 
 // https://www.iviewui.com/components/icon
 
@@ -152,6 +153,14 @@ const routes = [{
   txt: '打开in'
 },
 {
+  name: 'iUpdate',
+  path: '/iUpdate',
+  component: iUpdate,
+  type: 'directives',
+  icon: 'arrow-up-a',
+  txt: '版本升级'
+},
+{
   name: 'iLink',
   path: '/iLink',
   component: iLink,
@@ -174,7 +183,8 @@ const routes = [{
   type: 'directives',
   icon: 'mouse',
   txt: '长按'
-},{
+},
+{
   name: 'iImg',
   path: '/iImg',
   component: iImg,

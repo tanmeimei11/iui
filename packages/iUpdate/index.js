@@ -1,7 +1,7 @@
-import iImgUpload from './src/index.vue'
+import iUpdate from './src/index.vue'
 
-iImgUpload.install = function (Vue) {
-  Vue.component(iImgUpload.name, iImgUpload)
+iUpdate.install = function (Vue) {
+  Vue.component(iUpdate.name, iUpdate)
 }
 
-export default iImgUpload
+export default iUpdate
