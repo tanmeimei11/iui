@@ -3,5 +3,6 @@
   "i-open": "./packages/iOpen/index.js",
   "i-bg-img": "./packages/iBgImg/index.js",
   "i-long-tap": "./packages/iOpen/index.js",
-  "i-img": "./packages/iImg/index.js"
+  "i-img": "./packages/iImg/index.js",
+  "i-update": "./packages/iUpdate/index.js"
 }
