@@ -33,6 +33,7 @@
   import iLinkStory from 'i-ui/src/protocols/Story'
   import iLinkLive from 'i-ui/src/protocols/Live'
   import Protocol from 'i-ui/src/protocols/Protocol'
+  import debounce from 'i-ui/src/utils/debounce'
 
   export default {
     directives: { 
@@ -44,6 +45,7 @@
     },
     name: 'i-Link',
     created () {
+      window.onscroll = debounce(() => { console.log(1) }, 2000, true)
       let p = new Protocol({ 
         scheme: 'in://story/detail',
         href: '//www.in66.com/story/detail',

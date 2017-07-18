@@ -1,6 +1,6 @@
 <template>
-  <div class="i-audio" :class="{on: isOn, off: !isOn}" @click.stop.prevent="toggle">
-    <audio :autoplay="autoplay" :loop="loop" :preload="preload" :src="src" ref="audio" />
+  <div class="i-audio" :class="[{on: isOn, off: !isOn},{rotate:isRotate}]" :rotate="rotate" @click.stop.prevent="toggle" >
+    <audio  :autoplay="autoplay" :loop="loop" :preload="preload" :src="src" ref="audio" />
   </div>
 </template>
 
@@ -9,10 +9,12 @@
     name: 'iAudio',
     data () {
       return {
-        isOn: false
+        isOn: false,
+        isRotate: false
       }
     },
     props: {
+      rotate: Boolean,
       loop: Boolean,
       preload: Boolean,
       autoplay: Boolean,
@@ -25,6 +27,11 @@
       let audio = this.$refs.audio
       if (audio.autoplay) {
         this.audioAutoPlay()
+      }
+    },
+    created () {
+      if(this.rotate){
+        this.isRotate = true
       }
     },
     beforeDestroy () {
@@ -49,6 +56,7 @@
         } else {
           this.play()
         }
+        console.log(this.rotate)
       },
       audioAutoPlay () {
         this.play()
@@ -72,13 +80,27 @@
   .i-audio {
     width: 40px;
     height: 40px;
-    background: url(./assets/music.png) no-repeat;
+    background: url(./assets/music2.jpg) no-repeat;
     background-size: contain;
     &.on {
+      background: url(./assets/music1.jpg) no-repeat;
+      background-size: contain;
+      // -webkit-animation: musicAnimation 2s infinite linear;
+      // animation: musicAnimation 2s infinite linear;
+    }
+    &.off{
+      -webkit-animation: off 2s infinite linear;
+      animation: off 2s infinite linear;
+    }
+  }
+  .rotate{
       -webkit-animation: musicAnimation 2s infinite linear;
       animation: musicAnimation 2s infinite linear;
     }
-  }
+  // .i-audio.notrotate{
+  //       -webkit-animation: off 2s infinite linear;
+  //       animation: off 2s infinite linear;
+  //   }
 
   @-webkit-keyframes musicAnimation {
     0% {
