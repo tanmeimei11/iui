@@ -17,6 +17,7 @@ import iSticker from 'i-ui/lib/iSticker/README.md'
 import iLoading from 'i-ui/lib/iLoading/README.md'
 import iImagesBox from 'i-ui/lib/iImagesBox/README.md'
 import iInput from 'i-ui/lib/iInput/README.md'
+import iUpdate from 'i-ui/lib/iUpdate/README.md'
 
 // 指令
 import iTrack from 'i-ui/lib/iTrack/README.md'
@@ -112,6 +113,14 @@ const routes = [{
   txt: '播放动画'
 },
 {
+  name: 'iUpdate',
+  path: '/iUpdate',
+  component: iUpdate,
+  type: 'components',
+  icon: 'arrow-up-a',
+  txt: '版本升级'
+},
+{
   name: 'iImgCut',
   path: '/iImgCut',
   component: iImgCut,
@@ -151,6 +160,7 @@ const routes = [{
   icon: 'android-send',
   txt: '打开in'
 },
+
 {
   name: 'iLink',
   path: '/iLink',
@@ -174,7 +184,8 @@ const routes = [{
   type: 'directives',
   icon: 'mouse',
   txt: '长按'
-},{
+},
+{
   name: 'iImg',
   path: '/iImg',
   component: iImg,
