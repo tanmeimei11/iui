@@ -17,12 +17,17 @@
   export default {
     name: 'i-update',
     props: ['modelInfo', 'show'],
+    computed: {
+      isShow() {
+        return this.show
+      }
+    },
     methods: {
-      closeModel () {
+      closeModel() {
         this.show = false
       }
     },
-    created () {}
+    created() {}
   }
 
 </script>
