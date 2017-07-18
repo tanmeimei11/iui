@@ -17,6 +17,7 @@ import iSticker from 'i-ui/lib/iSticker/README.md'
 import iLoading from 'i-ui/lib/iLoading/README.md'
 import iImagesBox from 'i-ui/lib/iImagesBox/README.md'
 import iInput from 'i-ui/lib/iInput/README.md'
+import iImgAnime from 'i-ui/lib/iImgAnime/README.md'
 
 // 指令
 import iTrack from 'i-ui/lib/iTrack/README.md'
@@ -174,7 +175,7 @@ const routes = [{
   type: 'directives',
   icon: 'mouse',
   txt: '长按'
-},{
+}, {
   name: 'iImg',
   path: '/iImg',
   component: iImg,
@@ -205,6 +206,14 @@ const routes = [{
   type: 'components',
   icon: 'compose',
   txt: '输入框'
+},
+{
+  name: 'iImgAnime',
+  path: '/iImgAnime',
+  component: iImgAnime,
+  type: 'components',
+  icon: 'film-marker',
+  txt: '动画帧'
 }
 ]
 
