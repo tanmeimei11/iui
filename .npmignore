@@ -8,8 +8,14 @@ example
 test
 scripts
 
+.editorconfig
+.eslintignore
+.eslintrc.js
+.nvmrc
+.vscode
 components.json
 directives.json
+
 
 # online demo folder
 dist

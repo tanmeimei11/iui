@@ -13,5 +13,7 @@
   "i-loading": "./packages/iLoading/index.js",
   "i-images-box": "./packages/iImagesBox/index.js",
   "i-input": "./packages/iInput/index.js",
-  "i-update": "./packages/iUpdate/index.js"
+  "i-img-anime": "./packages/iImgAnime/index.js",
+  "i-update": "./packages/iUpdate/index.js",
+  "i-error": "./packages/iError/index.js"
 }
