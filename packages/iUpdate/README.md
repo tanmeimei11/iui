@@ -1,39 +1,44 @@
-
-
 <template>
-  <div>
-   <i-button type="primary" v-i-update="{v:'3.0.0'}">click me</i-button>
-  </div>
+<i-button type="primary" @click="showClick">click me</i-button>
+<i-update :modelInfo="modelInfo" :show="show"></i-update>
+ 
 </template>
-<script>
-  export default {
-    name: 'i-update',
-    data () {
-      return {}
-    },
-    created () {}
-  }
-
-</script>
-<style lang="scss">
-
-
-</style>
-
-
-```html
-<i-button type="primary" v-i-update="{v:'3.0.0'}">click me</i-button>
 <script>
   import iUpdate from 'i-ui/lib/iUpdate'
   export default {
-    directives: {
+     components:{
       iUpdate
     },
-    name: 'i-update',
     data() {
-      return {}
+      return {
+        show: false,
+        modelInfo: {
+          title: '版本更新',
+          textList: ['fsadf'],
+          btns: {
+            left: {
+              text: '下次再说',
+              url: ''
+            },
+            right: {
+              color: 'red',
+              text: '立即更新',
+              url: ''
+            }
+          }
+        }
+      }
+    },
+    methods:{
+      showClick(){
+        this.show = true
+      }
     }
   }
 
 </script>
+
+```html
+参数：
+代码：
 ```
