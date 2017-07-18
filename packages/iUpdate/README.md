@@ -55,6 +55,10 @@
           title: '版本更新', // 主标题
           textList: ['版本过低，去升级吧～'], // 次标题 数组 可填多个
           btns: {// 按钮组 最多两个
+          right: {
+              text: '下次再说',
+              url: ''
+            }
             right: {
               color: 'red',
               text: '立即更新',
