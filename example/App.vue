@@ -31,7 +31,9 @@
 
 <script>
   import routes from './routes'
-  import {share} from 'i-ui/src/mixins/inPromo'
+  import {
+    share
+  } from 'i-ui/src/mixins/inPromo'
   export default {
     mixins: [share],
     name: 'app',
@@ -77,11 +79,14 @@
     border-radius: 6px;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
   }
+
   .wrapper-navigate {
     height: 100%;
   }
+
   .wrapper-content {
     padding: 20px 25px;
     position: relative;
   }
+
 </style>

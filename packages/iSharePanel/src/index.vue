@@ -32,7 +32,7 @@
     height: 0;
     overflow: hidden;
     &.show {
-       height: 100%;
+      height: 100%;
       .i-share-panel-line {
         transform: translate(0, 0);
       }
