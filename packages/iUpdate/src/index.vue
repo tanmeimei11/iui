@@ -1,33 +1,39 @@
 <template>
-  <div class="model" v-if="show">
+  <div class="model" v-if="show" @click.self="close">
     <div class="c-model-wrap">
-      <div class="s-close" @click="closeModel"></div>
+      <div class="s-close" @click="close"></div>
       <div class="s-logo"></div>
       <div class="s-title">{{modelInfo.title}}</div>
       <div class="text-wrap">
         <div class="s-text" v-for="(item , index) in modelInfo.textList" :key="index">{{item}}</div>
       </div>
       <div class="btn-wrap">
-        <div class="s-btn" v-for="(item , index) in modelInfo.btns" :key="index" :class="`${item.color? item.color : '' }`">{{item.text}}</div>
+        <div class="s-btn" v-for="(item , index) in modelInfo.btns" :key="index" :class="`${item.color? item.color : '' }`" @click="btnClick(item.url)">{{item.text}}</div>
       </div>
     </div>
   </div>
 </template>
 <script>
+  import common from 'i-ui/src/utils/common.js'
+  import awake from 'i-ui/src/utils/jsBridge'
   export default {
     name: 'i-update',
-    props: ['modelInfo', 'show'],
-    computed: {
-      isShow() {
-        return this.show
-      }
-    },
+    props: ['modelInfo', 'show', 'close'],
     methods: {
-      closeModel() {
-        this.show = false
+      btnClick (href) {
+        var _href = href.trim()
+        if (!_href) {
+          return false
+        }
+        // 添加的是协议
+        if (/^in:/.test(_href)) {
+          common.isInApp ? awake(_href) : common.openInApp(_href)
+        } else {
+          location.href = location.protocol + _href.replace(/^http:|https:/, '')
+        }
       }
     },
-    created() {}
+    created () {}
   }
 
 </script>
@@ -67,9 +73,11 @@
     }
     .s-title {
       text-align: center;
+      font-size: 16px
     }
     .text-wrap {
       margin: 0 5.5%;
+      font-size: 12px;
     }
     .s-text {
       position: relative;
