@@ -19,6 +19,7 @@ import iImagesBox from 'i-ui/lib/iImagesBox/README.md'
 import iInput from 'i-ui/lib/iInput/README.md'
 import iImgAnime from 'i-ui/lib/iImgAnime/README.md'
 import iUpdate from 'i-ui/lib/iUpdate/README.md'
+import iError from 'i-ui/lib/iError/README.md'
 
 // 指令
 import iTrack from 'i-ui/lib/iTrack/README.md'
@@ -225,6 +226,14 @@ const routes = [{
   type: 'components',
   icon: 'film-marker',
   txt: '动画帧'
+},
+{
+  name: 'iError',
+  path: '/iError',
+  component: iError,
+  type: 'components',
+  icon: 'bug',
+  txt: '错误展示'
 }
 ]
 
