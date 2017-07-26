@@ -6,7 +6,7 @@ import { env } from './utils'
 
 const cfg = new Config().extend('scripts/conf/webpack.base.config.js').merge({
   entry: {
-    'index': ['./src/components.js']
+    index: ['./src/components.js']
   },
   output: {
     libraryTarget: 'umd'
@@ -32,7 +32,7 @@ const cfg = new Config().extend('scripts/conf/webpack.base.config.js').merge({
       comments: false
     }),
     new ExtractTextPlugin({ 
-      filename: 'theme-default/index.css'
+      filename: 'theme-default/[name].css'
     })
   ]
 })

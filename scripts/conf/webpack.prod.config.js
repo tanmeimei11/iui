@@ -6,24 +6,15 @@ import { env, resolvePath } from './utils'
 import components from '../../components.json'
 import directives from '../../directives.json'
 
-const cfg = new Config().extend({
-  'scripts/conf/webpack.base.config.js': config => {
-    config.entry = config.entry || {}
-    Object.keys(components).forEach(key => {
-      config.entry[`${key}`] = [components[`${key}`]]
-    })
-    Object.keys(directives).forEach(key => {
-      config.entry[`${key}`] = [directives[`${key}`]]
-    })
-    return config
-  }
-}).merge({
+const cfg = new Config().extend('scripts/conf/webpack.base.config.js').merge({
   entry: {
+    ...components,
+    ...directives,
     'i-ui.common': ['./src/components.js'],
     base: ['./src/scss/base.scss']
   },
   output: {
-    libraryTarget: 'commonjs-module'
+    libraryTarget: 'commonjs2'
   },
   plugins: [
     new webpack.EnvironmentPlugin({
@@ -36,11 +27,6 @@ const cfg = new Config().extend({
     }),
     new ExtractTextPlugin({ 
       filename: getPath => getPath('theme-default/[name].css').replace('i-ui.common', 'index')
-    }),
-    new webpack.DllPlugin({
-      path: resolvePath('lib/[name].manifest.json'),
-      name: '[name]',
-      context: resolvePath('')
     })
   ]
 })
