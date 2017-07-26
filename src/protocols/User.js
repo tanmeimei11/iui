@@ -1,7 +1,7 @@
 import DirectiveProtocol from './DirectiveProtocol'
 
 class User extends DirectiveProtocol {
-  static directiveKey = `__IUI_USERPROTOCOL_HANDLE__` 
+  static directiveKey = `__IUI_USERPROTOCOL_HANDLE__`
   static directiveName = `iLinkUser`
 
   constructor (params) {
@@ -10,13 +10,10 @@ class User extends DirectiveProtocol {
     }
     params['uid'] = params['userid'] = params['userId']
 
-    if (params[`refresh`] === undefined) {
-      params[`refresh`] = 0
-    }
     super(params)
     this._scheme = 'in://diary/other'
-    this._href = '//h5.in66.com/inpromo/inweb/in-share/in.html' 
+    this._href = '//h5.in66.com/inpromo/inweb/in-share/in.html'
   }
 }
 
-export default User.directive(User) 
+export default User.directive(User)
