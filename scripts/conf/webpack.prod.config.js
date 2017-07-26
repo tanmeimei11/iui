@@ -22,9 +22,6 @@ const cfg = new Config().extend({
     'i-ui.common': ['./src/components.js'],
     base: ['./src/scss/base.scss']
   },
-  output: {
-    libraryTarget: 'commonjs-module'
-  },
   plugins: [
     new webpack.EnvironmentPlugin({
       NODE_ENV: JSON.stringify('production'),
@@ -39,8 +36,7 @@ const cfg = new Config().extend({
     }),
     new webpack.DllPlugin({
       path: resolvePath('lib/[name].manifest.json'),
-      name: '[name]',
-      context: resolvePath('')
+      name: '[name]'
     })
   ]
 })

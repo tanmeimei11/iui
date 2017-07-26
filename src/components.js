@@ -15,7 +15,9 @@ import iSticker from '../packages/iSticker'
 import iLoading from '../packages/iLoading'
 import iImagesBox from '../packages/iImagesBox'
 import iInput from '../packages/iInput'
+import iImgAnime from '../packages/iImgAnime'
 import iUpdate from '../packages/iUpdate'
+import iError from '../packages/iError'
 import iTrack from '../packages/iTrack'
 import iOpen from '../packages/iOpen'
 import iBgImg from '../packages/iBgImg'
@@ -39,7 +41,9 @@ const install = function (Vue, opts = {}) {
   Vue.component(iLoading.name, iLoading)
   Vue.component(iImagesBox.name, iImagesBox)
   Vue.component(iInput.name, iInput)
+  Vue.component(iImgAnime.name, iImgAnime)
   Vue.component(iUpdate.name, iUpdate)
+  Vue.component(iError.name, iError)
   Vue.directive(iTrack.name, iTrack)
   Vue.directive(iOpen.name, iOpen)
   Vue.directive(iBgImg.name, iBgImg)
@@ -69,7 +73,9 @@ export default {
   iLoading,
   iImagesBox,
   iInput,
+  iImgAnime,
   iUpdate,
+  iError,
   iTrack,
   iOpen,
   iBgImg,
