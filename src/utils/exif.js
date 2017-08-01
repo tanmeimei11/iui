@@ -155,7 +155,7 @@ export const compressImg = (img, orientation, maxWidth, done) => {
   ctx.rotate(imgRotation)
   let vertSquashRatio = 1
   // 当ios7 ／ ios6 的时候算压缩比
-  if (common.isIos) {
+  if (common.isIos && ~[7, 6].indexOf(parseInt(navigator.userAgent.toLowerCase().match(/os (\d+)_\d+/)[1]))) {
     vertSquashRatio = detectVerticalSquash(img)
   }
   ctx.drawImage(img, 0, 0, img.naturalWidth * vertSquashRatio, img.naturalHeight * vertSquashRatio, -1 * dw / 2, -1 * dh / 2, dw, dh)
