@@ -9,12 +9,12 @@
             <Menu-item name="/customPackage">自定义开发</Menu-item>
           </Menu-group>
           <Menu-group title="组件">
-            <Menu-item :name="component.path" v-for="(component, idx) in components">
+            <Menu-item :key="idx" :name="component.path" v-for="(component, idx) in components">
               <Icon :type="component.icon"></Icon>{{component.txt}}
             </Menu-item>
           </Menu-group>
           <Menu-group title="指令">
-            <Menu-item :name="directive.path" v-for="(directive, idx) in directives">
+            <Menu-item :key="idx" :name="directive.path" v-for="(directive, idx) in directives">
               <Icon :type="directive.icon"></Icon>{{directive.txt}}
             </Menu-item>
           </Menu-group>
@@ -31,11 +31,9 @@
 
 <script>
   import routes from './routes'
-  import {
-    share
-  } from 'i-ui/src/mixins/inPromo'
+  import inPromo from 'i-ui/src/mixins/inPromo.js'
   export default {
-    mixins: [share],
+    mixins: [inPromo],
     name: 'app',
     data () {
       let _data = {
@@ -55,7 +53,8 @@
       return _data
     },
     created () {
-      this.$share.shareTitle = 'a'
+      this.$share.shareTitle = 'c'
+      this.$share.shareDesc = 'a'
       this.activeName = this.$route.path
     },
     methods: {

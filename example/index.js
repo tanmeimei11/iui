@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import App from './App'
 import Router from 'vue-router'
 import routes from './routes'
@@ -7,18 +8,19 @@ import 'iview/dist/styles/iview.css'
 import 'highlight.js/styles/solarized-light.css'
 import './scss/markdown.scss'
 import 'core-js/library/es6/promise'
-// 分享
-import InVue from 'i-ui/src/extends/InVue'
+
+import injectObj from 'i-ui/src/plugins/injectObj'
 
 const router = new Router({
   routes
 })
 
-new InVue({ // eslint-disable-line
-  el: '#app',
+Vue.use(Router)
+Vue.use(iView)
+Vue.use(injectObj)
+new Vue({ // eslint-disable-line
   router,
   track: 'enter',
-  plugins: [Router, iView],
   share: {
     shareTitle: 'shareTitle', // 分享标题
     shareDesc: 'shareDesc', // 分享描述
@@ -27,4 +29,4 @@ new InVue({ // eslint-disable-line
     shareTrack: 'share'
   },
   render: h => h(App)
-})
+}).$mount('#app')
