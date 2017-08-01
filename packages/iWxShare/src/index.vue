@@ -3,18 +3,48 @@
 </template>
 <script>
   import common from 'i-ui/src/utils/common.js'
+  import share from 'i-ui/src/utils/share.js'
   import awake from 'i-ui/src/utils/jsBridge.js'
+  import iTrack from '../../iTrack'
   export default {
     name: 'iWxShare',
+    props: {
+      type: {
+        type: String,
+        default: 'all'
+      }
+    },
     data () {
       return {
         isInApp: common.isInApp
       }
     },
+    directives: {
+      iTrack
+    },
     created () {
       if (this.isInApp) {
-        awake('in://in?tovc=102&h5=1&callback=cb_test&type=all')
+        let key = `shareback${Date.now()}`
+        window[`key`] = {
+          succ: () => { 
+            this.$emit('done', {succ: true})
+          },
+          cancel: () => {
+            this.$emit('done', {cancel: true})
+          },
+          error: () => {
+            this.$emit('done', {error: true})
+          }
+        }
+        awake(`in://in?tovc=102&h5=1&callback=${key}&type=${this.type}`)
         this.$emit('close')
+      } else {
+        share.config.success = () => { 
+          this.$emit('done', {succ: true})
+        }
+        share.config.cancel = () => {
+          this.$emit('done', {cancel: true})
+        }
       }
     }
   }
