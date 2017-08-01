@@ -29,6 +29,7 @@
  |---  | --- | ---  | --- |
  |loading  | 是否动画  | Boolean | true  |
  |color  | 颜色  | String | red  |
+ |fixed  | 页面居中  | Boolean | false  |
 
  ## 代码
 ```html
