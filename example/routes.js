@@ -20,6 +20,7 @@ import iInput from 'i-ui/lib/iInput/README.md'
 import iImgAnime from 'i-ui/lib/iImgAnime/README.md'
 import iUpdate from 'i-ui/lib/iUpdate/README.md'
 import iError from 'i-ui/lib/iError/README.md'
+import iWxShare from 'i-ui/lib/iWxShare/README.md'
 
 // 指令
 import iTrack from 'i-ui/lib/iTrack/README.md'
@@ -234,6 +235,14 @@ const routes = [{
   type: 'components',
   icon: 'bug',
   txt: '错误展示'
+},
+{
+  name: 'iWxShare',
+  path: '/iWxShare',
+  component: iWxShare,
+  type: 'components',
+  icon: 'share',
+  txt: 'in外分享'
 }
 ]
 
