@@ -35,6 +35,7 @@
       this.$el.__scrollHandle = this.scrollHandler
       window.addEventListener('scroll', this.$el.__scrollHandle)
       document.addEventListener('touchmove', this.$el.__scrollHandle)
+      this.scrollHandler()
     },
     beforeDestroy () {
       window.removeEventListener('scroll', this.$el.__scrollHandle)
