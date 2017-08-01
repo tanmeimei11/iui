@@ -64,12 +64,12 @@
 ```
 
 ``` html
-  <i-button type="primary" v-iLinkUser="`74026136`}">in记</i-button>
+  <i-button type="primary" v-iLinkUser="`74026136`">in记</i-button>
   <i-button type="primary" v-iLinkUser="{userId: '74026136'}">in记</i-button>
 ```
 
 ``` html
-  <i-button type="primary" v-iLinkPost="`1PMovPwz`}">图片视频详情</i-button>
+  <i-button type="primary" v-iLinkPost="`1PMovPwz`">图片视频详情</i-button>
   <i-button type="primary" v-iLinkPost="{postId: '1PMovPwz'}">图片视频详情</i-button>
 ```
 

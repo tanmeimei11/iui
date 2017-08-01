@@ -62,11 +62,6 @@
     },
     components: {
       iSharePanel
-    },
-    methods: {
-      share () {
-        this.show = true
-      }
     }
   }
 
