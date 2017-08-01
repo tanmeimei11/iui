@@ -50,9 +50,10 @@
         let screeH = (window.screen.height + 1000) * window.lib.flexible.dpr
         let elBottomOffset = elOffset.top + elOffset.height
         if (elBottomOffset < screeH) {
+          this.$emit('scroll')
           this.lock = setTimeout(() => {
-            this.$emit('scroll')
             this.lock = undefined
+            this.scrollHandler()
           }, this.debounce)
         }
       }
