@@ -17,6 +17,7 @@ import iImagesBox from '../packages/iImagesBox'
 import iInput from '../packages/iInput'
 import iImgAnime from '../packages/iImgAnime'
 import iUpdate from '../packages/iUpdate'
+import iWxShare from '../packages/iWxShare'
 import iError from '../packages/iError'
 import iTrack from '../packages/iTrack'
 import iOpen from '../packages/iOpen'
@@ -43,6 +44,7 @@ const install = function (Vue, opts = {}) {
   Vue.component(iInput.name, iInput)
   Vue.component(iImgAnime.name, iImgAnime)
   Vue.component(iUpdate.name, iUpdate)
+  Vue.component(iWxShare.name, iWxShare)
   Vue.component(iError.name, iError)
   Vue.directive(iTrack.name, iTrack)
   Vue.directive(iOpen.name, iOpen)
@@ -57,7 +59,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-  version: '0.1.33',
+  version: '0.1.34',
   install,
   iAudio,
   iAvatar,
@@ -75,6 +77,7 @@ export default {
   iInput,
   iImgAnime,
   iUpdate,
+  iWxShare,
   iError,
   iTrack,
   iOpen,
