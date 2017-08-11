@@ -1,5 +1,5 @@
-import { AppUrlObjError } from 'i-ui/src/utils/errors' 
-import { 
+import { AppUrlObjError } from 'i-ui/src/utils/errors'
+import {
     U_IN,
     U_IN_APPLINKS,
     U_CHAT_APPLINKS
@@ -37,10 +37,10 @@ const common = {
   get isAndroid () { return /android|adr/gi.test(this.ua) },
   get isIos () { return /iphone|ipod|ipad/gi.test(this.ua) },
   get isInApp () { return /infashion/gi.test(this.ua) },
-  get isWYMusic () { return /NeteaseMusic/gi.test(this.ua) },
+  get isWYMusic () { return /neteasemusic/gi.test(this.ua) },
 
   // 查询请求
-  get query () { 
+  get query () {
     return __splitData(
     location.search.substr(1),
     '&',
@@ -50,9 +50,9 @@ const common = {
 
   get ua () {
     if (!this._ua) {
-      this._ua = window.navigator.userAgent.toLowerCase()  
+      this._ua = window.navigator.userAgent.toLowerCase()
     }
-    return this._ua 
+    return this._ua
   },
   // 获取版本
   get version () {
@@ -103,12 +103,12 @@ const common = {
 
   get appSchemes () {
     return {
-      webview: function (uri) { 
+      webview: function (uri) {
         if (this.isIos) uri = encodeURIComponent(uri)
         return `in://webview?url=${encodeURIComponent(uri)}`
       }
-    } 
-  },  
+    }
+  },
   /**
    * 判断版本
    */
@@ -123,24 +123,24 @@ const common = {
         return Number(curVer[i]) < Number(tagVer[i])
       }
     }
-   
+
     return curVer.length < tagVer.length
   },
 
   appUri (appUrlObj) {
-    appUrlObj = appUrlObj || window && window.appUrlObj 
+    appUrlObj = appUrlObj || window && window.appUrlObj
 
     if (typeof (appUrlObj) === 'string') { appUrlObj = {ios: appUrlObj, android: appUrlObj} }
-    if (!(typeof (appUrlObj) === 'object' && appUrlObj.ios && appUrlObj.android)) throw new AppUrlObjError() 
+    if (!(typeof (appUrlObj) === 'object' && appUrlObj.ios && appUrlObj.android)) throw new AppUrlObjError()
 
     let {ios, android, scheme} = appUrlObj
-    let appUri = this.isIos && ios || this.isAndroid && android || U_IN 
+    let appUri = this.isIos && ios || this.isAndroid && android || U_IN
     if (scheme === false) scheme = 'NOT_EXIST'
     let appScheme = (this.appSchemes)[scheme || 'webview']
 
     if (appScheme) {
       return appScheme.call(this, appUri)
-    } 
+    }
 
     return appUri
   },
@@ -177,6 +177,14 @@ const common = {
         expiredays: expiredays
       })
     }
+  }
+
+  //checkString(user.name, 8, '...')
+  checkString (str, len, tag) {
+    if (str && str.length > len) {
+      return str.substring(0, len) + tag
+    }
+    return str
   }
 }
 
