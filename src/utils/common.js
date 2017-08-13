@@ -177,7 +177,7 @@ const common = {
         expiredays: expiredays
       })
     }
-  }
+  },
 
   //checkString(user.name, 8, '...')
   checkString (str, len, tag) {
