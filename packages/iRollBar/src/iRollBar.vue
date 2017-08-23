@@ -29,12 +29,12 @@
       window.lib.flexible.dpr = window.lib.flexible.dpr || 1
       this.$el.__scrollHandle = this.scrollHandler
       window.addEventListener('scroll', this.$el.__scrollHandle)
-      document.addEventListener('touchmove', this.$el.__scrollHandle)
+      // document.addEventListener('touchmove', this.$el.__scrollHandle)
       this.scrollHandler()
     },
     beforeDestroy () {
       window.removeEventListener('scroll', this.$el.__scrollHandle)
-      document.removeEventListener('touchmove', this.$el.__scrollHandle)
+      // document.removeEventListener('touchmove', this.$el.__scrollHandle)
     },
     methods: {
       scrollHandler (event) {
