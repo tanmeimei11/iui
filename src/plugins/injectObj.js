@@ -6,7 +6,9 @@ import toast from '../utils/toast'
 import common from '../utils/common'
 import share from '../utils/share'
 import awake from '../utils/jsBridge'
-import { trackParam } from '../utils/track'
+import {
+  trackParam
+} from '../utils/track'
 
 export default (Vue, opt) => {
   Object.defineProperties(Vue.prototype, {
@@ -26,9 +28,16 @@ export default (Vue, opt) => {
         return awake
       }
     },
+    $awakeIn: {
+      get () {
+        return (protocol) => {
+          common.isInApp ? awake(protocol) : common.openInApp(protocol)
+        }
+      }
+    },
     $share: {
       get () {
-        return share.config 
+        return share.config
       },
       set (cfg) {
         share.config = cfg
@@ -41,4 +50,3 @@ export default (Vue, opt) => {
     }
   })
 }
-

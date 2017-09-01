@@ -1,8 +1,10 @@
-import { AppUrlObjError } from 'i-ui/src/utils/errors'
 import {
-    U_IN,
-    U_IN_APPLINKS,
-    U_CHAT_APPLINKS
+  AppUrlObjError
+} from 'i-ui/src/utils/errors'
+import {
+  U_IN,
+  U_IN_APPLINKS,
+  U_CHAT_APPLINKS
 } from 'iConfig'
 
 function __splitData (str, delimiter, decodeKey, decodeValue) {
@@ -32,20 +34,32 @@ function __getValue (...keys) {
 }
 
 const common = {
-  get isWeChat () { return /micromessenger/gi.test(this.ua) },
-  get isWeiBo () { return /weibo/gi.test(this.ua) },
-  get isAndroid () { return /android|adr/gi.test(this.ua) },
-  get isIos () { return /iphone|ipod|ipad/gi.test(this.ua) },
-  get isInApp () { return /infashion/gi.test(this.ua) },
-  get isWYMusic () { return /neteasemusic/gi.test(this.ua) },
+  get isWeChat () {
+    return /micromessenger/gi.test(this.ua)
+  },
+  get isWeiBo () {
+    return /weibo/gi.test(this.ua)
+  },
+  get isAndroid () {
+    return /android|adr/gi.test(this.ua)
+  },
+  get isIos () {
+    return /iphone|ipod|ipad/gi.test(this.ua)
+  },
+  get isInApp () {
+    return /infashion/gi.test(this.ua)
+  },
+  get isWYMusic () {
+    return /neteasemusic/gi.test(this.ua)
+  },
 
   // 查询请求
   get query () {
     return __splitData(
-    location.search.substr(1),
-    '&',
-    key => key.replace(/-+(.)?/g, (match, chr) => chr ? chr.toUpperCase() : ''),
-    decodeURIComponent)
+      location.search.substr(1),
+      '&',
+      key => key.replace(/-+(.)?/g, (match, chr) => chr ? chr.toUpperCase() : ''),
+      decodeURIComponent)
   },
 
   get ua () {
@@ -130,13 +144,22 @@ const common = {
   appUri (appUrlObj) {
     appUrlObj = appUrlObj || window && window.appUrlObj
 
-    if (typeof (appUrlObj) === 'string') { appUrlObj = {ios: appUrlObj, android: appUrlObj} }
+    if (typeof (appUrlObj) === 'string') {
+      appUrlObj = {
+        ios: appUrlObj,
+        android: appUrlObj
+      }
+    }
     if (!(typeof (appUrlObj) === 'object' && appUrlObj.ios && appUrlObj.android)) throw new AppUrlObjError()
 
-    let {ios, android, scheme} = appUrlObj
+    let {
+      ios,
+      android,
+      scheme
+    } = appUrlObj
     let appUri = this.isIos && ios || this.isAndroid && android || U_IN
     if (scheme === false) scheme = 'NOT_EXIST'
-    let appScheme = (this.appSchemes)[scheme || 'webview']
+    let appScheme = (this.appSchemes)[/^http/.test(appUri) && (scheme = 'webview')]
 
     if (appScheme) {
       return appScheme.call(this, appUri)
@@ -179,7 +202,7 @@ const common = {
     }
   },
 
-  //checkString(user.name, 8, '...')
+  // checkString(user.name, 8, '...')
   checkString (str, len, tag) {
     if (str && str.length > len) {
       return str.substring(0, len) + tag
@@ -189,4 +212,3 @@ const common = {
 }
 
 export default common
-
