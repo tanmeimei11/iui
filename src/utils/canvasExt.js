@@ -5,7 +5,7 @@
  * @param {Number} height 不存在取样式高度
  */
 export function setSize (canvas, width, height) {
-  let style = window.getComputedStyle(canvas)
+  var style = window.getComputedStyle(canvas)
   canvas.width = width || parseFloat(style.width)
   canvas.height = height || parseFloat(style.height)
 }
@@ -56,16 +56,16 @@ export function drawRoundRectImage (ctx, img, x, y, w, h, r) {
  * @param {String} url  图片地址
  */
 export function downloadImage (url) {
-  return new Promise((resolve, reject) => {
+  return new Promise(function(resolve, reject) {
     var img = new Image()
-    let anchor = document.createElement('a')
+    var anchor = document.createElement('a')
     anchor.href = url
     // cross domain (除了base64 和 当前域名)
     if (/^data:image/.test(url) || location.host === anchor.host) {} else {
       img.crossOrigin = ''
     }
-    img.onload = () => resolve(img)
-    img.onerror = () => reject(img)
+    img.onload = function(){ resolve(img)}
+    img.onerror = function(){ reject(img)}
     img.src = url.replace(/^https?:/, location.protocol)
   })
 }

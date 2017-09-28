@@ -4,7 +4,7 @@
     <template v-for="(sticker,idx) in cacheStickers">
       <div class="sticker" @touchstart.prevent.stop="_touchstart(idx,$event)" @touchmove.prevent.stop :class="{'active':stickerIdx === idx}"
         :style="stickerState[idx]">
-        <div class="control-img" v-iBgImg.contain="sticker.src" :style="moveState[idx]" @touchmove.prevent.stop="stickerIdx === idx && _touchmove($event)" @touchend="click(idx,$event)"></div>
+        <div class="control-img" v-iImg="sticker.src" :style="moveState[idx]" @touchmove.prevent.stop="stickerIdx === idx && _touchmove($event)" @touchend="click(idx,$event)"></div>
         <a href="javascript:;" class="control-del" @touchstart.stop="del(idx,$event)"></a>
         <a href="javascript:;" class="control-reverse" @touchstart.stop="reverse(idx,$event)"></a>
         <a href="javascript:;" class="control-scale" @touchmove.prevent.stop="scaleMove" @touchstart.stop="scale(idx,$event)"></a>
@@ -13,7 +13,8 @@
   </div>
 </template>
 <script>
-  import iBgImg from '../../iBgImg'
+  // import iBgImg from '../../iBgImg'
+  import iImg from '../../iImg'
   import {
     downloadImage
   } from 'i-ui/src/utils/canvasExt.js'
@@ -53,7 +54,8 @@
       }
     },
     directives: {
-      iBgImg
+      // iBgImg
+      iImg
     },
     watch: {
       stickers: function () {
