@@ -21,6 +21,7 @@ import iImgAnime from 'i-ui/lib/iImgAnime/README.md'
 import iUpdate from 'i-ui/lib/iUpdate/README.md'
 import iError from 'i-ui/lib/iError/README.md'
 import iWxShare from 'i-ui/lib/iWxShare/README.md'
+import iImgLoading from 'i-ui/lib/iImgLoading/README.md'
 
 // 指令
 import iTrack from 'i-ui/lib/iTrack/README.md'
@@ -82,6 +83,14 @@ const routes = [{
   type: 'components',
   icon: 'image',
   txt: '图片选择'
+},
+{
+  name: 'iImgLoading',
+  path: '/iImgLoading',
+  component: iImgLoading,
+  type: 'components',
+  icon: 'load-a',
+  txt: '图片预加载'
 },
 {
   name: 'iRollBar',

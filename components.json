@@ -16,5 +16,6 @@
   "i-img-anime": "./packages/iImgAnime/index.js",
   "i-update": "./packages/iUpdate/index.js",
   "i-wx-share": "./packages/iWxShare/index.js",
-  "i-error": "./packages/iError/index.js"
+  "i-error": "./packages/iError/index.js",
+  "i-img-loading": "./packages/iImgLoading/index.js"
 }
