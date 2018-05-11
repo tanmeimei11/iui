@@ -19,6 +19,7 @@ import iImgAnime from '../packages/iImgAnime'
 import iUpdate from '../packages/iUpdate'
 import iWxShare from '../packages/iWxShare'
 import iError from '../packages/iError'
+import iImgLoading from '../packages/iImgLoading'
 import iTrack from '../packages/iTrack'
 import iOpen from '../packages/iOpen'
 import iBgImg from '../packages/iBgImg'
@@ -46,6 +47,7 @@ const install = function (Vue, opts = {}) {
   Vue.component(iUpdate.name, iUpdate)
   Vue.component(iWxShare.name, iWxShare)
   Vue.component(iError.name, iError)
+  Vue.component(iImgLoading.name, iImgLoading)
   Vue.directive(iTrack.name, iTrack)
   Vue.directive(iOpen.name, iOpen)
   Vue.directive(iBgImg.name, iBgImg)
@@ -59,7 +61,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-  version: '0.1.36',
+  version: '0.1.37',
   install,
   iAudio,
   iAvatar,
@@ -79,6 +81,7 @@ export default {
   iUpdate,
   iWxShare,
   iError,
+  iImgLoading,
   iTrack,
   iOpen,
   iBgImg,
